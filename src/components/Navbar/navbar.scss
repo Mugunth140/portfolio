@@ -1,0 +1,52 @@
+.header {
+  height: 12vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  // font-family: "Humane", sans-serif;
+  font-size: clamp(16px, 4vw, 20px);
+  padding: 1em;
+
+  .nav-logo {
+    padding: 1rem 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+
+    a {
+      text-decoration: none;
+      color: #000;
+      text-transform: uppercase;
+    }
+  }
+
+  .nav-items {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+
+    .items {
+      padding: 1rem 2rem;
+
+      a {
+        text-decoration: none;
+        color: #000;
+        text-transform: uppercase;
+      }
+    }
+
+    .items:nth-child(1) {
+      padding: 0.5rem 1rem;
+    }
+  }
+}

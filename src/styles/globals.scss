@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  'Neue Montreal', sans-serif;
+}
+@font-face {
+    font-family: 'humane';
+    src: url('../../public/fonts/humane.woff2') format('woff2-variactions');
+    font-weight: 100 700;
+    font-display: swap; /* Use font-display: swap to display the text using the fallback font while the custom font is loading */
+  }
+:root {
+    font-size: 16px;
+}
+
+html , body {
+    height:100%;
+    width:100%;
+}
+//imports for coustom component styles
+
+@import '../components/Layout/style.scss';
+@import '../components/Navbar/navbar.scss';
