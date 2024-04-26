@@ -12,13 +12,31 @@
   }
 :root {
     font-size: 16px;
+    --primary: #fffaf1;
+    --secondary:#111;
+    --black:#1c1c1c;
+    --accent:#455CE9;
+    --blue:#455CE9;
+    --bluehover:#4053d0;
 }
 
 html , body {
     height:100%;
     width:100%;
+    background-color: var(--primary)
 }
-//imports for coustom component styles
+// imports for container component styles
 
-@import '../components/Layout/style.scss';
-@import '../components/Navbar/navbar.scss';
+//imports for coustom component styles
+@import '../components/Hamburger/Ham.scss';
+@import '../components/Navbar/Navbar.scss';
+@import '../components/Btn/btn.scss';
+@import '../components/Transitions/Transition.scss';
+
+// @media  (max-width : 768px ) {
+//     html , body {
+//         height: 100vh;
+//         width: 100vw;
+        
+//     }
+// }

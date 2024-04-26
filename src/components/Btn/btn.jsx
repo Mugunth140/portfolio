@@ -1,6 +1,5 @@
 import React from 'react'
 import { useEffect, useRef } from 'react';
-import styles from './style.module.scss';
 import gsap from 'gsap';
 import Magnetic from '../Magnetic/magnetic';
 
@@ -41,7 +40,7 @@ export default function Btn({
   return (
     <Magnetic>
       <div
-        className={styles.roundedButton}
+        className='roundedButton'
         style={{ overflow: "hidden" }}
         onMouseEnter={() => {
           manageMouseEnter();
@@ -55,7 +54,7 @@ export default function Btn({
         <div
           ref={circle}
           style={{ backgroundColor }}
-          className={styles.circle}
+          className='circle'
         ></div>
       </div>
     </Magnetic>

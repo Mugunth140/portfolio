@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Page from '@/components/Layout'
+import Transition from '@/components/Transitions/Transition'
 
 export default function Home() {
   return (
@@ -10,9 +10,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Page >
+      <Transition>
         <h1>Home</h1>
-      </Page>
+      </Transition>
     </>
   )
 }

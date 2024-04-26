@@ -1,4 +1,4 @@
-import Page from '@/components/Layout'
+import Transition from '@/components/Transitions/Transition'
 import Head from 'next/head'
 
 export default function Work() {
@@ -10,9 +10,9 @@ export default function Work() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Page >
+      <Transition>
         <h1>Work</h1>
-      </Page>
+      </Transition>
     </>
   )
 }
