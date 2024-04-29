@@ -14,6 +14,8 @@
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
+
+
 :root {
   font-size: 16px;
   --primary: #fffaf1;
@@ -22,7 +24,8 @@
   --accent: #455ce9;
   --blue: #455ce9;
   --bluehover: #4053d0;
-  font-size: 16px;
+    font-size: 16px;
+    --font: "Montserrat" , sans-serif;
 }
 
 html,
