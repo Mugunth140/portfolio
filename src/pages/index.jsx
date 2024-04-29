@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Transition from "@/components/Transitions/Transition";
 import "../styles/Home.module.scss";
-export const runtime = "edge";
+export const runtime = "experimental-edge";
 
 export default function Home() {
   return (

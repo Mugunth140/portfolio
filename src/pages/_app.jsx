@@ -3,7 +3,7 @@ import "@/styles/globals.scss";
 import { AnimatePresence } from "framer-motion";
 import Loader from "@/components/Loader/Loader";
 import Navbar from "@/components/Navbar/Navbar";
-export const runtime = "edge";
+export const runtime = "experimental-edge";
 
 export default function App({ Component, pageProps, router }) {
   const [isLoaderComplete, setIsLoaderComplete] = useState(false);

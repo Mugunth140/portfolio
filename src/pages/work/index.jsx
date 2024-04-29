@@ -1,6 +1,6 @@
 import Transition from "@/components/Transitions/Transition";
 import Head from "next/head";
-export const runtime = "edge";
+export const runtime = "experimental-edge";
 
 export default function Work() {
   return (
