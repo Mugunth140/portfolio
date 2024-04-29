@@ -1,250 +1,272 @@
-
 .nav {
+  position: fixed;
+
+  .navbar {
     position: fixed;
+    top: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0.8rem;
+    overflow: hidden;
 
-    .navbar {
-        position: fixed;
-        top: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.8rem;
-        overflow: hidden;
-
-        .menu {
-            cursor: pointer;
-
-        }
-
-        .hambox {
-            position: relative;
-            width: 5rem;
-            height: 5rem;
-            cursor: pointer;
-            border-radius: 50%;
-            transition: 0.3 ease;
-            padding: 2.4em;
-            background-color: var(--blue);
-
-            .linetop,
-            .linebottom {
-                position: absolute;
-                margin: 0 auto;
-                display: block;
-                width: 27px;
-                height: 1.5px;
-                background-color: var(--primary);
-                left: 0;
-                right: 0;
-                transform: rotate(0deg);
-                transition: all 0.4s;
-            }
-
-            .linetop {
-                top: 2.2em;
-            }
-
-            .linebottom {
-                bottom: 2.2em;
-            }
-
-            .linetop.spin {
-                transform: rotate(-40deg);
-                top: 2.35em;
-                background-color: var(--primary);
-            }
-
-            .linebottom.spin {
-                transform: rotate(40deg);
-                top: 2.35em;
-                background-color: var(--primary);
-            }
-        }
-
-        .hambox:hover {
-            background-color: var(--bluehover);
-        }
-
-        .hamboxOpen {
-            background-color: var(--blue);
-        }
-
+    .menu {
+      cursor: pointer;
     }
 
-    .nav-overlay {
-        position: fixed;
-        top: -100%;
+    .hambox {
+      position: relative;
+      width: 5rem;
+      height: 5rem;
+      cursor: pointer;
+      border-radius: 50%;
+      -webkit-transition: 0.3 ease;
+      -o-transition: 0.3 ease;
+      transition: 0.3 ease;
+      padding: 2.4em;
+      background-color: var(--blue);
+
+      .linetop,
+      .linebottom {
+        position: absolute;
+        margin: 0 auto;
+        display: block;
+        width: 27px;
+        height: 1.5px;
+        background-color: var(--primary);
         left: 0;
-        background-color: var(--black);
-        z-index: -2;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        padding: 4em;
-        transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+        right: 0;
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+      }
 
+      .linetop {
+        top: 2.2em;
+      }
 
-        ul.nav-links {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+      .linebottom {
+        bottom: 2.2em;
+      }
 
+      .linetop.spin {
+        -webkit-transform: rotate(-40deg);
+        -ms-transform: rotate(-40deg);
+        transform: rotate(-40deg);
+        top: 2.35em;
+        background-color: var(--primary);
+      }
 
+      .linebottom.spin {
+        -webkit-transform: rotate(40deg);
+        -ms-transform: rotate(40deg);
+        transform: rotate(40deg);
+        top: 2.35em;
+        background-color: var(--primary);
+      }
+    }
 
-            li {
-                position: relative;
-                list-style: none;
+    .hambox:hover {
+      background-color: var(--bluehover);
+    }
 
-                a {
-                    position: relative;
-                    text-decoration: none;
-                    color: var(--primary);
-                    font-size: 6em;
-                    font-weight: 600;
-                    letter-spacing: -0.04em;
-                    line-height: 1.1em;
-                    text-transform: uppercase;
-                    font-family: "Neue Montreal", sans-serif;
-                    top: 0;
+    .hamboxOpen {
+      background-color: var(--blue);
+    }
+  }
 
+  .nav-overlay {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    background-color: var(--black);
+    z-index: -2;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    padding: 4em;
+    -webkit-transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+    -o-transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
 
-                }
+    ul.nav-links {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      margin: 0;
+      padding: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
 
-                .nav-wrap:after {
-                    content: "";
-                    position: absolute;
-                    top: 120%;
-                    left: -10%;
-                    width: 120%;
-                    height: 100%;
-                    background-color: var(--black);
-                    margin: 0 auto;
+      li {
+        position: relative;
+        list-style: none;
 
-
-                }
-
-            }
-
+        a {
+          position: relative;
+          text-decoration: none;
+          color: var(--primary);
+          font-size: 6em;
+          font-weight: 600;
+          letter-spacing: -0.04em;
+          line-height: 1.1em;
+          text-transform: uppercase;
+          font-family: "Neue Montreal", sans-serif;
+          top: 0;
         }
 
-
-        .nav-footer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 2em;
-            display: flex;
-            justify-content: space-between;
-
-            .location {
-                position: relative;
-                bottom: -20px;
-                text-decoration: none;
-                color: var(--primary);
-                text-transform: uppercase;
-                font-family: "Neue Montreal", sans-serif;
-                font-size: 1em;
-                font-weight: 500;
-                letter-spacing: 0.03em;
-                transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
-            }
-
-
-            .nav-social {
-                ul {
-                    display: flex;
-
-
-                    li {
-                        list-style: none;
-
-                        a {
-                            position: relative;
-                            bottom: -20px;
-                            text-decoration: none;
-                            color: var(--primary);
-                            text-transform: uppercase;
-                            font-size: 1em;
-                            font-weight: 500;
-                            font-family: "Neue Montreal", sans-serif;
-                            padding-left: 2em;
-                            letter-spacing: 0.03em;
-                            opacity: 0;
-                            transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
-
-                            &:active {
-                                content: "";
-                                position: absolute;
-                                top: 100%;
-                                left: 2em;
-                                width: 0%;
-                                height: 1%;
-                                background-color: var(--primary);
-                                transform-origin: left;
-                                margin: 0 auto;
-                                transition: all 1s ease;
-                            }
-
-                        }
-
-                        &:hover a:active {
-                            width: 70%;
-                        }
-                    }
-                }
-            }
+        .nav-wrap:after {
+          content: "";
+          position: absolute;
+          top: 120%;
+          left: -10%;
+          width: 120%;
+          height: 100%;
+          background-color: var(--black);
+          margin: 0 auto;
         }
-
-    }
-    }
-
-
-.nav,
-.navbar {
-    z-index: 1;
-}
-
-
-
-// mobile code 
-
-    .nav .nav-overlay ul.nav-links li a {
-        font-size: 3.5em;
-        font-weight: 600;
-        line-height: 1.5em;
-        white-space: nowrap;
-        letter-spacing: 0.02em;
-    }
-
-    .nav .navbar {
-        .logo {
-            font-size: 0.8em;
-            letter-spacing: 0.03em;
-        }
-    }
-
-    .location {
-        font-size: 1em;
-        letter-spacing: 0.03em;
+      }
     }
 
     .nav-footer {
-        justify-content: space-around;
-    }
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 2em;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
 
-    .nav-social ul li a {
+      .location {
+        position: relative;
+        bottom: -20px;
+        text-decoration: none;
+        color: var(--primary);
+        text-transform: uppercase;
+        font-family: "Neue Montreal", sans-serif;
         font-size: 1em;
-        padding-right: 0.6em;
+        font-weight: 500;
         letter-spacing: 0.03em;
+        -webkit-transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+        -o-transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .nav-social {
+        ul {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+
+          li {
+            list-style: none;
+
+            a {
+              position: relative;
+              bottom: -20px;
+              text-decoration: none;
+              color: var(--primary);
+              text-transform: uppercase;
+              font-size: 1em;
+              font-weight: 500;
+              font-family: "Neue Montreal", sans-serif;
+              padding-left: 2em;
+              letter-spacing: 0.03em;
+              opacity: 0;
+              -webkit-transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+              -o-transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+              transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+
+              &:active {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 2em;
+                width: 0%;
+                height: 1%;
+                background-color: var(--primary);
+                -webkit-transform-origin: left;
+                -ms-transform-origin: left;
+                transform-origin: left;
+                margin: 0 auto;
+                -webkit-transition: all 1s ease;
+                -o-transition: all 1s ease;
+                transition: all 1s ease;
+              }
+            }
+
+            &:hover a:active {
+              width: 70%;
+            }
+          }
+        }
+      }
     }
+  }
+}
 
+.nav,
+.navbar {
+  z-index: 1;
+}
 
+// mobile code
+
+.nav .nav-overlay ul.nav-links li a {
+  font-size: clamp(3.5em, 3vw, 4em);
+  font-weight: 600;
+  line-height: 1.5em;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.nav .navbar {
+  .logo {
+    font-size: 0.8em;
+    letter-spacing: 0.03em;
+  }
+}
+
+.location {
+  font-size: clamp(1em, 3vw, 1.5em);
+  letter-spacing: 0.03em;
+}
+
+.nav-footer {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.nav-social ul li a {
+  font-size: clamp(0.8em, 3vw, 1.7em);
+  padding-right: 0.6em;
+  letter-spacing: 0.03em;
+}

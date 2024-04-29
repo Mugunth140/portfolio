@@ -1,6 +1,6 @@
 import {motion } from 'framer-motion';
 
-const Transition = ({Children}) => {
+const Transition = ({children}) => {
   return (
     <>
       <motion.div className="slide-in"
@@ -9,7 +9,7 @@ const Transition = ({Children}) => {
       exit={{scaleY:1}}
       transition={{duration:1, ease:[0.22,1,0.36,1]}}
       ></motion.div>
-      <main>{Children}</main>
+      <main>{children}</main>
       <motion.div className="slide-out" 
       initial={{scaleY:1}}
       animate={{scaleY:0}}

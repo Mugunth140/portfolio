@@ -1,5 +1,6 @@
-import Transition from '@/components/Transitions/Transition'
-import Head from 'next/head'
+import Transition from "@/components/Transitions/Transition";
+import Head from "next/head";
+export const runtime = "edge";
 
 export default function Work() {
   return (
@@ -14,5 +15,5 @@ export default function Work() {
         <h1>Work</h1>
       </Transition>
     </>
-  )
+  );
 }

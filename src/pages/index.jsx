@@ -1,5 +1,7 @@
-import Head from 'next/head'
-import Transition from '@/components/Transitions/Transition'
+import Head from "next/head";
+import Transition from "@/components/Transitions/Transition";
+import "../styles/Home.module.scss";
+export const runtime = "edge";
 
 export default function Home() {
   return (
@@ -11,8 +13,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Transition>
-        <h1>Home</h1>
+        <div className="hero-wrapper">
+          <div className="hero-text-wrapper">
+            <div className="hero-text">
+              <h1 className="design">design</h1>
+              <span className="dot"></span>
+              <h1 className="develop">develop</h1>
+            </div>
+          </div>
+        </div>
       </Transition>
     </>
-  )
+  );
 }

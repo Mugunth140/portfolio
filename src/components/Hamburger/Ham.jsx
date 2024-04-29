@@ -21,9 +21,9 @@ export default function Navbar() {
         <div
           className="nav-overlay"
           style={{
-            top: menuOpen ? "0" : "-110%",
+            top: menuOpen ? "0" : "-100%",
             transitionDelay: menuOpen ? "0s" : "0s",
-            transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1);",
+            transition: "all 2s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
           <ul className="nav-links">
@@ -34,8 +34,8 @@ export default function Navbar() {
                 style={{
                   top: menuOpen ? "0" : "120px",
                   transition: menuOpen
-                    ? "all 2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s"
-                    : "all 2s cubic-bezier(0.16, 1, 0.3, 1) 0s",
+                    ? "all 2s ease 0.6s"
+                    : "all ease 0s",
                 }}
               >
                 Home
@@ -50,8 +50,8 @@ export default function Navbar() {
                 style={{
                   top: menuOpen ? "0" : "120px",
                   transition: menuOpen
-                    ? "all 2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s"
-                    : "all 2s cubic-bezier(0.16, 1, 0.3, 1) 0s",
+                    ? "all 2s ease 0.7s"
+                    : "all 2s ease 0s",
                 }}
               >
                 Projects
@@ -66,8 +66,8 @@ export default function Navbar() {
                 style={{
                   top: menuOpen ? "0" : "120px",
                   transition: menuOpen
-                    ? "all 2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s"
-                    : "all 2s cubic-bezier(0.16, 1, 0.3, 1) 0s",
+                    ? "all 2s ease 0.8s"
+                    : "all 2s ease 0s",
                 }}
               >
                 About
@@ -82,8 +82,8 @@ export default function Navbar() {
                 style={{
                   top: menuOpen ? "0" : "120px",
                   transition: menuOpen
-                    ? "all 2s cubic-bezier(0.16, 1, 0.3, 1) 0.9s"
-                    : "all 2s cubic-bezier(0.16, 1, 0.3, 1) 0s",
+                    ? "all 2s ease 0.9s"
+                    : "all 2s ease 0s",
                 }}
               >
                 Contact
@@ -98,8 +98,8 @@ export default function Navbar() {
                 bottom: menuOpen ? "0" : "-20px",
                 opacity: menuOpen ? "1" : "0",
                 transition: menuOpen
-                  ? "all 2s cubic-bezier(0.16, 1, 0.3, 1) 1s"
-                  : "all 2s cubic-bezier(0.16, 1, 0.3, 1) 1s",
+                  ? "all 2s ease 1s"
+                  : "all 2s ease 1s",
               }}
             >
               <span

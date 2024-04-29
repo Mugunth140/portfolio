@@ -1,5 +1,6 @@
-import Transition from '@/components/Transitions/Transition'
-import Head from 'next/head'
+import Transition from "@/components/Transitions/Transition";
+import Head from "next/head";
+export const runtime = "edge";
 
 export default function About() {
   return (
@@ -10,9 +11,9 @@ export default function About() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Transition >
+      <Transition>
         <h1>About</h1>
       </Transition>
     </>
-  )
+  );
 }

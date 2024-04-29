@@ -1,0 +1,54 @@
+.hero-wrapper {
+  height: 100vh;
+  width: 100%;
+
+  .hero-text-wrapper {
+    height: 70%;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+
+    .hero-text {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+
+      .design,
+      .develop {
+        text-transform: uppercase;
+        font-family: "humane";
+        font-size: clamp(6rem, 19vw, 20rem);
+        font-weight: 400;
+      }
+
+      .dot {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        height: 3px;
+        width: 30vw;
+        background: #000;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

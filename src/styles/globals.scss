@@ -1,42 +1,50 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:  'Neue Montreal', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Neue Montreal", sans-serif;
 }
+/* Webfont: Humane-Regular */
 @font-face {
-    font-family: 'humane';
-    src: url('../../public/fonts/humane.woff2') format('woff2-variactions');
-    font-weight: 100 700;
-    font-display: swap; /* Use font-display: swap to display the text using the fallback font while the custom font is loading */
-  }
+  font-family: "humane";
+  src: url("../../public/fonts/Humane-Medium.woff2") format("woff2"),
+    /* Modern Browsers */ url("../../public/fonts/Humane-Medium.otf") format("opentype"); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
 :root {
-    font-size: 16px;
-    --primary: #fffaf1;
-    --secondary:#111;
-    --black:#1c1c1c;
-    --accent:#455CE9;
-    --blue:#455CE9;
-    --bluehover:#4053d0;
+  font-size: 16px;
+  --primary: #fffaf1;
+  --secondary: #111;
+  --black: #1c1c1c;
+  --accent: #455ce9;
+  --blue: #455ce9;
+  --bluehover: #4053d0;
+  font-size: 16px;
 }
 
-html , body {
-    height:100%;
-    width:100%;
-    background-color: var(--primary)
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--primary);
 }
 // imports for container component styles
+@import "./Home.module.scss";
 
 //imports for coustom component styles
-@import '../components/Hamburger/Ham.scss';
-@import '../components/Navbar/Navbar.scss';
-@import '../components/Btn/btn.scss';
-@import '../components/Transitions/Transition.scss';
+@import "../components/Loader/Loader.module.scss";
+@import "../components/Hamburger/Ham.scss";
+@import "../components/Navbar/Navbar.scss";
+@import "../components/Btn/btn.scss";
+@import "../components/Transitions/Transition.scss";
 
 // @media  (max-width : 768px ) {
 //     html , body {
 //         height: 100vh;
 //         width: 100vw;
-        
+
 //     }
 // }

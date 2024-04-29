@@ -1,0 +1,138 @@
+.loader {
+  height: 100%;
+  width: 100%;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: rgb(17, 17, 17);
+  overflow: hidden;
+  z-index: 4;
+
+  &__wrapper {
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 4;
+  }
+
+  &__words {
+    -webkit-clip-path: polygon(0% 10%, 100% 10%, 100% 90%, 0% 90%);
+    clip-path: polygon(0% 10%, 100% 10%, 100% 90%, 0% 90%);
+    position: relative;
+    overflow: hidden;
+    height: 41.8rem;
+    color: var(--black);
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    z-index: 4;
+    background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(17, 17, 17, 0.9)),
+      color-stop(47%, rgba(17, 17, 17, 0.9)),
+      color-stop(transparent),
+      color-stop(47%, transparent),
+      color-stop(transparent),
+      color-stop(54%, transparent),
+      color-stop(50%, rgba(17, 17, 17, 0.9)),
+      to(rgba(17, 17, 17, 0.9))
+    );
+    background: -o-linear-gradient(
+      top,
+      rgba(17, 17, 17, 0.9),
+      rgba(17, 17, 17, 0.9) 47%,
+      transparent,
+      transparent 47%,
+      transparent,
+      transparent 54%,
+      rgba(17, 17, 17, 0.9) 50%,
+      rgba(17, 17, 17, 0.9)
+    );
+    background: linear-gradient(
+      to bottom,
+      rgba(17, 17, 17, 0.9),
+      rgba(17, 17, 17, 0.9) 47%,
+      transparent,
+      transparent 47%,
+      transparent,
+      transparent 54%,
+      rgba(17, 17, 17, 0.9) 50%,
+      rgba(17, 17, 17, 0.9)
+    );
+  }
+
+  &__word {
+    display: block;
+    font-family: "Neue Montreal", sans-serif;
+    color: var(--primary);
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+  }
+
+  &__progressWrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 7vh;
+    width: 100%;
+    z-index: 5;
+  }
+
+  &__progress {
+    height: 100%;
+    width: 100%;
+    background-color: var(--black);
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: left center;
+    -ms-transform-origin: left center;
+    transform-origin: left center;
+  }
+
+  &__progressNumber {
+    position: absolute;
+    left: 1vw;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 4;
+    white-space: nowrap;
+    color: var(--primary);
+    font-family: "Neue Montreal", sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: -0.03em;
+  }
+}
+
+@media (max-width: 768px) {
+  .loader__wordsGroup {
+    text-align: justify;
+  }
+}

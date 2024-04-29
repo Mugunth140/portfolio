@@ -1,4 +1,5 @@
 .header {
+  position: fixed;
   height: 12vh;
   width: 100%;
   display: -webkit-box;
@@ -7,9 +8,10 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  // font-family: "Humane", sans-serif;
+  //font-family: "humane", sans-serif;
   font-size: clamp(16px, 4vw, 20px);
   padding: 1em;
+  z-index: 3;
 
   .nav-logo {
     padding: 1rem 2rem;
@@ -17,8 +19,8 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 
     a {
       text-decoration: none;
@@ -32,8 +34,8 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 
     .items {
       padding: 1rem 2rem;
