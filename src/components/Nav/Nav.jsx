@@ -5,7 +5,7 @@ import Btn from "../Btn/btn";
 import Magnetic from "../Magnetic/magnetic";
 import Ham from "@/components/Hamburger/Ham";
 
-export default function Navbar() {
+export default function Nav() {
   const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
 
