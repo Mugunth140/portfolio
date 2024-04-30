@@ -1,8 +1,35 @@
+"use client";
 import Head from "next/head";
-import Transition from "@/components/Transitions/Transition";
+//import Transition from "@/components/Transitions/Transition";
 import "../styles/Home.module.scss";
+import SplitType from "split-type";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export default function Home() {
+  useGSAP(() => {
+    const split = new SplitType(".split", {
+      types: "chars",
+    });
+
+    const tl = gsap.timeline();
+    tl.from(
+      split.chars,
+      {
+        duration: 1,
+        y: 30,
+        opacity: 0,
+        stagger: 0.05,
+        ease: "power4.out",
+      },
+      ">"
+    ).from(".dot", {
+      width: 0,
+      duration: 1,
+      ease: "power4.out",
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -11,17 +38,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Transition>
-        <div className="hero-wrapper">
-          <div className="hero-text-wrapper">
-            <div className="hero-text">
-              <h1 className="design">design</h1>
-              <span className="dot"></span>
-              <h1 className="develop">develop</h1>
-            </div>
+
+      <div className="hero-wrapper">
+        <div className="hero-text-wrapper">
+          <div className="hero-text">
+            <h1 className="design split">design</h1>
+            <span className="dot"></span>
+            <h1 className="develop split">develop</h1>
           </div>
         </div>
-      </Transition>
+      </div>
     </>
   );
 }

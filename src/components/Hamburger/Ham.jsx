@@ -21,7 +21,7 @@ export default function Navbar() {
         <div
           className="nav-overlay"
           style={{
-            top: menuOpen ? "0" : "-100%",
+            top: menuOpen ? "0" : "-120%",
             transitionDelay: menuOpen ? "0s" : "0s",
             transition: "all 2s cubic-bezier(0.16, 1, 0.3, 1)",
           }}

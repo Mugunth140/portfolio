@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages" : "npx @cloudflare/next-on-pages"
+    "pages": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
@@ -16,6 +16,7 @@
     "react": "^18",
     "react-dom": "^18",
     "sass": "^1.69.5",
+    "split-type": "^0.3.4",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

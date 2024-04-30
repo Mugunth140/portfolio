@@ -14,13 +14,17 @@ export default function App({ Component, pageProps, router }) {
   return (
     <StrictMode>
       <div className="main">
-        {!isLoaderComplete && (
-          <Loader animationComplete={handleLoaderComplete} />
-        )}
+        {isLoaderComplete ? 
+        <>
         <Nav />
         <AnimatePresence mode="wait">
           <Component key={router.route} {...pageProps} />
         </AnimatePresence>
+        </>
+        : 
+          <Loader animationComplete={handleLoaderComplete} />
+        }
+        
       </div>
     </StrictMode>
   )

@@ -3,13 +3,12 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "Neue Montreal", sans-serif;
 }
 /* Webfont: Humane-Regular */
 @font-face {
-  font-family: "humane";
-  src: url("../../public/fonts/Humane-Medium.woff2") format("woff2"),
-    /* Modern Browsers */ url("../../public/fonts/Humane-Medium.otf") format("opentype"); /* Safari, Android, iOS */
+  font-family: "Ostrich";
+  src: url("../../public/fonts/ostrich-sans.sans-black.ttf") format("ttf"),
+    /* Modern Browsers */ url("../../public/fonts/ostrich-sans.sans-black.otf") format("opentype"); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
@@ -25,7 +24,6 @@
   --blue: #455ce9;
   --bluehover: #4053d0;
     font-size: 16px;
-    --font: "Montserrat" , sans-serif;
 }
 
 html,

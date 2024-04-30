@@ -3,7 +3,7 @@
   width: 100%;
 
   .hero-text-wrapper {
-    height: 70%;
+    height: 60%;
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -29,9 +29,10 @@
       .design,
       .develop {
         text-transform: uppercase;
-        font-family: "humane";
-        font-size: clamp(6rem, 19vw, 20rem);
+        font-family: 'Ostrich', sans-serif;
+        font-size: clamp(2rem, 12vw, 12rem);
         font-weight: 400;
+        text-wrap: nowrap;
       }
 
       .dot {
@@ -47,8 +48,25 @@
         height: 3px;
         width: 30vw;
         background: #000;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
+        margin-right: 10px;
       }
     }
   }
+}
+
+@media (max-width: 768px) {
+  .hero-wrapper {
+    .hero-text-wrapper {
+      height:50%;
+      .hero-text {
+       .dot {
+        width: 30vw;
+        margin-right: 4px;
+        margin-bottom: 0px;
+       }
+      }
+    }
+  }
+  
 }

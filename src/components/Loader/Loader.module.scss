@@ -1,11 +1,10 @@
 .loader {
   height: 100%;
   width: 100%;
-
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   display: -webkit-box;
-
   display: -ms-flexbox;
-
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -17,13 +16,11 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: rgb(17, 17, 17);
+  background-color: rgb(255, 250, 241);
   overflow: hidden;
   z-index: 4;
 
   &__wrapper {
-    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     position: relative;
     height: 100%;
     width: 100%;
@@ -39,7 +36,7 @@
     position: relative;
     overflow: hidden;
     height: 41.8rem;
-    color: var(--black);
+    color: var(--primary);
   }
 
   &__overlay {
@@ -49,45 +46,44 @@
     z-index: 4;
     background: -webkit-gradient(
       linear,
-      left top,
-      left bottom,
-      from(rgba(17, 17, 17, 0.9)),
-      color-stop(47%, rgba(17, 17, 17, 0.9)),
+      left top, left bottom,
+      from(rgba(255, 250, 241, 0.9)),
+      color-stop(47%, rgba(255, 250, 241, 0.9)),
       color-stop(transparent),
       color-stop(47%, transparent),
       color-stop(transparent),
       color-stop(54%, transparent),
-      color-stop(50%, rgba(17, 17, 17, 0.9)),
-      to(rgba(17, 17, 17, 0.9))
+      color-stop(50%, rgba(255, 250, 241, 0.9)),
+      to(rgba(255, 250, 241, 0.9))
     );
     background: -o-linear-gradient(
       top,
-      rgba(17, 17, 17, 0.9),
-      rgba(17, 17, 17, 0.9) 47%,
+      rgba(255, 250, 241, 0.9),
+      rgba(255, 250, 241, 0.9) 47%,
       transparent,
       transparent 47%,
       transparent,
       transparent 54%,
-      rgba(17, 17, 17, 0.9) 50%,
-      rgba(17, 17, 17, 0.9)
+      rgba(255, 250, 241, 0.9) 50%,
+      rgba(255, 250, 241, 0.9)
     );
     background: linear-gradient(
       to bottom,
-      rgba(17, 17, 17, 0.9),
-      rgba(17, 17, 17, 0.9) 47%,
+      rgba(255, 250, 241, 0.9),
+      rgba(255, 250, 241, 0.9) 47%,
       transparent,
       transparent 47%,
       transparent,
       transparent 54%,
-      rgba(17, 17, 17, 0.9) 50%,
-      rgba(17, 17, 17, 0.9)
+      rgba(255, 250, 241, 0.9) 50%,
+      rgba(255, 250, 241, 0.9)
     );
   }
 
   &__word {
     display: block;
     font-family: "Neue Montreal", sans-serif;
-    color: var(--primary);
+    color: var(--secondary);
     font-weight: 400;
     letter-spacing: -0.05em;
     font-size: 2.5rem;
@@ -106,13 +102,14 @@
   &__progress {
     height: 100%;
     width: 100%;
-    background-color: var(--black);
+    background-color: var(--primary);
     -webkit-transform: scaleX(0);
     -ms-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transform-origin: left center;
     -ms-transform-origin: left center;
     transform-origin: left center;
+    background-color: var(--secondary);
   }
 
   &__progressNumber {
