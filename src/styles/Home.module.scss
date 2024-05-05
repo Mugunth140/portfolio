@@ -9,27 +9,27 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
 
     .hero-text {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-              justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
       -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
 
       .design,
       .develop {
         text-transform: uppercase;
-        font-family: 'Ostrich', sans-serif;
+        font-family: "Ostrich", sans-serif;
         font-size: clamp(2rem, 12vw, 12rem);
         font-weight: 400;
         text-wrap: nowrap;
@@ -40,11 +40,11 @@
         display: -ms-flexbox;
         display: flex;
         -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
         -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
         height: 3px;
         width: 30vw;
         background: #000;
@@ -53,20 +53,296 @@
       }
     }
   }
+
+  .ball-container {
+    height: 100vh;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+    font-family: "Neue Montreal", sans-serif;
+    z-index: 0;
+    border-radius: 50px;
+    margin: auto;
+    background-color: var(--secondary);
+    //background-color: #000;
+    overflow: hidden;
+    scale: 0.9;
+    opacity: 1;
+
+    .pink-ball {
+      position: absolute;
+      top: -20%;
+      left: -10%;
+      width: 700px;
+      height: 700px;
+      z-index: -1;
+      background: rgb(228, 44, 105);
+      border-radius: 800px;
+      -webkit-filter: blur(90px);
+      filter: blur(90px);
+      -webkit-animation: pink 20s infinite linear;
+      animation: pink 20s infinite linear;
+      -webkit-animation-delay: 0s;
+      animation-delay: 0s;
+    }
+
+    .blue-ball {
+      position: absolute;
+      top: -20%;
+      left: -10%;
+      width: 700px;
+      height: 600px;
+      z-index: -1;
+      background-color: rgb(37, 108, 240);
+      border-radius: 800px;
+      -webkit-filter: blur(140px);
+      filter: blur(140px);
+      -webkit-animation: blue 20s infinite linear;
+      animation: blue 20s infinite linear;
+      -webkit-animation-delay: -3s;
+      animation-delay: -3s;
+    }
+
+    @-webkit-keyframes pink {
+      0%,
+      100% {
+        top: 80%;
+        left: 70%;
+      }
+
+      20% {
+        top: -70%;
+        left: 50%;
+      }
+
+      40% {
+        top: 60%;
+        left: 30%;
+      }
+
+      60% {
+        top: 0%;
+        left: 0%;
+      }
+
+      80% {
+        top: 40%;
+        left: 30%;
+      }
+    }
+
+    @keyframes pink {
+      0%,
+      100% {
+        top: 80%;
+        left: 70%;
+      }
+
+      20% {
+        top: -70%;
+        left: 50%;
+      }
+
+      40% {
+        top: 60%;
+        left: 30%;
+      }
+
+      60% {
+        top: 0%;
+        left: 0%;
+      }
+
+      80% {
+        top: 40%;
+        left: 30%;
+      }
+    }
+
+    @-webkit-keyframes blue {
+      0%,
+      100% {
+        top: 20%;
+        left: 20%;
+      }
+
+      20% {
+        top: -30%;
+        left: 90%;
+      }
+
+      40% {
+        top: 70%;
+        left: 0%;
+      }
+
+      60% {
+        top: 30%;
+        left: 0%;
+      }
+
+      80% {
+        top: 70%;
+        left: 60%;
+      }
+    }
+
+    @keyframes blue {
+      0%,
+      100% {
+        top: 20%;
+        left: 20%;
+      }
+
+      20% {
+        top: -30%;
+        left: 90%;
+      }
+
+      40% {
+        top: 70%;
+        left: 0%;
+      }
+
+      60% {
+        top: 30%;
+        left: 0%;
+      }
+
+      80% {
+        top: 70%;
+        left: 60%;
+      }
+    }
+  }
+}
+
+.ball-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  h1 {
+    font: 500 2.2rem "Neue Montreal", sans-serif;
+    color: var(--primary);
+    line-height: 1.3em;
+    width: calc(55vw - 100px);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    opacity: 1;
+  }
+}
+
+.scroll-down {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  font-size: clamp(1.2rem, 1.3vw, 1.6rem);
+  color: var(--primary);
+
+  .down-arrow {
+    font-size: 1.5rem;
+    -webkit-animation: arrow 2.5s linear infinite;
+    animation: arrow 2.5s linear infinite;
+
+    @-webkit-keyframes arrow {
+      0%,
+      100% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+      }
+
+      50% {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+      }
+    }
+    @keyframes arrow {
+      0%,
+      100% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+      }
+
+      50% {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    .hero {
+      .hero-text-wrapper {
+        height: 50vh;
+
+        .hero-line {
+          margin-bottom: 1.5em;
+        }
+
+        .hero-text {
+          font-size: 2.5rem;
+        }
+      }
+
+      .ball-container {
+        .pink-ball {
+          width: 400px;
+          height: 400px;
+        }
+
+        .blue-ball {
+          width: 400px;
+          height: 400px;
+        }
+
+        .ball-text {
+          h1 {
+            width: 80vw;
+            text-align: justify;
+            font-size: 1.5rem;
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {
   .hero-wrapper {
     .hero-text-wrapper {
-      height:50%;
+      height: 50%;
       .hero-text {
-       .dot {
-        width: 30vw;
-        margin-right: 4px;
-        margin-bottom: 0px;
-       }
+        .dot {
+          width: 30vw;
+          margin-right: 4px;
+          margin-bottom: 0px;
+        }
       }
     }
   }
-  
+}
+
+.spacer{
+  height: 50vh;
+  width: 100%;
 }

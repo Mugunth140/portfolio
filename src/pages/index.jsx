@@ -1,15 +1,28 @@
 "use client";
 import Head from "next/head";
-//import Transition from "@/components/Transitions/Transition";
+//import Transition from "..";
+//import { Application } from "@splinetool/runtime";
 import "../styles/Home.module.scss";
 import SplitType from "split-type";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+import { IoIosArrowRoundDown } from "react-icons/io";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  
   useGSAP(() => {
     const split = new SplitType(".split", {
       types: "chars",
+    });
+
+    const mainSplit = new SplitType(".main-text", {
+      types: "chars,words",
+      charsClass: "char", 
+      wordsClass: "word" 
+
     });
 
     const tl = gsap.timeline();
@@ -23,13 +36,54 @@ export default function Home() {
         ease: "power4.out",
       },
       ">"
-    ).from(".dot", {
-      width: 0,
-      duration: 1,
-      ease: "power4.out",
-    });
-  }, []);
+    )
+      .from(".dot", {
+        width: 0,
+        duration: 1,
+        ease: "power4.out",
+      })
+      .from(
+        ".ball-container",
+        {
+          y: 400,
+          opacity: 0,
+          duration: 1,
+          ease: "power4.out",
+        },
+        "<+0.5"
+      );
 
+      gsap.to(".ball-container", {
+        scrollTrigger: {
+          trigger: ".ball-container",
+          start: "top 80%",
+          end: "top 60%",
+          //markers: true,
+          scrub:true
+        },
+        scale: 1,
+        duration: 1,
+        ease: "expo.out",
+        borderRadius: "0px",
+      
+      });
+
+      const mainText = gsap.timeline({ defaults: { duration: 0.50, ease: "power3.out" } });
+
+      mainText.from(mainSplit.chars, { opacity: 0, y: 30, stagger: 0.10 })
+        //.from(mainSplit.words, { opacity: 0, y: 50, stagger: 0.1, ease:"power4.out" }, "-=1");
+  
+      ScrollTrigger.create({
+        animation: mainText,
+        trigger: "#split-text",
+        start: "70% center",
+        end: "bottom center",
+        scrub: true,
+        //markers:true,
+          
+      });
+  }, []);
+ //console.log(#split-text)
   return (
     <>
       <Head>
@@ -47,6 +101,23 @@ export default function Home() {
             <h1 className="develop split">develop</h1>
           </div>
         </div>
+
+        {/* hero ball container starts here  */}
+        <div className="ball-container">
+          <div className="pink-ball"></div>
+          <div className="blue-ball"></div>
+          <div className="ball-text">
+            <h1 className="main-text">
+              Hello There! I&apos;m Mugunth, a passionate Web Developer based in
+              India. I possess expertise in building scalable and maintainable
+              web applications that prioritize exceptional Ui & Ux.
+            </h1>
+          </div>
+          <div className="scroll-down" href="#">
+            Scroll down <IoIosArrowRoundDown className="down-arrow" />
+          </div>
+        </div>
+        <div className="spacer"></div>
       </div>
     </>
   );

@@ -31,6 +31,7 @@ body {
   height: 100%;
   width: 100%;
   background-color: var(--primary);
+  scrollbar-width: none;
 }
 // imports for container component styles
 @import "./Home.module.scss";
