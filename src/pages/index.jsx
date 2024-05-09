@@ -6,13 +6,13 @@ import "../styles/Home.module.scss";
 import SplitType from "split-type";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { IoIosArrowRoundDown } from "react-icons/io";
+import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  
   useGSAP(() => {
     const split = new SplitType(".split", {
       types: "chars",
@@ -20,10 +20,19 @@ export default function Home() {
 
     const mainSplit = new SplitType(".main-text", {
       types: "chars,words",
-      charsClass: "char", 
-      wordsClass: "word" 
-
+      charsClass: "char",
+      wordsClass: "word",
     });
+
+    const lenis = new Lenis();
+
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
 
     const tl = gsap.timeline();
     tl.from(
@@ -53,37 +62,37 @@ export default function Home() {
         "<+0.5"
       );
 
-      gsap.to(".ball-container", {
-        scrollTrigger: {
-          trigger: ".ball-container",
-          start: "top 80%",
-          end: "top 60%",
-          //markers: true,
-          scrub:true
-        },
-        scale: 1,
-        duration: 1,
-        ease: "expo.out",
-        borderRadius: "0px",
-      
-      });
-
-      const mainText = gsap.timeline({ defaults: { duration: 0.50, ease: "power3.out" } });
-
-      mainText.from(mainSplit.chars, { opacity: 0, y: 30, stagger: 0.10 })
-        //.from(mainSplit.words, { opacity: 0, y: 50, stagger: 0.1, ease:"power4.out" }, "-=1");
-  
-      ScrollTrigger.create({
-        animation: mainText,
-        trigger: "#split-text",
-        start: "70% center",
-        end: "bottom center",
+    gsap.to(".ball-container", {
+      scrollTrigger: {
+        trigger: ".ball-container",
+        start: "top 80%",
+        end: "top 60%",
+        //markers: true,
         scrub: true,
-        //markers:true,
-          
-      });
+      },
+      scale: 1,
+      duration: 1,
+      ease: "expo.out",
+      borderRadius: "0px",
+    });
+
+    const mainText = gsap.timeline({
+      defaults: { duration: 0.5, ease: "power3.out" },
+    });
+
+    mainText.from(mainSplit.chars, { opacity: 0, y: 30, stagger: 0.1 });
+    //.from(mainSplit.words, { opacity: 0, y: 50, stagger: 0.1, ease:"power4.out" }, "-=1");
+
+    ScrollTrigger.create({
+      animation: mainText,
+      trigger: ".chars",
+      start: "70% center",
+      end: "bottom center",
+      scrub: true,
+      //markers:true,
+    });
   }, []);
- //console.log(#split-text)
+
   return (
     <>
       <Head>
