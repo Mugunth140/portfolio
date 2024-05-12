@@ -235,11 +235,12 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 
-  h1 {
+  .main-text {
     font: 500 2.2rem "Neue Montreal", sans-serif;
     color: var(--primary);
     line-height: 1.3em;
     width: calc(55vw - 100px);
+    display: block;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     opacity: 1;
@@ -294,13 +295,14 @@
       .hero-text-wrapper {
         height: 50vh;
 
-        .hero-line {
+        .dot {
           margin-bottom: 1.5em;
+          
         }
 
-        .hero-text {
-          font-size: 2.5rem;
-        }
+        // .hero-text {
+        //   font-size: 0.5rem;
+        // }
       }
 
       .ball-container {
@@ -340,9 +342,15 @@
       }
     }
   }
-}
 
-.spacer {
-  height: 50vh;
-  width: 100%;
+  .main-text { 
+ .word{
+  display: block;
+  .char{
+    font-size: 1.5rem;
+    display: block;
+  }
+ }
+    
+  }
 }

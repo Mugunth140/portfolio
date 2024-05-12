@@ -1,7 +1,5 @@
 "use client";
 import Head from "next/head";
-//import Transition from "..";
-//import { Application } from "@splinetool/runtime";
 import "../styles/Home.module.scss";
 import SplitType from "split-type";
 import { useGSAP } from "@gsap/react";
@@ -9,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { IoIosArrowRoundDown } from "react-icons/io";
 import Lenis from "lenis";
+import Marquee from "@/components/Marquee/Marquee"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -126,7 +125,7 @@ export default function Home() {
             Scroll down <IoIosArrowRoundDown className="down-arrow" />
           </div>
         </div>
-        <div className="spacer"></div>
+        <Marquee />
       </div>
     </>
   );
