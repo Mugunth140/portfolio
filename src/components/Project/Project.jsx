@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Project = () => {
-  const [model, setModel] = useState({ active: false, index: 0 });
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const work = [
     {
@@ -36,15 +36,20 @@ const Project = () => {
   return (
     <div className="project-wrapper">
       <section className="project-container">
-        {work.map((work, index) => (
-          <div key={index} className="project" setModel={setModel}>
+        {work.map((project, index) => (
+          <div
+            key={index}
+            className="project"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
             <div className="project-text">
-              <h2>{work.title}</h2>
-              <p>{work.type}</p>
+              <h2>{project.title}</h2>
+              <p>{project.type}</p>
             </div>
             <span>
               <a href={"#"} target="_blank" rel="noopener noreferrer">
-                {work.text}
+                {project.text}
               </a>
             </span>
           </div>
@@ -52,18 +57,25 @@ const Project = () => {
       </section>
       <aside className="project-model">
         <div className="model-container">
-          {work.map((work, index) => {
-            return (
-              <div className="model" key={index}>
+          <div className="model-slider">
+            {work.map((project, index) => (
+              <div
+                key={index}
+                style={{
+                  transform: `translateY(-${hoveredIndex !== null ? hoveredIndex * 100 : 0}%)`,
+                }}
+                className="model"
+              >
                 <Image
-                  src={`/images/${work.image}`}
-                  alt={work.title || ""}
+                  src={`/images/${project.image}`}
+                  alt={project.title || ""}
+                  priority={true}
                   width={400}
-                  height={0}
+                  height={0} // Adjust height as per your image dimensions
                 />
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
         <div className="project-btn">
           <Btn>

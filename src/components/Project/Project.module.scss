@@ -113,27 +113,28 @@
     flex-direction: column;
 
     .model-container {
-      height: 40%;
+      height: 260px;
       width: calc(100% - 60px);
       border-radius: 2em;
       overflow: hidden;
-
-      .model{
-        position:relative;
+      
+      .model-slider{
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        width: 100%;
         
-
-        img {
-          height: auto;
-          position: absolute;
-          transform:translateX(-100);
+        .model{
+          position:relative;
+          display: flex;
+          transform: translateY(0%);
+          transition: all 0.5s cubic-bezier(0.65,0.05,0.36,1);
+    
+          img {
+            height:auto;
+            width: 100%;
+          }
         }
 
       }
-
     }
 
     .project-btn {
