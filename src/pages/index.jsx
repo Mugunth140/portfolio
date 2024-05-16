@@ -6,8 +6,10 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { IoIosArrowRoundDown } from "react-icons/io";
+import Magnetic from "@/components/Magnetic/magnetic";
 import Lenis from "lenis";
-import Marquee from "@/components/Marquee/Marquee"
+import Marquee from "@/components/Marquee/Marquee";
+import Project from "@/components/Project/Project";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -118,14 +120,17 @@ export default function Home() {
             <h1 className="main-text">
               Hello There! I&apos;m Mugunth, a passionate Web Developer based in
               India. I possess expertise in building scalable and maintainable
-              web applications that prioritize exceptional Ui & Ux.
+              Web applications that prioritize exceptional Ui & Ux.
             </h1>
           </div>
+          <Magnetic >
           <div className="scroll-down" href="#">
             Scroll down <IoIosArrowRoundDown className="down-arrow" />
           </div>
+          </Magnetic>
         </div>
         <Marquee />
+        <Project />
       </div>
     </>
   );

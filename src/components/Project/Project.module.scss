@@ -1,0 +1,161 @@
+.project-wrapper {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+
+  .project-container {
+    height: 100vh;
+    width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    .project {
+      font-family: "Neue Montreal", sans-serif;
+      padding: 40px 80px 40px 80px;
+      width: 80%;
+      color: var(--black);
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-size: 0%;
+      -webkit-transition: background-size cubic-bezier(0.1, 0.5, 0.5, 1) 0.5s;
+      -o-transition: background-size cubic-bezier(0.1, 0.5, 0.5, 1) 0.5s;
+      transition: background-size cubic-bezier(0.1, 0.5, 0.5, 1) 0.5s;
+      border-top: 1.5px solid lightgrey;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content:center ;
+      position: relative;
+
+      .project-text {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+          font-size: 2.5em;
+          font-weight: 500;
+        }
+
+        p {
+          font-size: 1em;
+          font-weight: 400;
+        }
+      }
+
+      &:last-child {
+        border-bottom: 1.5px solid lightgrey;
+      }
+
+      &:hover > span {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+
+      span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #4246ce;
+        font-size: 2rem;
+        color: var(--primary);
+        text-align: center;
+        clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+        transform-origin: center;
+        transition: all cubic-bezier(0.1, 0.5, 0.5, 1) 0.4s;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  .project-model {
+    height: 100%;
+    width: 30%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    .model-container {
+      height: 40%;
+      width: calc(100% - 60px);
+      border-radius: 2em;
+      background: #000;
+    }
+
+    .project-btn {
+      a {
+        text-decoration: none;
+        color: var(--black);
+      }
+      p {
+        font-size: 1.2em;
+        font-family: "Neue Montreal", sans-serif;
+        padding: 2vh 8vh;
+      }
+    }
+  }
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  height: 200vh;
+  margin: 10%;
+}
+
+@media (max-width: 768px) {
+  .project-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}

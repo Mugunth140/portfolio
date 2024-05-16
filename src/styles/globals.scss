@@ -8,12 +8,12 @@
 @font-face {
   font-family: "Ostrich";
   src: url("../../public/fonts/ostrich-sans.sans-black.ttf") format("ttf"),
-    /* Modern Browsers */ url("../../public/fonts/ostrich-sans.sans-black.otf") format("opentype"); /* Safari, Android, iOS */
+    /* Modern Browsers */ url("../../public/fonts/ostrich-sans.sans-black.otf")
+      format("opentype"); /* Safari, Android, iOS */
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
-
 
 :root {
   font-size: 16px;
@@ -23,7 +23,7 @@
   --accent: #455ce9;
   --blue: #455ce9;
   --bluehover: #4053d0;
-    font-size: 16px;
+  font-size: 16px;
 }
 
 html,
@@ -42,12 +42,5 @@ body {
 @import "../components/Nav/Nav.scss";
 @import "../components/Btn/btn.scss";
 @import "../components/Transitions/Transition.scss";
-@import"../components/Marquee/Marquee.scss";
-
-// @media  (max-width : 768px ) {
-//     html , body {
-//         height: 100vh;
-//         width: 100vw;
-
-//     }
-// }
+@import "../components/Marquee/Marquee.scss";
+@import "../components/Project/Project.module.scss";

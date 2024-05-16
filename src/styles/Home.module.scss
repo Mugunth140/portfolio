@@ -236,10 +236,12 @@
   transform: translate(-50%, -50%);
 
   .main-text {
-    font: 500 2.2rem "Neue Montreal", sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    font-family: "Neue Montreal", sans-serif;
     color: var(--primary);
     line-height: 1.3em;
-    width: calc(55vw - 100px);
+    width: calc(72vw - 100px);
     display: block;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -293,16 +295,21 @@
   .home-container {
     .hero {
       .hero-text-wrapper {
-        height: 50vh;
-
+        height: 50%;
         .dot {
-          margin-bottom: 1.5em;
-          
+          width: 30vw;
+          margin-right: 4px;
+          margin-bottom: 0px;
         }
-
-        // .hero-text {
-        //   font-size: 0.5rem;
-        // }
+        .ball-text {
+          .main-text {
+            .word {
+              .char {
+                font-size: 1rem;
+              }
+            }
+          }
+        }
       }
 
       .ball-container {
@@ -315,42 +322,22 @@
           width: 400px;
           height: 400px;
         }
-
-        .ball-text {
-          h1 {
-            width: 80vw;
-            text-align: justify;
-            font-size: 1.5rem;
-            line-height: 1.5;
-          }
-        }
       }
     }
   }
-}
+  .ball-text{
+    height: auto;
+    width: calc(90vw - 50px);
+    display: flex;
 
-@media (max-width: 768px) {
-  .hero-wrapper {
-    .hero-text-wrapper {
-      height: 50%;
-      .hero-text {
-        .dot {
-          width: 30vw;
-          margin-right: 4px;
-          margin-bottom: 0px;
-        }
-      }
-    }
+   .main-text{
+    flex:1;
+    line-height: 1.2;
+    font-size: 2.3rem;
+   }
   }
-
-  .main-text { 
- .word{
-  display: block;
-  .char{
-    font-size: 1.5rem;
-    display: block;
-  }
- }
-    
+  
+  .scroll-down {
+    bottom: 3%;
   }
 }
