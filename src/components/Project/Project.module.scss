@@ -38,17 +38,32 @@
       -o-transition: background-size cubic-bezier(0.1, 0.5, 0.5, 1) 0.5s;
       transition: background-size cubic-bezier(0.1, 0.5, 0.5, 1) 0.5s;
       border-top: 1.5px solid lightgrey;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content:center ;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
       position: relative;
 
       .project-text {
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
 
         h2 {
           font-size: clamp(1.6rem, 2.5vw, 2.8rem);
@@ -65,7 +80,7 @@
         border-bottom: 1.5px solid lightgrey;
       }
 
-      &:hover > span {
+      &:hover>span {
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
       }
@@ -78,14 +93,24 @@
         font-size: 2rem;
         color: var(--primary);
         text-align: center;
-        clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
-        transform-origin: center;
+        -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+                clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+        -webkit-transform-origin: center;
+            -ms-transform-origin: center;
+                transform-origin: center;
+        -webkit-transition: all cubic-bezier(0.1, 0.5, 0.5, 1) 0.4s;
+        -o-transition: all cubic-bezier(0.1, 0.5, 0.5, 1) 0.4s;
         transition: all cubic-bezier(0.1, 0.5, 0.5, 1) 0.4s;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
       }
     }
 
@@ -117,19 +142,25 @@
       width: calc(100% - 60px);
       border-radius: 2em;
       overflow: hidden;
-      
-      .model-slider{
+
+      .model-slider {
         height: 100%;
         width: 100%;
-        
-        .model{
-          position:relative;
+
+        .model {
+          position: relative;
+          display: -webkit-box;
+          display: -ms-flexbox;
           display: flex;
-          transform: translateY(0%);
-          transition: all 0.5s cubic-bezier(0.65,0.05,0.36,1);
-    
+          -webkit-transform: translateY(0%);
+              -ms-transform: translateY(0%);
+                  transform: translateY(0%);
+          -webkit-transition: all 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+          -o-transition: all 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+          transition: all 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+
           img {
-            height:auto;
+            height: auto;
             width: 100%;
           }
         }
@@ -142,6 +173,7 @@
         text-decoration: none;
         color: var(--black);
       }
+
       p {
         font-size: 1.2em;
         font-family: "Neue Montreal", sans-serif;

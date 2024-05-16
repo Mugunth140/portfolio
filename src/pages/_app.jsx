@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import Loader from "@/components/Loader/Loader";
 import Nav from "@/components/Nav/Nav";
 import Lenis from 'lenis'
+import Cursor from "@/components/Cursor/Cursor";
 
 export default function App({ Component, pageProps, router }) {
   const [isLoaderComplete, setIsLoaderComplete] = useState(false);
@@ -31,6 +32,7 @@ export default function App({ Component, pageProps, router }) {
         <>
         <Nav />
         <AnimatePresence mode="wait">
+         <Cursor />
           <Component key={router.route} {...pageProps} />
         </AnimatePresence>
         </>

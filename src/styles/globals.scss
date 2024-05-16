@@ -18,8 +18,8 @@
 :root {
   font-size: 16px;
   --primary: #fffaf1;
-  --secondary: #111;
-  --black: #1c1c1c;
+  --secondary: #1e1e1e;
+  --black: #000;
   --accent: #455ce9;
   --blue: #455ce9;
   --bluehover: #4053d0;
@@ -32,6 +32,7 @@ body {
   width: 100%;
   background-color: var(--primary);
   scrollbar-width: none;
+  cursor: none;
 }
 // imports for container component styles
 @import "./Home.module.scss";

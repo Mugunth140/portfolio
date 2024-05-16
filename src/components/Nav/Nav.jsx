@@ -14,17 +14,19 @@ export default function Nav() {
     if (router.asPath !== "/") {
       router.push("/");
     }
-    
+
     gsap.to(".nav-logo", {
-      duration: 1,
+      duration: 2,
       opacity: 1,
-      ease: "expo.out",
+      y: 0,
+      ease: "back.out",
     });
-    
+
     gsap.to(".items", {
-      duration: 1,
+      duration: 2,
       opacity: 1,
-      ease: "expo.out",
+      y: 0,
+      ease: "back.out",
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -52,7 +54,7 @@ export default function Nav() {
       ) : (
         <div className="nav-items">
           <Btn>
-            <div className="items item-contact">
+            <div className="item-contact">
               <Link href="/contact">
                 <p>Get in touch</p>
               </Link>
