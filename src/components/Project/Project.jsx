@@ -1,37 +1,11 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
+import work from './data';
 import Btn from "../Btn/btn";
 import Image from "next/image";
 import Link from "next/link";
 
 const Project = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-
-  const work = [
-    {
-      title: "Zephyrus",
-      text: "A Cross Platform Social Media Application",
-      type: "Design & Development",
-      image: "1.jpg",
-    },
-    {
-      title: "Portfolio 2021",
-      text: "Previous Version of My Portfolio",
-      type: "Design & Development",
-      image: "2.jpg",
-    },
-    {
-      title: "Weather Forecast",
-      text: "Weather Forecasting Web Application",
-      type: "Design & Development",
-      image: "3.jpg",
-    },
-    {
-      title: "Rock Paper Scissor",
-      text: "A Simple Rock Paper Scissor Web Based Game",
-      type: "Design & Development",
-      image: "4.jpg",
-    },
-  ];
 
   return (
     <div className="project-wrapper">
@@ -62,7 +36,9 @@ const Project = () => {
               <div
                 key={index}
                 style={{
-                  transform: `translateY(-${hoveredIndex !== null ? hoveredIndex * 100 : 0}%)`,
+                  transform: `translateY(-${
+                    hoveredIndex !== null ? hoveredIndex * 100 : 0
+                  }%)`,
                 }}
                 className="model"
               >
@@ -90,3 +66,4 @@ const Project = () => {
 };
 
 export default Project;
+

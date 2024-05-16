@@ -5,26 +5,29 @@ const Marquee = () => {
   const firstText = useRef(null);
   const secondText = useRef(null);
   const slider = useRef(null);
-
-  let xPercent = 0;
+  const xPercent = useRef(0); // Store xPercent in a useRef
 
   useEffect(() => {
     gsap.set(secondText.current, {
       left: secondText.current.getBoundingClientRect().width,
     });
-    requestAnimationFrame(animate);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
-  const animate = () => {
-    if (xPercent > 0) {
-      xPercent = -100;
-    }
-    gsap.set(firstText.current, { xPercent: xPercent });
-    //gsap.set(secondText.current, { xPercent: xPercent });
-    requestAnimationFrame(animate);
-    xPercent += 0.1;
-  };
+    const animate = () => {
+      if (xPercent.current <= -100) {
+        xPercent.current = 0;
+      }
+      gsap.set(firstText.current, { xPercent: xPercent.current });
+      gsap.set(secondText.current, { xPercent: xPercent.current });
+      xPercent.current -= 0.1; 
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animate);
+    };
+  }, []); 
 
   return (
     <section className="marquee-container">

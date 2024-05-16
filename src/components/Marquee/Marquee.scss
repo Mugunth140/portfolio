@@ -33,3 +33,16 @@
         top: 0;
     }
 }
+
+@media(max-width: 768px){
+    .marquee-container {
+        height: 20vh;
+    }
+
+    .sliderContainer{
+        top: 0;
+    }
+    .slider p {
+        font-size: clamp(2rem, 5vw, 6rem);
+    }
+}

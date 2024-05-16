@@ -1,5 +1,6 @@
 "use client";
 import Head from "next/head";
+import {useEffect, useState} from "react";
 import "../styles/Home.module.scss";
 import SplitType from "split-type";
 import { useGSAP } from "@gsap/react";
@@ -10,10 +11,25 @@ import Magnetic from "@/components/Magnetic/magnetic";
 import Lenis from "lenis";
 import Marquee from "@/components/Marquee/Marquee";
 import Project from "@/components/Project/Project";
+import ProjectMobile from "@/components/Project/ProjectMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useGSAP(() => {
     const split = new SplitType(".split", {
       types: "chars",
@@ -130,7 +146,9 @@ export default function Home() {
           </Magnetic>
         </div>
         <Marquee />
-        <Project />
+        {
+          isMobile ? <ProjectMobile /> : <Project />
+        }
       </div>
     </>
   );
