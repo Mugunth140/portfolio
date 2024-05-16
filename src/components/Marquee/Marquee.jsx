@@ -12,7 +12,6 @@ const Marquee = () => {
     gsap.set(secondText.current, {
       left: secondText.current.getBoundingClientRect().width,
     });
-
     requestAnimationFrame(animate);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -21,13 +20,9 @@ const Marquee = () => {
     if (xPercent > 0) {
       xPercent = -100;
     }
-
     gsap.set(firstText.current, { xPercent: xPercent });
-
     gsap.set(secondText.current, { xPercent: xPercent });
-
     requestAnimationFrame(animate);
-
     xPercent += 0.1;
   };
 
