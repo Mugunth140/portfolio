@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
-    "@splinetool/runtime": "^1.2.4",
+    "@react-three/drei": "^9.105.6",
+    "@react-three/fiber": "^8.16.6",
     "framer-motion": "^10.16.12",
     "gsap": "^3.12.5",
     "lenis": "^1.0.45",
@@ -21,6 +22,7 @@
     "react-icons": "^5.2.0",
     "sass": "^1.69.5",
     "split-type": "^0.3.4",
+    "three": "^0.164.1",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

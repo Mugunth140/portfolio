@@ -8,25 +8,30 @@ const Marquee = () => {
   const xPercent = useRef(0); // Store xPercent in a useRef
 
   useEffect(() => {
-    gsap.set(secondText.current, {
-      left: secondText.current.getBoundingClientRect().width,
-    });
+    if (firstText.current && secondText.current) {
+      gsap.set(secondText.current, {
+        left: secondText.current.getBoundingClientRect().width,
+      });
 
-    const animate = () => {
-      if (xPercent.current <= -100) {
-        xPercent.current = 0;
-      }
-      gsap.set(firstText.current, { xPercent: xPercent.current });
-      gsap.set(secondText.current, { xPercent: xPercent.current });
-      xPercent.current -= 0.1; 
-      requestAnimationFrame(animate);
-    };
+      const animate = () => {
+        if (!firstText.current || !secondText.current) {
+          return;
+        }
+        if (xPercent.current <= -100) {
+          xPercent.current = 0;
+        }
+        gsap.set(firstText.current, { xPercent: xPercent.current });
+        gsap.set(secondText.current, { xPercent: xPercent.current });
+        xPercent.current -= 0.1; 
+        requestAnimationFrame(animate);
+      };
 
-    animate();
+      animate();
 
-    return () => {
-      cancelAnimationFrame(animate);
-    };
+      return () => {
+        cancelAnimationFrame(animate);
+      };
+    }
   }, []); 
 
   return (

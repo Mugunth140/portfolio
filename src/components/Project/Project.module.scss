@@ -1,6 +1,7 @@
 .project-wrapper {
   height: 100vh;
   width: 100%;
+  background-color: var(--primary);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -185,8 +186,10 @@
 
 @media(max-width: 768px){
   .project-container-mobile{
-    height: 100vh;
+    position: relative;
+    height: auto;
     width: 100%;
+    background-color: var(--primary);
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -224,19 +227,20 @@
       }
 
       &:first-child{
-        margin-top:550px;
+        margin-top:50px;
       }
     }
 .project-btn-container{
   width:100%;
-  height: 200px;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
   .project-btn-mobile{
-    width: 6rem;
-    height: 4rem;
+    .roundedButton {
+     padding: 20px 40px;
+    }
   }
 }
 }

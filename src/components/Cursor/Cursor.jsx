@@ -10,13 +10,12 @@ const Cursor = () => {
     <AnimatedCursor
       innerSize={10}
       outerSize={40}
-      color='10, 10, 10'
+      color='255,255,255'
       outerAlpha={1}
       innerScale={0.7}
       outerScale={2}
       hasBlendMode={true}
       outerStyle={{
-        border: '2px solid black',
         mixBlendMode: 'difference',
       }}
       clickables={[

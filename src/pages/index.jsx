@@ -3,15 +3,17 @@ import Head from "next/head";
 import {useEffect, useState} from "react";
 import "../styles/Home.module.scss";
 import SplitType from "split-type";
+//import Hero from '@/components/Hero3d/Hero'
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { IoIosArrowRoundDown } from "react-icons/io";
 import Magnetic from "@/components/Magnetic/magnetic";
-import Lenis from "lenis";
+//import Lenis from "lenis";
 import Marquee from "@/components/Marquee/Marquee";
 import Project from "@/components/Project/Project";
 import ProjectMobile from "@/components/Project/ProjectMobile";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,13 +43,13 @@ export default function Home() {
       wordsClass: "word",
     });
 
-    const lenis = new Lenis();
+    // const lenis = new Lenis();
 
-    lenis.on("scroll", ScrollTrigger.update);
+    // lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
+    // gsap.ticker.add((time) => {
+    //   lenis.raf(time * 1000);
+    // });
 
     gsap.ticker.lagSmoothing(0);
 
@@ -98,7 +100,6 @@ export default function Home() {
     });
 
     mainText.from(mainSplit.chars, { opacity: 0, y: 30, stagger: 0.1 });
-    //.from(mainSplit.words, { opacity: 0, y: 50, stagger: 0.1, ease:"power4.out" }, "-=1");
 
     ScrollTrigger.create({
       animation: mainText,
@@ -121,6 +122,7 @@ export default function Home() {
 
       <div className="hero-wrapper">
         <div className="hero-text-wrapper">
+          {/* <Hero /> */}
           <div className="hero-text">
             <h1 className="design split">design</h1>
             <span className="dot"></span>
@@ -145,8 +147,8 @@ export default function Home() {
           </div>
           </Magnetic>
         </div>
-        <Marquee />
-        {
+        <Marquee /> 
+         {
           isMobile ? <ProjectMobile /> : <Project />
         }
       </div>

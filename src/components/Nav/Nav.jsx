@@ -6,9 +6,8 @@ import Btn from "../Btn/btn";
 import Magnetic from "../Magnetic/magnetic";
 import Ham from "@/components/Hamburger/Ham";
 
-export default function Nav() {
+export default function Nav({isMobile}) {
   const router = useRouter();
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (router.asPath !== "/") {
@@ -29,17 +28,6 @@ export default function Nav() {
       ease: "back.out",
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
   }, []);
 
   return (

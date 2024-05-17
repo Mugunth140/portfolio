@@ -18,9 +18,8 @@
 :root {
   font-size: 16px;
   --primary: #fffaf1;
-  --secondary: #1e1e1e;
+  --secondary: #1c1c1c;
   --black: #000;
-  --accent: #455ce9;
   --blue: #455ce9;
   --bluehover: #4053d0;
   font-size: 16px;
@@ -45,3 +44,5 @@ body {
 @import "../components/Transitions/Transition.scss";
 @import "../components/Marquee/Marquee.scss";
 @import "../components/Project/Project.module.scss";
+@import '../components/Push/Push.module.scss';
+@import "../components/Footer/Footer.module.scss";
