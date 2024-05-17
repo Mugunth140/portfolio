@@ -22,7 +22,7 @@ const Marquee = () => {
         }
         gsap.set(firstText.current, { xPercent: xPercent.current });
         gsap.set(secondText.current, { xPercent: xPercent.current });
-        xPercent.current -= 0.1; 
+        xPercent.current -= 0.05; 
         requestAnimationFrame(animate);
       };
 

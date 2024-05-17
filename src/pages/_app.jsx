@@ -47,7 +47,7 @@ export default function App({ Component, pageProps, router }) {
               {!isMobile && <Cursor />}
               <Component key={router.route} {...pageProps} />
             </AnimatePresence>
-              {!isMobile && <Push />}
+            {router.route === "/" ? !isMobile && <Push /> : null}
             <Footer />
           </>
         ) : (
