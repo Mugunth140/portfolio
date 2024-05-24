@@ -47,7 +47,7 @@ const Footer = () => {
           <p>All rights reserved &copy; 2023</p>
         </div>
         <div className="footer-contact-social">
-          <div className="social-title">
+          <div className="social-title" id='title'>
             <h4>Connect</h4>
           </div>
           <span className="social-links">

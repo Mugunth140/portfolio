@@ -318,6 +318,10 @@
 
 @media (max-width: 768px) {
   .footer-container {
+    position: sticky;
+    bottom: 0;
+    z-index: -1;
+
     .footer-contact {
       flex-direction: column;
 
@@ -337,14 +341,6 @@
       width: 100%;
       align-items: center;
 
-      .social-title {
-        justify-content: center;
-        width: 100%;
-
-        h4 {
-          padding-right: 0px;
-        }
-      }
       .social-links {
         width: 100%;
         ul {
@@ -370,6 +366,10 @@
           text-align: center;
         }
       }
+    }
+
+    #title{
+      display: none;
     }
   }
 }

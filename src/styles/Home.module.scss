@@ -299,9 +299,10 @@
     width:100%; 
   }
   .home-container {
-    .hero {
+    height: 50vh;
       .hero-text-wrapper {
         height: 50%;
+        width: 100%;
         .dot {
           width: 30vw;
           margin-right: 4px;
@@ -316,7 +317,7 @@
             }
           }
         }
-      }
+      
 
       .ball-container {
         .pink-ball {
