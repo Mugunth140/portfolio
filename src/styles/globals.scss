@@ -31,10 +31,19 @@ body {
   width: 100%;
   background-color: var(--primary);
   cursor: none;
-  -ms-overflow-style: none;
-  ::-webkit-scrollbar{
-    display: none
-  }
+
+}
+
+//invisible scrollbar 
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent
+}
+
+::-webkit-scrollbar-thumb{
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: var(--blue);
 }
 // imports for container component styles
 @import "./Home.module.scss";

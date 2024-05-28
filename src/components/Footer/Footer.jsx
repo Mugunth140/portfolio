@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Btn from "../Btn/btn";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
 
 const Footer = () => {
+
+  const phoneNumber = '+916384761234';
+  const email = "mugunth140@gmail.com"
+  const [linkText, setLinkText] = useState('+916384761234');
+
+  const copyphone = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(phoneNumber)
+      .then(() => {
+        setLinkText('Copied!');
+      })
+      .catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+  };
+
+  const emailRoute = (e) => {
+    e.preventDefault();
+    window.location.href = `mailto:${email}`;
+  };
+
   return (
     <div className="footer-container">
       <div className="footer">
@@ -13,10 +34,12 @@ const Footer = () => {
       <div className="footer-btn-container">
         <div className="footer-details">
           <h3>Info</h3>
-          <a href="">
-            <FaArrowRight /> <span>+91-6384761234</span>
+          <a href="#"
+          onClick={copyphone}
+          >
+            <FaArrowRight /> <span>{linkText}</span>
           </a>
-          <a href="">
+          <a  href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
             <FaArrowRight />
             <span>mugunth140@gmail.com</span>
           </a>
@@ -39,7 +62,7 @@ const Footer = () => {
           <span>
             <h4>Source code</h4>
             <p>
-              <a href="#">Github</a>
+              <a href="https://github.com/Mugunth140/portfolio">Github</a>
             </p>
           </span>
         </div>
@@ -52,9 +75,9 @@ const Footer = () => {
           </div>
           <span className="social-links">
             <ul>
-              <a href="#">instagram</a>
-              <a href="#">whatsapp</a>
-              <a href="#">linkedin</a>
+              <a href="https://www.instagram.com/mux._pvt/?utm_source=ig_web_button_share_sheet">instagram</a>
+              <a href="https://wa.me/916384761234">whatsapp</a>
+              <a href="https://www.linkedin.com/in/mugunth-31765028a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">linkedin</a>
             </ul>
           </span>
         </div>

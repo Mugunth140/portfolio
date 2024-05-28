@@ -5,8 +5,8 @@ import Loader from "@/components/Loader/Loader";
 import Nav from "@/components/Nav/Nav";
 import Lenis from 'lenis';
 import Cursor from "@/components/Cursor/Cursor";
-import Footer from "@/components/Footer/Footer";
 import Push from "@/components/Push/Push";
+import Footer from "@/components/Footer/Footer";
 
 export default function App({ Component, pageProps, router }) {
   const [isLoaderComplete, setIsLoaderComplete] = useState(false);

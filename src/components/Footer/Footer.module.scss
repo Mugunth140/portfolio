@@ -1,4 +1,7 @@
 .footer-container {
+  // position: sticky;
+  // bottom: 0;
+  // z-index: -1;
   height: auto;
   width: 100%;
   display: -webkit-box;
@@ -19,6 +22,7 @@
   font-family: "Neue Montreal", sans-serif;
 
   .footer-contact {
+    position: relative;
     border-top: 1.5px solid var(--grey);
     height: auto;
     width: 95%;
@@ -39,6 +43,7 @@
     }
 
     .footer-contact-social {
+      position: relative;
       -webkit-box-flex: 1;
       -ms-flex: 1;
       flex: 1;
@@ -121,6 +126,7 @@
     }
 
     .footer-contact-info {
+      position: relative;
       -webkit-box-flex: 1;
       -ms-flex: 1;
       flex: 1;
@@ -316,11 +322,24 @@
   }
 }
 
+// .footerWrapper{
+//   position:relative;
+//   height: 55vh;
+//   clip-path: "polygon(50% 0, 100% 0%, 100% 100%, 0 100%)";
+// }
+// .footerWrapper-1{
+//   position:relative;
+//   height: calc(100vh + 55vh);
+//   top: -100vh;
+// }
+// .footerWrapper-2{
+//   height: 55vh;
+//   position: sticky;
+//   top: calc(100vh - 55vh);
+// }
+
 @media (max-width: 768px) {
   .footer-container {
-    position: sticky;
-    bottom: 0;
-    z-index: -1;
 
     .footer-contact {
       flex-direction: column;
