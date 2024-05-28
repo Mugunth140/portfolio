@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 /* Webfont: Humane-Regular */
@@ -31,8 +30,11 @@ body {
   height: 100%;
   width: 100%;
   background-color: var(--primary);
-  scrollbar-width: none;
   cursor: none;
+  -ms-overflow-style: none;
+  ::-webkit-scrollbar{
+    display: none
+  }
 }
 // imports for container component styles
 @import "./Home.module.scss";

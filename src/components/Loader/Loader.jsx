@@ -14,6 +14,8 @@ const Loader = ({ animationComplete }) => {
   useEffect(() => {
     const tl = gsap.timeline();
 
+    document.body.style.overflow = 'hidden';
+
     gsap.to(wordGroupsRef.current, {
       yPercent: -79,
       duration: 5,
@@ -45,6 +47,7 @@ const Loader = ({ animationComplete }) => {
           duration: 4,
           ease: "expo.inOut",
           onComplete: () => {
+            document.body.style.overflow = '';
             animationComplete();
           },
         },
@@ -62,6 +65,11 @@ const Loader = ({ animationComplete }) => {
         },
         "<"
       );
+
+      return () => {
+        document.body.style.overflow = ''; // Cleanup in case of component unmount
+      };
+  
   }, [animationComplete]);
 
   return (
