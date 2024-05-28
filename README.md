@@ -2,10 +2,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 
 
-*** [Download](https://goo.su/OlNvUU) ***
-
-
-
 ## Getting Started
 
 First, run the development server:
