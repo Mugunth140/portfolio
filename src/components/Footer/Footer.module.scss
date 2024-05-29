@@ -340,6 +340,9 @@
 
 @media (max-width: 768px) {
   .footer-container {
+    position: sticky;
+    bottom:0;
+    z-index: -1;
 
     .footer-contact {
       flex-direction: column;

@@ -7,6 +7,7 @@ const Footer = () => {
 
   const phoneNumber = '+916384761234';
   const email = "mugunth140@gmail.com"
+  
   const [linkText, setLinkText] = useState('+916384761234');
 
   const copyphone = (e) => {

@@ -47,6 +47,7 @@ body {
 }
 // imports for container component styles
 @import "./Home.module.scss";
+@import "../pages/about/about.module.scss";
 
 //imports for coustom component styles
 @import "../components/Loader/Loader.module.scss";

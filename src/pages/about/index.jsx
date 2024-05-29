@@ -11,8 +11,11 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Transition>
-        <h1>About</h1>
+        <div className="aboutWrapper">
+       
+        </div>
       </Transition>
     </>
   );
 }
+

@@ -3,7 +3,7 @@ import "@/styles/globals.scss";
 import { AnimatePresence } from "framer-motion";
 import Loader from "@/components/Loader/Loader";
 import Nav from "@/components/Nav/Nav";
-import Lenis from 'lenis';
+import Lenis from "lenis";
 import Cursor from "@/components/Cursor/Cursor";
 import Push from "@/components/Push/Push";
 import Footer from "@/components/Footer/Footer";
