@@ -48,7 +48,7 @@ const Footer = () => {
         <div className="footer-btn">
           <Btn>
             <Link href="/contact">
-              <p>Lets&apos;s Talk</p>
+              <p>Let&apos;s Talk</p>
             </Link>
           </Btn>
         </div>

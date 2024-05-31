@@ -1,6 +1,6 @@
 import Transition from "@/components/Transitions/Transition";
 import Head from "next/head";
-// import Image from "next/image";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -13,12 +13,35 @@ export default function About() {
       </Head>
       <Transition>
         <div className="aboutWrapper">
-           <div className="aboutMain">
+          <div className="aboutMain">
             <div className="aboutTitle">
               <h1> A Journey Through My Creative and Technical Endeavors</h1>
             </div>
-            
-            <div className="aboutContent"></div>
+
+            <div className="aboutContent">
+              <aside className="aboutMe">
+                <p>
+                  My passion lies in transforming ideas into impactful
+                  solutions, whether it&apos;s designing sleek, user-centered
+                  interfaces or developing robust, scalable applications. I
+                  thrive on challenges and continuously explore new technologies
+                  and methodologies to enhance my work.
+                </p>
+              </aside>
+              <div className="aboutImg">
+                {/* <Image
+                  src={"/images/about-img.webp"}
+                  alt={"about-img"}
+                  height={400}
+                  width={300}
+                  fill
+                  quality={100}
+                /> */}
+
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/about-img.webp" alt="about-img" />
+              </div>
+            </div>
           </div>
         </div>
       </Transition>

@@ -1,32 +1,69 @@
 .aboutWrapper {
-    height: 100vh;
+    height: 180vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-   
-  
+
     .aboutMain {
         height: 100%;
         width: 80%;
         display: flex;
         justify-content: center;
+        flex-direction: column;
         align-items: flex-start;
-        
+
         .aboutTitle {
-            height: 50%;
+            height: 30%;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: "Neue Montreal", sans-serif;
-            font-size: 1.8em;
-        
-            border-bottom: 2px solid var(--grey);
-            font-weight: 400;
+            border-bottom: 1.5px solid var(--grey);
+
+            &>h1 {
+                font-weight: 450;
+                font-size: calc(clamp(3em, 6vw, 7em) * 0.875);
+                color: var(--secondary);
+                line-height: 1.3;
+            }
+        }
+
+        .aboutContent {
+            height: 60%;
+            width: 100%;
+            display: flex;
+
+            .aboutMe {
+                flex: 1;
+                font-family: "Neue Montreal", sans-serif;
+                font-size: clamp(1.3em, 1.4vw, 2em);
+
+                p {
+                    margin: 2.5em;
+                    line-height: 1.3;
+                    word-spacing: 3px;
+                }
+            }
+
+            .aboutImg {
+                flex: 1;
+                position: relative;
+                display: grid;
+                place-items: center;
+
+                &>img {
+                    //   height: 100%;
+                    margin: 4em;
+                    width: clamp(20vw, 600px, 30vw);
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                    border-radius: 15px;
+                }
+            }
         }
     }
 
     ///background images
-
 }
