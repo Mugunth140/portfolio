@@ -1,5 +1,32 @@
 .aboutWrapper {
     height: 100vh;
     width: 100%;
-    background-image: url("../../../public/images/about-bg.webp");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  
+    .aboutMain {
+        height: 100%;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        
+        .aboutTitle {
+            height: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Neue Montreal", sans-serif;
+            font-size: 1.8em;
+        
+            border-bottom: 2px solid var(--grey);
+            font-weight: 400;
+        }
+    }
+
+    ///background images
+
 }

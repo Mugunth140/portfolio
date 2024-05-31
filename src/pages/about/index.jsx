@@ -1,5 +1,6 @@
 import Transition from "@/components/Transitions/Transition";
 import Head from "next/head";
+// import Image from "next/image";
 
 export default function About() {
   return (
@@ -12,10 +13,15 @@ export default function About() {
       </Head>
       <Transition>
         <div className="aboutWrapper">
-       
+           <div className="aboutMain">
+            <div className="aboutTitle">
+              <h1> A Journey Through My Creative and Technical Endeavors</h1>
+            </div>
+            
+            <div className="aboutContent"></div>
+          </div>
         </div>
       </Transition>
     </>
   );
 }
-

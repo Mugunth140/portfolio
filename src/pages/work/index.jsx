@@ -11,7 +11,7 @@ export default function Work() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Transition>
-        <h1>Work</h1>
+        <div className="work-container"></div>
       </Transition>
     </>
   );
