@@ -1,0 +1,68 @@
+.marqueeContainer {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+
+}
+
+.marqueeContent {
+
+  display: flex;
+  gap: 20px;
+  animation: scroll 60s linear infinite;
+}
+
+.leftToRight .marqueeContent {
+  animation-direction: normal;
+}
+
+.rightToLeft .marqueeContent {
+  animation-direction: reverse;
+}
+
+.marquee img {
+  height: 80px;
+  /* Adjust as necessary */
+  width: 80px;
+}
+
+.rightToLeft {
+  transform: rotateX(25deg);
+}
+
+.leftToRight {
+  transform: rotateX(-25deg);
+}
+
+.marqueeOverlay {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background: rgb(255,250,241);
+  background: -moz-linear-gradient(90deg, rgba(255,250,241,1) 5%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 78%, rgba(255,250,241,1) 95%);
+  background: -webkit-linear-gradient(90deg, rgba(255,250,241,1) 5%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 78%, rgba(255,250,241,1) 95%);
+  background: linear-gradient(90deg, rgba(255,250,241,1) 5%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 78%, rgba(255,250,241,1) 95%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fffaf1",endColorstr="#fffaf1",GradientType=1);
+
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}

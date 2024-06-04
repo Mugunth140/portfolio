@@ -1,6 +1,8 @@
+//import Aboutstack from "@/components/Stack/AboutStack";
+import Techstack from "@/components/Techstack/Techstack";
 import Transition from "@/components/Transitions/Transition";
 import Head from "next/head";
-import Image from "next/image";
+//import Image from "next/image";
 
 export default function About() {
   return (
@@ -44,6 +46,7 @@ export default function About() {
             </div>
           </div>
         </div>
+        <Techstack />
       </Transition>
     </>
   );
