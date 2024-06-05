@@ -5,6 +5,7 @@
   gap: 20px;
   overflow: hidden;
   position: relative;
+  background: var(--primary);
 
 }
 
@@ -64,5 +65,16 @@
 
   100% {
     transform: translateX(-50%);
+  }
+}
+
+
+@media (max-width:768px) {
+  .marqueeContainer{
+    height: 20vh;
+  }
+  .marquee img {
+    height: 50px;
+    width: 50px;
   }
 }

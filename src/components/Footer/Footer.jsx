@@ -34,7 +34,7 @@ const Footer = () => {
 
       <div className="footer-btn-container">
         <div className="footer-details">
-          <h3>Info</h3>
+          <h3>Contact</h3>
           <a href="#"
           onClick={copyphone}
           >

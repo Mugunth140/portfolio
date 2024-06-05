@@ -1,4 +1,4 @@
-//import Aboutstack from "@/components/Stack/AboutStack";
+import Aboutstack from "@/components/AboutStack/AboutStack";
 import Techstack from "@/components/Techstack/Techstack";
 import Transition from "@/components/Transitions/Transition";
 import Head from "next/head";
@@ -41,12 +41,13 @@ export default function About() {
                 /> */}
 
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/about-img.webp" alt="about-img" />
+                <img id='about-image' src="/images/about-img.webp" alt="about-img" />
               </div>
             </div>
           </div>
         </div>
         <Techstack />
+        <Aboutstack />
       </Transition>
     </>
   );
