@@ -14,7 +14,7 @@ const ProjectMobile = () => {
                   src={`/images/${project.image}`}
                   alt={project.title || ""}
                   priority={true}
-                  width={0}
+                  width={400}
                   height={300} 
                   />
                   <h1>{project.title}</h1>
