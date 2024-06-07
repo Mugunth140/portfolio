@@ -3,7 +3,6 @@ import "@/styles/globals.scss";
 import { AnimatePresence } from "framer-motion";
 import Loader from "@/components/Loader/Loader";
 import Nav from "@/components/Nav/Nav";
-import Lenis from "lenis";
 import Cursor from "@/components/Cursor/Cursor";
 import Push from "@/components/Push/Push";
 import Footer from "@/components/Footer/Footer";
@@ -28,19 +27,21 @@ export default function App({ Component, pageProps, router }) {
     };
   }, []);
 
-  useEffect(() => {
-    const lenis = new Lenis();
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  }, []);
+  // useEffect(() => {
+  //   const lenis = new Lenis();
+  //   function raf(time) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
+  //   requestAnimationFrame(raf);
+  // }, []);
+
+  // removed lenis scroll for scrolling issues caused by it....
 
   return (
     <StrictMode>
       <div className="main">
-        {isLoaderComplete ? (
+        {!isLoaderComplete ? (
           <>
             <Nav isMobile={isMobile} />
             <AnimatePresence mode="wait">

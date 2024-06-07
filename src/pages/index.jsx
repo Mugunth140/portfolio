@@ -22,6 +22,15 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    (async () => {
+      const LocomotiveScroll = (await import("locomotive-scroll")).default;
+      const locomotiveScroll = new LocomotiveScroll();
+    })();
+  }, []);
+
+  // added locomotive-scroll v5 beta for better compatability and added features
+
+  useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -123,7 +132,7 @@ export default function Home() {
       <div className="hero-wrapper">
         <div className="hero-text-wrapper">
           {/* <Hero /> */}
-          <div className="hero-text">
+          <div data-scroll data-scroll-speed="0.1" className="hero-text">
             <h1 className="design split">design</h1>
             <span className="dot"></span>
             <h1 className="develop split">develop</h1>

@@ -30,7 +30,7 @@ const Project = () => {
         ))}
       </section>
       <aside className="project-model">
-        <div className="model-container">
+        <div data-scroll data-scroll-speed="0.05" className="model-container">
           <div className="model-slider">
             {work.map((project, index) => (
               <div
@@ -53,7 +53,7 @@ const Project = () => {
             ))}
           </div>
         </div>
-        <div className="project-btn">
+        <div data-scroll data-scroll-speed="0.1" className="project-btn">
           <Btn>
             <Link href="/work">
               <p>More work</p>

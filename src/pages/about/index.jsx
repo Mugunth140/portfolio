@@ -3,8 +3,25 @@ import Techstack from "@/components/Techstack/Techstack";
 import Transition from "@/components/Transitions/Transition";
 import Head from "next/head";
 //import Image from "next/image";
+import React, { useLayoutEffect, useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 
 export default function About() {
+  const text = useRef(null);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from(text.current, {
+      scrollTrigger: text.current,
+      opacity:1,
+      y: 100,
+      duration: 2,
+    })
+
+   
+  }, []);
+
   return (
     <>
       <Head>
@@ -22,7 +39,7 @@ export default function About() {
 
             <div className="aboutContent">
               <aside className="aboutMe">
-                <p>
+                <p useRef="text">
                   My passion lies in transforming ideas into impactful
                   solutions, whether it&apos;s designing sleek, user-centered
                   interfaces or developing robust, scalable applications. I
@@ -41,7 +58,11 @@ export default function About() {
                 /> */}
 
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img id='about-image' src="/images/about-img.webp" alt="about-img" />
+                <img
+                  id="about-image"
+                  src="/images/about-img.webp"
+                  alt="about-img"
+                />
               </div>
             </div>
           </div>
