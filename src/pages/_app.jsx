@@ -1,11 +1,11 @@
 import { StrictMode, useEffect, useState } from "react";
-import "@/styles/globals.scss";
 import { AnimatePresence } from "framer-motion";
 import Loader from "@/components/Loader/Loader";
 import Nav from "@/components/Nav/Nav";
 import Cursor from "@/components/Cursor/Cursor";
 import Push from "@/components/Push/Push";
 import Footer from "@/components/Footer/Footer";
+import "@/styles/globals.scss";
 
 export default function App({ Component, pageProps, router }) {
   const [isLoaderComplete, setIsLoaderComplete] = useState(false);
@@ -13,9 +13,22 @@ export default function App({ Component, pageProps, router }) {
 
   const handleLoaderComplete = () => {
     setIsLoaderComplete(true);
-    console.log("Loader completed");
   };
 
+  // for reseting the scroll to (0.0) for every route
+  useEffect(() => {
+    const handleRouteChange = () => {
+      window.scrollTo(0, 0);
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
+  // function runs while resizing the screen
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -41,10 +54,10 @@ export default function App({ Component, pageProps, router }) {
   return (
     <StrictMode>
       <div className="main">
-        {isLoaderComplete ? (
+        {!isLoaderComplete ? (
           <>
             <Nav isMobile={isMobile} />
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode={"wait"}>
               {!isMobile && <Cursor />}
               <Component key={router.route} {...pageProps} />
             </AnimatePresence>

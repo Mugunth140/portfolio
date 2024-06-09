@@ -10,9 +10,9 @@ export default function Nav({isMobile}) {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.asPath !== "/") {
-      router.push("/");
-    }
+    // if (router.asPath !== "/") {
+    //   router.push("/");
+    // }
 
     gsap.to(".nav-logo", {
       duration: 2,

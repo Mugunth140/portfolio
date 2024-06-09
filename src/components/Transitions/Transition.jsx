@@ -1,6 +1,22 @@
 import {motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const Transition = ({children}) => {
+   const router = useRouter();
+    // for reseting the scroll to (0.0) for every route
+    useEffect(() => {
+      const handleRouteChange = () => {
+        window.scrollTo(0, 0);
+      };
+  
+      router.events.on("routeChangeComplete", handleRouteChange);
+  
+      return () => {
+        router.events.off("routeChangeComplete", handleRouteChange);
+      };
+    }, [router.events]);
+
   return (
     <>
       <motion.div className="slide-in"

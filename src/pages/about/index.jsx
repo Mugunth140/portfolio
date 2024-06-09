@@ -2,25 +2,10 @@ import Aboutstack from "@/components/AboutStack/AboutStack";
 import Techstack from "@/components/Techstack/Techstack";
 import Transition from "@/components/Transitions/Transition";
 import Head from "next/head";
-//import Image from "next/image";
-import React, { useLayoutEffect, useRef } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import gsap from "gsap";
+import Image from "next/image";
+
 
 export default function About() {
-  const text = useRef(null);
-
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from(text.current, {
-      scrollTrigger: text.current,
-      opacity:1,
-      y: 100,
-      duration: 2,
-    })
-
-   
-  }, []);
 
   return (
     <>
@@ -39,7 +24,7 @@ export default function About() {
 
             <div className="aboutContent">
               <aside className="aboutMe">
-                <p useRef="text">
+                <p>
                   My passion lies in transforming ideas into impactful
                   solutions, whether it&apos;s designing sleek, user-centered
                   interfaces or developing robust, scalable applications. I
@@ -48,21 +33,21 @@ export default function About() {
                 </p>
               </aside>
               <div className="aboutImg">
-                {/* <Image
-                  src={"/images/about-img.webp"}
+                <Image
+                  src={"/images/about-img.JPG"}
                   alt={"about-img"}
                   height={400}
                   width={300}
-                  fill
+                  // fill
                   quality={100}
-                /> */}
+                />
 
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                {/* <img
                   id="about-image"
                   src="/images/about-img.webp"
                   alt="about-img"
-                />
+                /> */}
               </div>
             </div>
           </div>

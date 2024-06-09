@@ -57,6 +57,7 @@ body {
 @import "./Home.module.scss";
 @import "../pages/about/about.module.scss";
 @import "../pages/work/work.module.scss";
+//@import "../pages/work/[id]/workDetailes.module.scss";
 
 //imports for coustom component styles
 @import "../components/Loader/Loader.module.scss";

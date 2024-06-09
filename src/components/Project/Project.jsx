@@ -1,8 +1,8 @@
-import React, { useState} from "react";
-import work from './data';
-import Btn from "../Btn/btn";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import work from '../../pages/api/data';
+import Btn from "../Btn/btn";
 
 const Project = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -10,24 +10,24 @@ const Project = () => {
   return (
     <div className="project-wrapper">
       <section className="project-container">
-        {work.map((project, index) => (
-          <div
-            key={index}
-            className="project"
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            <div className="project-text">
-              <h2>{project.title}</h2>
-              <p>{project.type}</p>
-            </div>
-            <span>
-              <a href={"#"} target="_blank" rel="noopener noreferrer">
-                {project.text}
-              </a>
-            </span>
-          </div>
-        ))}
+      {work.slice(0, 4).map((project, index) => (
+  <div
+    key={index}
+    className="project"
+    onMouseEnter={() => setHoveredIndex(index)}
+    onMouseLeave={() => setHoveredIndex(null)}
+  >
+    <div className="project-text">
+      <h2>{project.title}</h2>
+      <p>{project.type}</p>
+    </div>
+    <span>
+      <a href={"#"} target="_blank" rel="noopener noreferrer">
+        {project.text}
+      </a>
+    </span>
+  </div>
+))}
       </section>
       <aside className="project-model">
         <div data-scroll data-scroll-speed="0.05" className="model-container">

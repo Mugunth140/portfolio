@@ -1,13 +1,12 @@
-import React from 'react';
-import work from "./data";
-import Btn from "@/components/Btn/btn"
+import Btn from "@/components/Btn/btn";
 import Image from 'next/image';
+import work from "../../pages/api/data";
 
 const ProjectMobile = () => {
   return (
     <div className='project-container-mobile'>
         {
-          work.map((project, index) => {
+          work.slice(0, 4).map((project, index) => {
             return (
               <div key={index} className='project-mobile'>
                 <Image
