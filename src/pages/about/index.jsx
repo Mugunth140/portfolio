@@ -34,12 +34,14 @@ export default function About() {
               </aside>
               <div className="aboutImg">
                 <Image
-                  src={"/images/about-img.JPG"}
+                  src={"/images/about-img.jpg"}
                   alt={"about-img"}
                   height={400}
                   width={300}
                   // fill
                   quality={100}
+                  placeholder="blur"
+                  blurDataURL="/images/about-img-blur.jpg"
                 />
 
                 {/* eslint-disable-next-line @next/next/no-img-element */}
