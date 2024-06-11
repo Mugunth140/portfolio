@@ -168,7 +168,34 @@
 
 // Responsive Styles
 @media (max-width: 768px) {
-  .project {
-    width: 100%; // Full width for single column
+
+
+  .work-title {
+    height: 50vh;
+
+    &>h1 {
+      padding-bottom: 5vh;
+    }
   }
+  .work-project-container{
+    padding: 0;
+
+    .work-project {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+    .work-bar {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 10px;
+
+      .filter-buttons {
+        gap: 10px;
+        .filter-button {
+          padding: 20px 22px;
+        }
+      }
+    }
 }

@@ -7,7 +7,7 @@ import Magnetic from "@/components/Magnetic/magnetic";
 import Image from "next/image";
 import work from "../api/data";
 
-export default function Work() {
+export default function Work({isMobile}) {
   const [category, setCategory] = useState("All");
   const [viewStyle, setViewStyle] = useState("default");
 
@@ -15,8 +15,8 @@ export default function Work() {
     category === "All"
       ? work
       : work.filter((project) =>
-        project.type.toLowerCase().includes(category.toLowerCase())
-      );
+          project.type.toLowerCase().includes(category.toLowerCase())
+        );
 
   return (
     <>
@@ -37,8 +37,9 @@ export default function Work() {
               <div className="filter-buttons">
                 <Btn>
                   <div
-                    className={`filter-button ${category === "All" ? "active" : ""
-                      }`}
+                    className={`filter-button ${
+                      category === "All" ? "active" : ""
+                    }`}
                     onClick={() => setCategory("All")}
                   >
                     <p>All</p>
@@ -46,8 +47,9 @@ export default function Work() {
                 </Btn>
                 <Btn>
                   <div
-                    className={`filter-button ${category === "Design" ? "active" : ""
-                      }`}
+                    className={`filter-button ${
+                      category === "Design" ? "active" : ""
+                    }`}
                     onClick={() => setCategory("Design")}
                   >
                     <p>Design</p>
@@ -55,41 +57,48 @@ export default function Work() {
                 </Btn>
                 <Btn>
                   <div
-                    className={`filter-button ${category === "Development" ? "active" : ""
-                      }`}
+                    className={`filter-button ${
+                      category === "Development" ? "active" : ""
+                    }`}
                     onClick={() => setCategory("Development")}
                   >
                     <p>Development</p>
                   </div>
                 </Btn>
               </div>
-              <div className="sort-buttons">
-                <Magnetic>
-                  <div
-                    className={`sort-button ${viewStyle === "default" ? "active" : ""
+              {!isMobile && (
+                <div className="sort-buttons">
+                  <Magnetic>
+                    <div
+                      className={`sort-button ${
+                        viewStyle === "default" ? "active" : ""
                       }`}
-                    onClick={() => setViewStyle("default")}
-                  >
-                    <p>D</p>
-                  </div>
-                </Magnetic>
-                <Magnetic>
-                  <div
-                    className={`sort-button ${viewStyle === "compact" ? "active" : ""
+                      onClick={() => setViewStyle("default")}
+                    >
+                      <p>D</p>
+                    </div>
+                  </Magnetic>
+                  <Magnetic>
+                    <div
+                      className={`sort-button ${
+                        viewStyle === "compact" ? "active" : ""
                       }`}
-                    onClick={() => setViewStyle("compact")}
-                  >
-                    <p>C</p>
-                  </div>
-                </Magnetic>
-              </div>
+                      onClick={() => setViewStyle("compact")}
+                    >
+                      <p>C</p>
+                    </div>
+                  </Magnetic>
+                </div>
+              )}
             </div>
+
             <div className="work-project-container">
               {filteredWork.map((project, index) => (
                 <Link href={`/work/${index}`} key={index} legacyBehavior>
                   <a
-                    className={`work-project ${viewStyle === "compact" ? "project-compact" : ""
-                      }`}
+                    className={`work-project ${
+                      viewStyle === "compact" ? "project-compact" : ""
+                    }`}
                   >
                     {viewStyle === "default" && (
                       <div
@@ -101,7 +110,6 @@ export default function Work() {
                           paddingTop: "67.5%",
                         }}
                       >
-                        {" "}
                         {/* 67.5% is for the 700/475 ratio */}
                         <Image
                           src={`/images/${project.image}`}

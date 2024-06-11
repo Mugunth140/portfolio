@@ -82,11 +82,10 @@
 
     .aboutImg{
         flex: 1;
-
-        #about-image {
-            margin: 0em;
+        
+        &>img{
             height: auto;
-            width: 80vw;
+            width: 100% !important;
         }
     }
 

@@ -59,7 +59,7 @@ export default function App({ Component, pageProps, router }) {
             <Nav isMobile={isMobile} />
             <AnimatePresence mode={"wait"}>
               {!isMobile && <Cursor />}
-              <Component key={router.route} {...pageProps} />
+              <Component key={router.route} {...pageProps} isMobile={isMobile}  />
             </AnimatePresence>
             {router.route === "/" ? !isMobile && <Push /> : null}
             <Footer />
