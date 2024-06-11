@@ -37,6 +37,7 @@ const work = [
       text: "A Simple E-commerce Website",
       type: "Design",
       image: "5.jpg",
+      year: 2024,
     },
     {
       id: "06",
@@ -44,6 +45,7 @@ const work = [
       text: "My Personal Website",
       type: "Development",
       image: "6.jpg",
+      year: 2023,
     }
   ];
 

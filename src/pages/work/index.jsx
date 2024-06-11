@@ -7,7 +7,7 @@ import Magnetic from "@/components/Magnetic/magnetic";
 import Image from "next/image";
 import work from "../api/data";
 
-export default function Work({isMobile}) {
+export default function Work({ isMobile }) {
   const [category, setCategory] = useState("All");
   const [viewStyle, setViewStyle] = useState("default");
 
@@ -93,6 +93,15 @@ export default function Work({isMobile}) {
             </div>
 
             <div className="work-project-container">
+              <div
+                className={
+                  viewStyle === "compact" ? "project-index" : "index-none"
+                }
+              >
+                <h5>client</h5>
+                <h5>year</h5>
+                <h5>service</h5>
+              </div>
               {filteredWork.map((project, index) => (
                 <Link href={`/work/${index}`} key={index} legacyBehavior>
                   <a
@@ -125,7 +134,7 @@ export default function Work({isMobile}) {
                       <h2>{project.title}</h2>
                       <p className="project-year">{project.year}</p>
                     </div>
-                    <div className="project-description">
+                    <div className="project-type">
                       <p>{project.type}</p>
                     </div>
                   </a>
