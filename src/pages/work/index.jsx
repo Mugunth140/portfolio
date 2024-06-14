@@ -98,7 +98,7 @@ export default function Work({ isMobile }) {
                   viewStyle === "compact" ? "project-index" : "index-none"
                 }
               >
-                <h5>client</h5>
+                <h5>project</h5>
                 <h5>year</h5>
                 <h5>service</h5>
               </div>

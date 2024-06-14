@@ -6,6 +6,9 @@ const work = [
       type: "Design & Development",
       image: "1.jpg",
       year: 2024,
+      isLive: true,
+      url: "https://zephyrus.netlify.app/",
+      github: "https://github.com/Mugunth140/zephyrus-frontend.git",
     },
     {
       id: "02",
@@ -14,6 +17,9 @@ const work = [
       type: "Design & Development",
       image: "2.jpg",
       year: 2021,
+      isLive: true,
+      url: "https://zephyrus.netlify.app/",
+      github: "https://github.com/Mugunth140/zephyrus-frontend.git",
     },
     {
       id: "03",
@@ -22,6 +28,9 @@ const work = [
       type: "Design & Development",
       image: "3.jpg",
       year: 2022,
+      isLive: true,
+      url: "https://zephyrus.netlify.app/",
+      github: "https://github.com/Mugunth140/zephyrus-frontend.git",
     },
     {
       id: "04",
@@ -30,6 +39,9 @@ const work = [
       type: "Design & Development",
       image: "4.jpg",
       year: 2023,
+      isLive: true,
+      url: "https://zephyrus.netlify.app/",
+      github: "https://github.com/Mugunth140/zephyrus-frontend.git",
     },
     {
       id: "05",
@@ -38,6 +50,9 @@ const work = [
       type: "Design",
       image: "5.jpg",
       year: 2024,
+      isLive: true,
+      url: "https://zephyrus.netlify.app/",
+      github: "https://github.com/Mugunth140/zephyrus-frontend.git",
     },
     {
       id: "06",
@@ -46,6 +61,9 @@ const work = [
       type: "Development",
       image: "6.jpg",
       year: 2023,
+      isLive: true,
+      url: "https://zephyrus.netlify.app/",
+      github: "https://github.com/Mugunth140/zephyrus-frontend.git",
     }
   ];
 

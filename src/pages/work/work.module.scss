@@ -100,10 +100,10 @@
   transition: transform 0.2s;
   text-decoration: none;
 
-  &:last-child{
-    border-bottom: 1px solid var(--grey);
-    border-radius: 0;
-  }
+  // &:last-child{
+  //   border-bottom: 1px solid var(--grey);
+  //   border-radius: 0;
+  // }
 
   &:hover {
     transform: scale(1.05);
@@ -129,6 +129,10 @@
     align-items: center;
     margin-top: 10px;
 
+    &:hover{
+      color: var(--grey);
+    }
+
     h2 {
       font-size: 1.5em;
       margin: 0;
@@ -146,6 +150,12 @@
     margin: 10px 0;
     color: var(--grey);
     font-size: 1em;
+
+    &>p{
+      &:hover{
+        color: var(--grey);
+      }
+    }
   }
 
   a {
