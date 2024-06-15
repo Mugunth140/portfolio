@@ -6,9 +6,12 @@ const work = [
       type: "Design & Development",
       image: "1.jpg",
       year: 2024,
+      platform:"Android & IOS",
       isLive: true,
+      stack:"React-Native, React, Express.js, Node.js, Jwt, MongoDB",
       url: "https://zephyrus.netlify.app/",
       github: "https://github.com/Mugunth140/zephyrus-frontend.git",
+      description: "Zephyrus is a social media application that allows users to share their thoughts",
     },
     {
       id: "02",
@@ -28,6 +31,7 @@ const work = [
       type: "Design & Development",
       image: "3.jpg",
       year: 2022,
+      
       isLive: true,
       url: "https://zephyrus.netlify.app/",
       github: "https://github.com/Mugunth140/zephyrus-frontend.git",

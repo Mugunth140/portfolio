@@ -63,7 +63,40 @@ const WorkDetails = () => {
               </Btn>
             </div>
           </div>
-          <div className="detailes-aside"></div>
+          <div className="detailes-aside">
+            <div className="detailes-platform">
+              <h3>
+                Platform :{" "}
+                <span className="detaile-text">{project.platform}</span>
+              </h3>
+              <h3>
+                Year :{" "}
+                <span span className="detaile-text">
+                  {project.year}
+                </span>
+              </h3>
+            </div>
+            <div className="detailes-type">
+              <h3>
+                Service :{" "}
+                <span span className="detaile-text">
+                  {project.type}
+                </span>
+              </h3>
+            </div>
+            <div className="detailes-stack">
+              <h3>
+                Stack :{" "}
+                <span span className="detaile-text">
+                  {project.stack}
+                </span>
+              </h3>
+            </div>
+
+            <div className="detailes-description">
+              <h3>Description:<br/><br/><span id="description">{project.description}</span></h3>
+            </div>
+          </div>
         </div>
       </section>
     </Transition>
