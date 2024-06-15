@@ -14,7 +14,7 @@
 ///while loading the assests
 
 .work-detailes-container {
-  height: 100vh;
+  height: 100%;
   width: 80%;
   margin-inline: auto;
 
@@ -45,19 +45,102 @@
     }
 
     .detailes-btn {
-      width: 50%;
+      width: 40%;
       display: flex;
       justify-content:flex-end;
       align-items: flex-end;
       font-family: Arial, Helvetica, sans-serif ;
       gap: 3rem;
+    
+  .roundedButton{
+    border-radius: 3.5rem;
+    padding: 0;
+    a{
+      text-decoration: none;
+      color: var(--primary);
+      padding: 40px;
+      font-size: 1.3em;
+      background-color:var(--secondary);
+    }
+  }
+      
+    }
 
-      a{
-        text-decoration: none;
-        color: var(--secondary);
-        padding: 10px 18px;
+  }
+
+  .detailes-body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+
+
+    .detailes-image-container {
+      height: 80%;
+      width: 50%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
+
+      .detailes-sourcecode{
+        font-family: "Neue Montreal",sans-serif;
+        font-size: 2.5vh;
+          width: 40%;
+          height: auto;
+       
+        a {
+          text-decoration: none;
+          padding: 13px 10px;
+          color: var(--secondary);
+        }
+
       }
     }
 
+    .detailes-aside{
+      height: 100%;
+      width: 50%;
+      background: lightblue;
+    }
+  }
+}
+
+@media (max-width: 768px){
+  .work-detailes-container{
+    width: 90%;
+
+    .detailes-header{
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0;
+
+      .detailes-title{
+        margin-bottom: 4rem;
+        width: 100%;
+        align-items: center;
+      }
+
+      .detailes-btn{
+        display: none;
+      }
+    }
+
+    .detailes-body{
+      margin: 1.5em 0px 1.5em 0px;
+      flex-direction: column;
+
+      .detailes-image-container{
+        width: 100%;
+        .detailes-sourcecode{
+          width: 60%;
+        }
+      }
+
+      .detailes-aside{
+        width: 100%;
+      }
+    }
   }
 }

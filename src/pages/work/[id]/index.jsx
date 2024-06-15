@@ -33,48 +33,39 @@ const WorkDetails = () => {
             <p>{project.text}</p>
           </div>
 
-          <div className="detailes-btn">
-            <Btn>
-              <a
-                href={project.github}
-                target="_blank"
-                className="detailes-sourcecode"
-              >
-                <p>source code</p>
-              </a>
-            </Btn>
-            {project.isLive && (
+          {project.isLive && (
+            <div className="detailes-btn">
               <Btn>
                 <a href={project.url} target="_blank">
                   <p>live</p>
                 </a>
               </Btn>
-            )}
+            </div>
+          )}
+        </div>
+
+        <div className="detailes-body">
+          <div className="detailes-image-container">
+            <Image
+              src={`/images/${project.image}`}
+              alt={`${project.title} image`}
+              width={350}
+              height={250}
+              //objectFit="cover"
+              className="detailes-img"
+              priority
+            />
+            <div className="detailes-sourcecode">
+              <Btn>
+                <a href={project.github} target="_blank">
+                  <p>source code</p>
+                </a>
+              </Btn>
+            </div>
           </div>
+          <div className="detailes-aside"></div>
         </div>
       </section>
-      {/* <div className={styles.projectDetails}>
-        <div className={styles.projectImage}>
-          <Image
-            src={`/images/${project.image}`}
-            alt={`${project.title} image`}
-            width={700}
-            height={475}
-            //objectFit="cover"
-            className={styles.image}
-            priority
-          />
-          <div className={styles.imageDescription}>
-            <p className={styles.type}>{project.type}</p>
-            <p className={styles.year}>{project.year}</p>
-          </div>
-        </div>
-        <aside className={styles.projectDetailesAside}>
-        <h1>{project.title}</h1>
-
-        <p className={styles.text}>{project.text}</p>
-        </aside>
-      </div> */}
     </Transition>
   );
 };
