@@ -1,0 +1,32 @@
+.bg-image{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    .contact-bg{
+        height: 100vh;
+        z-index: -1;
+        width: 100%;
+    }
+
+}
+
+.contact-container{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    margin-inline: auto;
+    // overflow: hidden;
+    z-index: 2;
+   
+
+    .contact-form{
+    height: 100%;
+    width: 70%;
+    //margin-inline: auto;
+    margin-left: 10%;
+    }
+
+}

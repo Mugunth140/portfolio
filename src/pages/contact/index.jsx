@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Transition from "@/components/Transitions/Transition";
 import Head from "next/head";
 
@@ -11,7 +12,23 @@ export default function Contact() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Transition>
-        <h1>Contact</h1>
+        <div className="bg-image">
+          <Image
+            src="/images/bg.jpg"
+            objectFit="cover"
+            height={500}
+            width={1000}
+            alt="about-bg"
+            quality={100}
+            className="contact-bg"
+          />
+        </div>
+        
+        <div className="contact-container">
+          <section className="contact-form">
+            drop me an mail
+          </section>
+        </div>
       </Transition>
     </>
   );

@@ -4,6 +4,8 @@ import Head from "next/head";
 import Link from "next/link";
 import Btn from "@/components/Btn/btn";
 import Magnetic from "@/components/Magnetic/magnetic";
+import { BiGridAlt } from "react-icons/bi";
+import { CiCircleList } from "react-icons/ci";
 import Image from "next/image";
 import work from "../api/data";
 
@@ -75,7 +77,7 @@ export default function Work({ isMobile }) {
                       }`}
                       onClick={() => setViewStyle("default")}
                     >
-                      <p>D</p>
+                      <p><BiGridAlt /></p>
                     </div>
                   </Magnetic>
                   <Magnetic>
@@ -85,7 +87,7 @@ export default function Work({ isMobile }) {
                       }`}
                       onClick={() => setViewStyle("compact")}
                     >
-                      <p>C</p>
+                      <p><CiCircleList /></p>
                     </div>
                   </Magnetic>
                 </div>

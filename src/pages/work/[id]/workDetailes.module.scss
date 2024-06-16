@@ -1,5 +1,5 @@
 .dynamicWorkLoader {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -24,7 +24,7 @@
     border-bottom: 1px solid var(--grey);
     padding-bottom: 4rem;
     display: flex;
-    
+
     .detailes-title {
       font-family: "Neue Montreal", sans-serif;
       display: flex;
@@ -47,23 +47,24 @@
     .detailes-btn {
       width: 40%;
       display: flex;
-      justify-content:flex-end;
+      justify-content: flex-end;
       align-items: flex-end;
-      font-family: Arial, Helvetica, sans-serif ;
+      font-family: Arial, Helvetica, sans-serif;
       gap: 3rem;
-    
-  .roundedButton{
-    border-radius: 3.5rem;
-    padding: 0;
-    a{
-      text-decoration: none;
-      color: var(--primary);
-      padding: 40px;
-      font-size: 1.3em;
-      background-color:var(--secondary);
-    }
-  }
-      
+
+      .roundedButton {
+        border-radius: 3.5rem;
+        padding: 0;
+
+        a {
+          text-decoration: none;
+          color: var(--primary);
+          padding: 40px;
+          font-size: 1.3em;
+          background-color: var(--secondary);
+        }
+      }
+
     }
 
   }
@@ -84,16 +85,17 @@
       gap: 1rem;
 
 
-      .detailes-img{
+      .detailes-img {
         height: auto;
         width: calc(100% - 5vw);
       }
-      .detailes-sourcecode{
-        font-family: "Neue Montreal",sans-serif;
+
+      .detailes-sourcecode {
+        font-family: "Neue Montreal", sans-serif;
         font-size: 2.5vh;
-          width: 40%;
-          height: auto;
-       
+        width: 40%;
+        height: auto;
+
         a {
           text-decoration: none;
           padding: 13px 10px;
@@ -103,26 +105,26 @@
       }
     }
 
-    .detailes-aside{
+    .detailes-aside {
       display: flex;
       flex-direction: column;
       height: 100%;
       width: 50%;
       gap: 2em;
       padding: 2.5rem;
-      font-family: "Neue Montreal",sans-serif;
+      font-family: "Neue Montreal", sans-serif;
 
-      .detaile-text{
+      .detaile-text {
         color: var(--grey);
       }
-      
-      .detailes-platform{
+
+      .detailes-platform {
         width: 100%;
         display: flex;
         justify-content: space-between;
       }
 
-      .detailes-description{
+      .detailes-description {
         #description {
           color: var(--grey);
           font-size: 1em;
@@ -133,45 +135,46 @@
   }
 }
 
-@media (max-width: 768px){
-  .work-detailes-container{
+@media (max-width: 768px) {
+  .work-detailes-container {
     width: 90%;
 
-    .detailes-header{
+    .detailes-header {
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
       padding: 0;
 
-      .detailes-title{
+      .detailes-title {
         margin-bottom: 4rem;
         width: 100%;
         align-items: center;
       }
 
-      .detailes-btn{
+      .detailes-btn {
         display: none;
       }
     }
 
-    .detailes-body{
+    .detailes-body {
       margin: 1.5em 0px 1.5em 0px;
       flex-direction: column;
 
-      .detailes-image-container{
-        width: 100% ;
+      .detailes-image-container {
+        width: 100%;
 
-        .detailes-img{
+        .detailes-img {
           width: 100%;
         }
 
-        .detailes-sourcecode{
+        .detailes-sourcecode {
           width: 60%;
         }
       }
 
-      .detailes-aside{
+      .detailes-aside {
         width: 100%;
+        padding: 1em;
       }
     }
   }
