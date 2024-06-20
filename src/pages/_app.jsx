@@ -1,4 +1,5 @@
 import { StrictMode, useEffect, useState } from "react";
+import { Analytics } from '@vercel/analytics/react';
 import { AnimatePresence } from "framer-motion";
 import Loader from "@/components/Loader/Loader";
 import Nav from "@/components/Nav/Nav";
@@ -64,6 +65,7 @@ export default function App({ Component, pageProps, router }) {
                 {...pageProps}
                 isMobile={isMobile}
               />
+              <Analytics />
             </AnimatePresence>
             {router.route === "/" ? !isMobile && <Push /> : null}
             {router.route === "/contact" ? null : router.route ===
