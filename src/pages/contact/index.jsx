@@ -1,9 +1,64 @@
-import Image from "next/image";
+import { useState } from "react";
 import Transition from "@/components/Transitions/Transition";
 import Head from "next/head";
 import Btn from "@/components/Btn/btn";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    service: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Clear errors when user types in the field
+    setErrors({ ...errors, [e.target.name]: '' });
+  };
+
+  const handleSubmit = async () => {
+    // Check for empty fields
+    const emptyFields = Object.entries(formData).filter(([key, value]) => !value.trim());
+    if (emptyFields.length > 0) {
+      setErrors({ ...errors, ...Object.fromEntries(emptyFields.map(([key]) => [key, 'Field is required'])) });
+      setStatus('');
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setErrors({ ...errors, email: 'Invalid email address' });
+      setStatus('');
+      return;
+    }
+
+    setStatus("Sending...");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", service: "", message: "" });
+      } else {
+        const data = await response.json();
+        setStatus(`Failed to send message: ${data.message}`);
+      }
+    } catch (error) {
+      setStatus(`Failed to send message: ${error.message}`);
+    }
+    setTimeout(() => setStatus(""), 5000); // Clear the status message after 5 seconds
+  };
+
   return (
     <>
       <Head>
@@ -16,65 +71,87 @@ export default function Contact() {
         <div className="contact-container">
           <div className="contact-title">
             <h1>
-              Have a Project in Mind ?<br /> Drop Me a Mail
+              Have a Project in Mind?
+              <br /> Drop Me a Mail
             </h1>
           </div>
           <hr className="contact-route-hr" />
           <section className="contact-form-container">
-            <form action="" className="contact-form">
+            <form className="contact-form">
               <div className="input">
-                <label htmlFor="name">What&apos;s your Name ?</label>
+                <label htmlFor="name">What&apos;s your Name?</label>
                 <input
                   type="text"
                   name="name"
                   id="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Your name..."
+                  required
                 />
-                <hr  className="contact-hr"/>
+                {errors.name && <p className="error">{errors.name}</p>}
+                <hr className="contact-hr" />
               </div>
 
               <div className="input">
-                <label htmlFor="email">What&apos;s your Email ?</label>
+                <label htmlFor="email">What&apos;s your Email?</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Your email..."
+                  required
                 />
-                <hr  className="contact-hr"/>
+                {errors.email && <p className="error">{errors.email}</p>}
+                <hr className="contact-hr" />
               </div>
 
               <div className="input">
                 <label htmlFor="service">
-                  What services are you looking for ?
+                  What services are you looking for?
                 </label>
                 <input
                   type="text"
                   name="service"
-                  id="sevice"
+                  id="service"
+                  value={formData.service}
+                  onChange={handleChange}
                   placeholder="Design, Development..."
+                  required
                 />
-                <hr  className="contact-hr"/>
+                {errors.service && <p className="error">{errors.service}</p>}
+                <hr className="contact-hr" />
               </div>
 
               <div className="input">
-                <label htmlFor="message">What&apos;s on your mind ?</label>
+                <label htmlFor="message">What&apos;s on your mind?</label>
                 <br />
                 <textarea
                   name="message"
                   id="message"
-                  cols={3}
-                  rows={3}
+                  cols={30}
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Your message..."
+                  required
                 ></textarea>
+                {errors.message && <p className="error">{errors.message}</p>}
               </div>
 
               <div className="form-btn">
-                <Btn>
+                <Btn onClick={handleSubmit}>
                   <p>Send Mail</p>
                 </Btn>
               </div>
             </form>
+            {status && (
+              <div className={`status-message ${status.includes('successfully') ? 'success' : 'error'}`}>
+                {status}
+              </div>
+            )}
           </section>
         </div>
       </Transition>
