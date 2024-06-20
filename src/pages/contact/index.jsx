@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Transition from "@/components/Transitions/Transition";
 import Head from "next/head";
+import Btn from "@/components/Btn/btn";
 
 export default function Contact() {
   return (
@@ -12,21 +13,68 @@ export default function Contact() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Transition>
-        <div className="bg-image">
-          <Image
-            src="/images/bg.jpg"
-            objectFit="cover"
-            height={500}
-            width={1000}
-            alt="about-bg"
-            quality={100}
-            className="contact-bg"
-          />
-        </div>
-        
         <div className="contact-container">
-          <section className="contact-form">
-            drop me an mail
+          <div className="contact-title">
+            <h1>
+              Have a Project in Mind ?<br /> Drop Me a Mail
+            </h1>
+          </div>
+          <hr className="contact-route-hr" />
+          <section className="contact-form-container">
+            <form action="" className="contact-form">
+              <div className="input">
+                <label htmlFor="name">What&apos;s your Name ?</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Your name..."
+                />
+                <hr  className="contact-hr"/>
+              </div>
+
+              <div className="input">
+                <label htmlFor="email">What&apos;s your Email ?</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Your email..."
+                />
+                <hr  className="contact-hr"/>
+              </div>
+
+              <div className="input">
+                <label htmlFor="service">
+                  What services are you looking for ?
+                </label>
+                <input
+                  type="text"
+                  name="service"
+                  id="sevice"
+                  placeholder="Design, Development..."
+                />
+                <hr  className="contact-hr"/>
+              </div>
+
+              <div className="input">
+                <label htmlFor="message">What&apos;s on your mind ?</label>
+                <br />
+                <textarea
+                  name="message"
+                  id="message"
+                  cols={3}
+                  rows={3}
+                  placeholder="Your message..."
+                ></textarea>
+              </div>
+
+              <div className="form-btn">
+                <Btn>
+                  <p>Send Mail</p>
+                </Btn>
+              </div>
+            </form>
           </section>
         </div>
       </Transition>

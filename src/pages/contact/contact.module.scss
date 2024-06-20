@@ -1,32 +1,122 @@
-.bg-image{
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    
-    .contact-bg{
-        height: 100vh;
-        z-index: -1;
+.contact-container {
+    position: relative;
+    height: 100vh;
+    width: 80%;
+    margin-inline: auto;
+    // overflow: hidden;
+    z-index: 2;
+
+    .contact-title {
+        height: 50vh;
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        font-family: "Neue Montreal", sans-serif;
+        //border-bottom: 1.5px solid var(--grey);
+
+        &>h1 {
+            padding-bottom: 6vh;
+            font-weight: 450;
+            font-size: calc(clamp(3.5em, 6vw, 7em) * 0.875);
+            color: var(--secondary);
+            line-height: 1.3;
+        }
+    }
+
+.contact-route-hr{
+    width: 100%;
+    height: 1.5px;
+    background: var(--grey);
+
+}
+    .contact-form-container {
+        height: 100%;
+        width: 80%;
+        margin-inline: auto;
+        padding: 4rem 0rem;
+
+        .contact-form {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            font-family: "Neue Montreal", sans-serif;
+
+
+
+            .input {
+                width: 100%;
+                margin-bottom: 1em;
+
+                .contact-hr {
+                    width: 100%;
+                    height: 1.5px;
+                    background: var(--blue);
+                    scale: 0;
+                    transform-origin: left;
+                    transition: all 0.8s ease;
+                }
+
+                &:hover .contact-hr{
+                    scale: 1;
+                }
+
+                label {
+                    font-size: 1.8em;
+                    width: 100%;
+                }
+
+                input {
+                    background: transparent;
+                    border: none;
+                    width: 100%;
+                    margin: 1em 0em;
+                    padding: 5px 0px;
+                    font-size: 1em;
+
+                    &:focus,
+                    &:valid {
+                        border: none;
+                        outline: none;
+                    }
+                }
+
+
+                #message {
+                    font-family: inherit;
+                    width: 100%;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    font-size: 1em;
+                    margin: 1em 0em;
+                    padding: 5px 0px;
+                }
+            }
+
+            .form-btn {
+                width: 100%;
+                display: grid;
+                place-content: center;
+
+                .roundedButton {
+                    width: 100%;
+                    padding: 20px 35px;
+                }
+            }
+
+        }
     }
 
 }
 
-.contact-container{
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    margin-inline: auto;
-    // overflow: hidden;
-    z-index: 2;
-   
+@media(max-width: 768px){
 
-    .contact-form{
-    height: 100%;
-    width: 70%;
-    //margin-inline: auto;
-    margin-left: 10%;
+    .contact-container{
+       height: 85vh;
     }
-
+    .contact-form-container{
+        width: 100% !important;
+    }
 }
