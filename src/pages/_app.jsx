@@ -54,7 +54,7 @@ export default function App({ Component, pageProps, router }) {
   return (
     <StrictMode>
       <div className="main">
-        {!isLoaderComplete ? (
+        {isLoaderComplete ? (
           <>
             <Nav isMobile={isMobile} />
             <AnimatePresence mode={"wait"}>
