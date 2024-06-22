@@ -211,14 +211,17 @@
     font-size: auto;
     text-align: center;
     text-wrap: nowrap;
-    text-transform: capitalize;
     font-family: "Neue Montreal", sans-serif;
 
     .footer-text {
       font-size: clamp(2.5rem, 10.5vw, 11rem);
       text-align: center;
       white-space: nowrap;
-      overflow: hidden;
+      //overflow: hidden;
+
+      &>span{
+        text-transform: none;
+      }
     }
   }
 

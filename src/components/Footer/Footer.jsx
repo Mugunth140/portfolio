@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Btn from "../Btn/btn";
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa";
+import SplitText from '../SplitText/SplitText';
 
 const Footer = () => {
-
   const phoneNumber = '+916384761234';
   const email = "mugunth140@gmail.com"
+  const footerText = "Let's Colab Together";
   
   const [linkText, setLinkText] = useState('+916384761234');
 
-  const copyphone = (e) => {
+  const copyPhone = (e) => {
     e.preventDefault();
     navigator.clipboard.writeText(phoneNumber)
       .then(() => {
@@ -29,18 +30,18 @@ const Footer = () => {
   return (
     <div className="footer-container">
       <div className="footer">
-        <p className="footer-text">Let&apos;s Colab together</p>
+        <p className="footer-text" >
+          <SplitText text={footerText} />
+        </p>
       </div>
 
       <div className="footer-btn-container">
         <div className="footer-details">
           <h3>Contact</h3>
-          <a href="#"
-          onClick={copyphone}
-          >
+          <a href="#" onClick={copyPhone}>
             <FaArrowRight /> <span>{linkText}</span>
           </a>
-          <a  href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
+          <a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
             <FaArrowRight />
             <span>mugunth140@gmail.com</span>
           </a>
@@ -68,7 +69,7 @@ const Footer = () => {
           </span>
         </div>
         <div className="footer-copywrite">
-          <p>All rights reserved &copy; 2023</p>
+          <p>All rights reserved © 2023</p>
         </div>
         <div className="footer-contact-social">
           <div className="social-title" id='title'>
