@@ -33,7 +33,7 @@ export default function Nav({isMobile}) {
   return (
     <div className="header">
       <Magnetic>
-        <div className="nav-logo">
+        <div className="nav-logo view">
           <Link href="/">Mugunth</Link>
         </div>
       </Magnetic>
@@ -49,7 +49,7 @@ export default function Nav({isMobile}) {
             </div>
           </Btn>
           <Magnetic>
-            <div className="items">
+            <div className="items ">
               <Link href="/about">About</Link>
             </div>
           </Magnetic>

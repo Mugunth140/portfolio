@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Router from "next/router";
+//import Router from "next/router";
 import { useState } from "react";
 import work from '../../pages/api/data';
 import Btn from "../Btn/btn";
@@ -22,8 +22,8 @@ const Project = () => {
       <h2>{project.title}</h2>
       <p>{project.type}</p>
     </div>
-    <span>
-      <Link href="/work" rel="noopener noreferrer">
+    <span >
+      <Link className="view" href="/work/" rel="noopener noreferrer">
         {project.text}
       </Link>
     </span>
