@@ -12,7 +12,7 @@ const Cursor = () => {
       gsap.to(cursor, {
         x: clientX,
         y: clientY,
-        duration: 0.2,
+        duration: 0.6,
         ease: "power3.out"
       });
     };
