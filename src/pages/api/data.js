@@ -65,7 +65,7 @@ const work = [
       "year": 2024,
       "platform": "Web",
       "isLive": true,
-      "stack": "Next.js, React, Express.js, Node.js, Jwt, MongoDB",
+      "stack": "Next.js, React, Express.js, Node.js, Jwt, Mongodb",
       "url": "https://zephyrus.netlify.app/",
       "github": "https://github.com/Mugunth140/zephyrus-frontend.git",
       "description": "This e-commerce website design showcases a user-friendly and visually appealing interface for online shopping.  The layout is optimized for a seamless browsing experience, allowing customers to easily navigate product categories, view detailed descriptions, and complete purchases with ease.  This design prioritizes both functionality and aesthetics, creating a platform that is both effective and enjoyable to use."
@@ -79,7 +79,7 @@ const work = [
       "year": 2023,
       "platform": "Web",
       "isLive": true,
-      "stack": "Next.js, React, Express.js, Node.js, Jwt, MongoDB",
+      "stack": "Next.js, React, Express.js",
       "url": "https://zephyrus.netlify.app/",
       "github": "https://github.com/Mugunth140/zephyrus-frontend.git",
       "description": ""  // Empty description key
