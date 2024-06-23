@@ -70,7 +70,7 @@ export default function App({ Component, pageProps, router }) {
             {router.route === "/" ? !isMobile && <Push /> : null}
             {router.route !== "/404" &&
               router.route !== "/contact" &&
-              !router.route == "/work/[id]" && <Footer />}
+              router.route !== "/work/[id]" && <Footer />}
           </>
         ) : (
           <Loader animationComplete={handleLoaderComplete} />
