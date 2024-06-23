@@ -42,6 +42,8 @@ body {
   cursor: none;
 }
 
+//custom cursor
+
 #custom-cursor {
   position: fixed;
   top: 0;
@@ -72,7 +74,15 @@ body {
 }
 
 
-
+@media(max-width:768px){
+  #custom-cursor{
+    display: none;
+  }
+  .cursor-text{
+    display: none;
+    color: var(--primary);
+  }
+}
 
 //invisible scrollbar 
 ::-webkit-scrollbar {

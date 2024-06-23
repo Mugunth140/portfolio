@@ -16,6 +16,7 @@
         //border-bottom: 1.5px solid var(--grey);
 
         &>h1 {
+            width: 80%;
             padding-bottom: 6vh;
             font-weight: 450;
             font-size: calc(clamp(3.5em, 6vw, 7em) * 0.875);

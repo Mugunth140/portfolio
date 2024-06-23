@@ -66,9 +66,9 @@ export default function Home() {
     tl.from(
       split.chars,
       {
-        duration: 1,
-        y: 30,
         opacity: 0,
+        y: 30,
+        duration: 1,
         stagger: 0.05,
         ease: "power4.out",
       },

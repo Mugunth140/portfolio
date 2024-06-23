@@ -14,7 +14,7 @@ const SplitText = ({ text }) => {
 
     gsap.from(letters, {
         opacity: 0,
-        y: 50,
+        y: 30,
         duration: 1,
         stagger: 0.05, 
         ease: "power4.out",

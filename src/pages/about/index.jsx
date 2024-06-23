@@ -1,6 +1,7 @@
 import Aboutstack from "@/components/AboutStack/AboutStack";
 import Techstack from "@/components/Techstack/Techstack";
 import Transition from "@/components/Transitions/Transition";
+import SplitText from "@/components/SplitText/SplitText";
 import Head from "next/head";
 import Image from "next/image";
 
@@ -19,7 +20,9 @@ export default function About() {
         <div className="aboutWrapper">
           <div className="aboutMain">
             <div className="aboutTitle">
-              <h1> A Journey Through My Creative and Technical Endeavors</h1>
+              <h1> 
+                < SplitText text="A Journey Through My Creative and Technical Endeavors"/>
+              </h1>
             </div>
 
             <div className="aboutContent">

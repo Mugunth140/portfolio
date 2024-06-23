@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Transition from "@/components/Transitions/Transition";
+import SplitText from "@/components/SplitText/SplitText";
 import Head from "next/head";
 import Btn from "@/components/Btn/btn";
 
@@ -71,8 +72,8 @@ export default function Contact() {
         <div className="contact-container">
           <div className="contact-title">
             <h1>
-              Have a Project in Mind?
-              <br /> Drop Me a Mail
+              <SplitText text=" Have a Project in Mind?
+             Drop Me a Mail" />
             </h1>
           </div>
           <hr className="contact-route-hr" />

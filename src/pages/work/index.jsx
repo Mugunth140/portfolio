@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Btn from "@/components/Btn/btn";
 import Magnetic from "@/components/Magnetic/magnetic";
+import SplitText from "@/components/SplitText/SplitText";
 import { BiGridAlt } from "react-icons/bi";
 import { CiCircleList } from "react-icons/ci";
 import Image from "next/image";
@@ -32,7 +33,7 @@ export default function Work({ isMobile }) {
         <div className="work-container">
           <div className="work-main">
             <div className="work-title">
-              <h1> Showcasing My Expertise in Design and Development</h1>
+              <h1> <SplitText text="Showcasing My Expertise in Design and Development" /> </h1>
             </div>
 
             <div className="work-bar">
