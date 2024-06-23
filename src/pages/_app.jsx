@@ -1,5 +1,5 @@
 import { StrictMode, useEffect, useState } from "react";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 import { AnimatePresence } from "framer-motion";
 import Loader from "@/components/Loader/Loader";
 import Nav from "@/components/Nav/Nav";
@@ -57,7 +57,7 @@ export default function App({ Component, pageProps, router }) {
       <div className="main">
         {isLoaderComplete ? (
           <>
-            <Nav isMobile={isMobile} />
+            {router.route == "/404" ? null : <Nav isMobile={isMobile} />}
             <AnimatePresence mode={"wait"}>
               {!isMobile && <Cursor />}
               <Component
@@ -68,10 +68,9 @@ export default function App({ Component, pageProps, router }) {
               <Analytics />
             </AnimatePresence>
             {router.route === "/" ? !isMobile && <Push /> : null}
-            {router.route === "/contact" ? null : router.route ===
-              "/work/[id]" ? null : (
-              <Footer />
-            )}
+            {router.route !== "/404" &&
+              router.route !== "/contact" &&
+              !router.route == "/work/[id]" && <Footer />}
           </>
         ) : (
           <Loader animationComplete={handleLoaderComplete} />
