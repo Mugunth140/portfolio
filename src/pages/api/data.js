@@ -11,7 +11,7 @@ const work = [
       "stack": "React-Native, React, Express.js, Node.js, Jwt, MongoDB",
       "url": "https://zephyrus.netlify.app/",
       "github": "https://github.com/Mugunth140/zephyrus-frontend.git",
-      "description": "Unleash Your Voice on Zephyrus: A Cross-Platform Social Media App\nBuilt with cutting-edge technologies**, Zephyrus offers a seamless and secure user experience. With Zephyrus, you can freely express yourself through text, photos, and even videos, all while connecting with people from all over the world. Whether you're on Android or iOS, Zephyrus keeps you connected on the go.  Ready to join the conversation? Explore the live app and open-source code to see Zephyrus in action and unleash your voice!"
+      "description": "Unleash Your Voice on Zephyrus: A Cross-Platform Social Media App\nBuilt with cutting-edge technologies, Zephyrus offers a seamless and secure user experience. With Zephyrus, you can freely express yourself through text, photos, and even videos, all while connecting with people from all over the world. Whether you're on Android or iOS, Zephyrus keeps you connected on the go.  Ready to join the conversation? Explore the live app and open-source code to see Zephyrus in action and unleash your voice!"
     
     },
     {

@@ -1,8 +1,9 @@
-
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'; // Import ScrollTrigger
+import SplitType from 'split-type';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const SplitText = ({ text }) => {
@@ -10,35 +11,32 @@ const SplitText = ({ text }) => {
 
   useGSAP(() => {
     const container = containerRef.current;
-    const letters = Array.from(container.children);
+    
+    // Initialize SplitType
+    const splitContact = new SplitType(container, {
+      types: "chars,words",
+      charsClass: "char",
+      wordsClass: "word",
+    });
 
-    gsap.from(letters, {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        stagger: 0.05, 
-        ease: "power4.out",
+    const tl = gsap.timeline({
+      defaults: { duration: 0.3, ease: 'power4.out' },
+    });
 
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 90%",
-          end: "bottom 20%",
-          toggleActions: "play pause resume reset",
-          markers: false
-        },
-      });
-  }, [text]);
+    tl.from(splitContact.chars, { opacity: 0, y: 20, stagger: 0.1 });
 
+    ScrollTrigger.create({
+      animation: tl,
+      trigger: container,
+      start: 'top 70%',
+      //end: 'bottom center',
+      scrub: false,
+      once: true, // Ensure the animation only runs once
+      // markers: true,
+    });
+  }, []);
 
-  const letters = text.split('');
-
-  return (
-    <p ref={containerRef}>
-      {letters.map((letter, index) => (
-        <span key={index}>{letter}</span>
-      ))}
-    </p>
-  );
+  return <p ref={containerRef}>{text}</p>;
 };
 
 export default SplitText;

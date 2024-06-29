@@ -69,6 +69,10 @@
 
   }
 
+  .detailes-grey {
+    color: var(--grey);
+  }
+
   .detailes-body {
     height: 90vh;
     width: 100%;
@@ -115,7 +119,7 @@
       font-family: "Neue Montreal", sans-serif;
 
       .detaile-text {
-        color: var(--grey);
+        color: var(--secondary);
       }
 
       .detailes-platform {
@@ -126,7 +130,7 @@
 
       .detailes-description {
         #description {
-          color: var(--grey);
+          color: var(--secondary);
           font-size: 1em;
           font-weight: 600;
         }
@@ -168,7 +172,8 @@
         }
 
         .detailes-sourcecode {
-          width: 60%;
+          margin: 20px;
+          width: 50%;
         }
       }
 

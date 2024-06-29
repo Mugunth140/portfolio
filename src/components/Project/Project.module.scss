@@ -200,9 +200,11 @@
       height:100%;
       width: calc(100% - 20px);
 
-      img {
+      img { 
         width: 100%;
         height: auto;
+        padding: 1em;
+        background-color:var(--grey);
       }
 
       h1 {

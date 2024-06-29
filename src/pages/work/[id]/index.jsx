@@ -65,11 +65,11 @@ const WorkDetails = () => {
           </div>
           <div className="detailes-aside">
             <div className="detailes-platform">
-              <h3>
+              <h3 className="detailes-grey">
                 Platform :{" "}
                 <span className="detaile-text">{project.platform}</span>
               </h3>
-              <h3>
+              <h3 className="detailes-grey">
                 Year :{" "}
                 <span span className="detaile-text">
                   {project.year}
@@ -77,7 +77,7 @@ const WorkDetails = () => {
               </h3>
             </div>
             <div className="detailes-type">
-              <h3>
+              <h3 className="detailes-grey">
                 Service :{" "}
                 <span span className="detaile-text">
                   {project.type}
@@ -85,7 +85,7 @@ const WorkDetails = () => {
               </h3>
             </div>
             <div className="detailes-stack">
-              <h3>
+              <h3 className="detailes-grey" >
                 Stack :{" "}
                 <span span className="detaile-text">
                   {project.stack}
@@ -94,7 +94,7 @@ const WorkDetails = () => {
             </div>
 
             <div className="detailes-description">
-              <h3>Description:<br/><br/><span id="description">{project.description}</span></h3>
+              <h3 className="detailes-grey" >Description:<br/><br/><span id="description">{project.description}</span></h3>
             </div>
           </div>
         </div>
