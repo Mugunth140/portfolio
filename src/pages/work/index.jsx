@@ -108,7 +108,7 @@ export default function Work({ isMobile }) {
               {filteredWork.map((project, index) => (
                 <Link href={`/work/${index}`} key={index} legacyBehavior>
                   <a
-                    className={`work-project ${
+                    className={`work-project view ${
                       viewStyle === "compact" ? "project-compact" : ""
                     }`}
                   >
@@ -124,8 +124,8 @@ export default function Work({ isMobile }) {
                       >
                         {/* 67.5% is for the 700/475 ratio */}
                         <Image
-                          src={`/images/${project.image}`}
-                          alt={`${project.title} image`}
+                          src={`/images/${project.image ? project.image : 'coming-soon.jpg'}`}
+                          alt={`unable to fetch image from api`}
                           layout="fill"
                           objectFit="cover"
                           className="image"
