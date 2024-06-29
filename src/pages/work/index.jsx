@@ -21,6 +21,31 @@ export default function Work({ isMobile }) {
           project.type.toLowerCase().includes(category.toLowerCase())
         );
 
+
+        const colors = {
+          1: "#A8BBA9", // Neutral Green
+          2: "#A0B4C4", // Neutral Blue
+          3: "#D8C3A5", // Neutral Beige
+          4: "#B2A396", // Neutral Taupe
+          5: "#A5A58D", // Neutral Olive
+          6: "#C5C6D0", // Neutral Lavender
+          7: "#BFC9CA", // Neutral Light Blue
+          8: "#CAD2C5", // Neutral Sage
+          9: "#C1C1C1", // Neutral Light Gray
+          10: "#BCC4B7", // Neutral Pale Green
+          11: "#D9D9D9", // Neutral Silver
+          12: "#E0E0E0", // Neutral Light Silver
+          13: "#DADADA", // Neutral Cool Gray
+          14: "#CBCBCB", // Neutral Medium Gray
+          15: "#D3D3D3" // Neutral Soft Gray
+        };
+        
+        const getRandomColor = () => {
+          const colorKeys = Object.keys(colors);
+          const randomKey = colorKeys[Math.floor(Math.random() * colorKeys.length)];
+          return colors[randomKey];
+        };
+
   return (
     <>
       <Head>
@@ -116,10 +141,7 @@ export default function Work({ isMobile }) {
                       <div
                         className="project-image"
                         style={{
-                          position: "relative",
-                          width: "100%",
-                          height: "0",
-                          paddingTop: "67.5%",
+                         backgroundColor: getRandomColor()
                         }}
                       >
                         {/* 67.5% is for the 700/475 ratio */}

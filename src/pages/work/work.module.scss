@@ -110,11 +110,20 @@
   }
 
   .project-image {
+    position: relative;
+    height: auto;
+    width: 100%;
+    padding-top: 67.5%;
     border-radius: 8px;
     overflow: hidden;
 
+
     .image {
       border-radius: 8px;
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      padding: 2.5em;
     }
   }
 
@@ -246,6 +255,12 @@
     .work-project {
       width: 100%;
       padding: 0;
+    }
+  }
+
+  .project-image {
+    .image{
+      padding: 1em !important;
     }
   }
 
