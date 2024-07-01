@@ -97,6 +97,20 @@ const work = [
       "url":"",
       "github" : "",
       "description": "This weather forecasting web application is designed to provide users with accurate and up-to-date info of the city user has entered, This app is build Next.js for frontend backend with express.js & node.js for api calls handling .Rapidapi for Api provider, for animation i hve used gsap for seamless animations. "
+    },
+    {
+      "id": "08",
+      "title": "Nike Store",
+      "text": "A Nike Store Website",
+      "type": "Design",
+      "image": "",
+      "year": 2024,
+      "platform": "Web",
+      "isLive": true,
+      "stack": "React.js , Tailwindcss",
+      "url": "https://nike-store-ihul30qow-mugunths-projects-77730e5d.vercel.app/",
+      "github": "https://github.com/Mugunth140/nike-store.git",
+      "description": "Nike store is a clone website, which is build using React.js along with Tailwind css for rapid development, for bundler i have used vite for faster bundling"
     }
     
   ];
