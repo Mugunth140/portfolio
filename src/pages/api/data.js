@@ -92,7 +92,7 @@ const work = [
       "image": "7.jpg",
       "year": 2024,
       "platform": "Web",
-      "isLive": false,
+      "isLive": true,
       "stack": "Next.js, React, Express.js, Node.js, Gsap, RapidAPI",
       "url":"",
       "github" : "",
