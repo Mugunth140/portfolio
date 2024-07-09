@@ -93,9 +93,9 @@ const work = [
       "year": 2024,
       "platform": "Web",
       "isLive": true,
-      "stack": "Next.js, React, Express.js, Node.js, Gsap, RapidAPI",
-      "url":"",
-      "github" : "",
+      "stack": "Next.js, React, Gsap, RapidAPI",
+      "url":"https://forecaster-beige.vercel.app/",
+      "github" : "https://github.com/Mugunth140/forecaster.git",
       "description": "This weather forecasting web application is designed to provide users with accurate and up-to-date info of the city user has entered, This app is build Next.js for frontend backend with express.js & node.js for api calls handling .Rapidapi for Api provider, for animation i hve used gsap for seamless animations. "
     },
     {
