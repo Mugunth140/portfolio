@@ -40,6 +40,21 @@
                 flex: 1;
                 font-family: "Neue Montreal", sans-serif;
                 font-size: clamp(1.3em, 1.4vw, 2em);
+                
+                .cvBtnContainer{
+                    width: 200px;
+                    margin-inline:auto;
+                    
+                    #cv-btn{
+                        text-decoration: none;      
+                        color: var(--secondary);
+
+                        & > p {
+                            margin: 10px 15px;
+                        }
+
+                    }
+                }
 
                 p {
                     position: relative;
@@ -101,5 +116,9 @@
     }
     .aboutContent{
       flex-direction: column-reverse;
+
+      .cvBtnContainer{
+        margin-top: 100px;
+      }
     }
   }

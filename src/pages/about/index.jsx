@@ -2,6 +2,7 @@ import Aboutstack from "@/components/AboutStack/AboutStack";
 import Techstack from "@/components/Techstack/Techstack";
 import Transition from "@/components/Transitions/Transition";
 import SplitText from "@/components/SplitText/SplitText";
+import Btn from "@/components/Btn/btn";
 import Head from "next/head";
 import Image from "next/image";
 
@@ -34,6 +35,11 @@ export default function About() {
                   thrive on challenges and continuously explore new technologies
                   and methodologies to enhance my work.
                 </p>
+                
+                <div className="cvBtnContainer">
+                <Btn><a id="cv-btn" href="/mugunth_resume.pdf" download="mugunth_resume.pdf"><p>Download CV</p></a></Btn>
+                </div>
+
               </aside>
               <div className="aboutImg">
                 <Image
