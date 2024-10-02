@@ -146,9 +146,9 @@ export default function Home() {
           <div className="blue-ball"></div>
           <div className="ball-text">
             <h1 className="main-text">
-              Hello There! I&apos;m Mugunth, a passionate Web Developer based in
-              India. I possess expertise in building scalable and maintainable
-              Web applications that prioritize exceptional Ui & Ux.
+              Hello There! I&apos;m Mugunth, a passionate freelance Developer based in
+              India. I excel at bridging the gap between design and functionality, 
+              ensuring seamless interactions and robust performance.
             </h1>
           </div>
           <Magnetic >

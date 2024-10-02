@@ -277,8 +277,10 @@
         color: var(--grey);
 
         & > span {
+          margin-left: 5px;
           &:hover {
             color: var(--primary);
+
           }
 
           &::after {

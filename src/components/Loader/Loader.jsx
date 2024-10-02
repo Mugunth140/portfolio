@@ -17,7 +17,7 @@ const Loader = ({ animationComplete }) => {
     document.body.style.overflow = 'hidden';
 
     gsap.to(wordGroupsRef.current, {
-      yPercent: -79,
+      yPercent: -81,
       duration: 5,
       ease: "power3.inOut",
     });
