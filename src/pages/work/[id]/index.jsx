@@ -49,8 +49,8 @@ const WorkDetails = () => {
             <Image
               src={`/images/${project.image}`}
               alt={`${project.title} image`}
-              width={350}
-              height={250}
+              width={850}
+              height={750}
               //objectFit="cover"
               className="detailes-img"
               priority

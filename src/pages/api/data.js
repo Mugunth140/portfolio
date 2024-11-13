@@ -1,19 +1,18 @@
 const work = [
-    {
-    id: "01",
-      "title": "Zephyrus",
-      "text": "A Cross Platform Social Media Application",
-      "type": "Design & Development",
-      "image": "1.jpg",
-      "year": 2024,
-      "platform": "Android & IOS",
-      "isLive": false,
-      "stack": "React-Native, React, Express.js, Node.js, Jwt, MongoDB",
-      "url": "https://zephyrus.netlify.app/",
-      "github": "https://github.com/Mugunth140/zephyrus-frontend.git",
-      "description": "Unleash Your Voice on Zephyrus: A Cross-Platform Social Media App\nBuilt with cutting-edge technologies, Zephyrus offers a seamless and secure user experience. With Zephyrus, you can freely express yourself through text, photos, and even videos, all while connecting with people from all over the world. Whether you're on Android or iOS, Zephyrus keeps you connected on the go.  Ready to join the conversation? Explore the live app and open-source code to see Zephyrus in action and unleash your voice!"
-    
-    },
+  {
+    "id": "01",
+    "title": "Rock Paper Scissor",
+    "text": "A Simple Rock Paper Scissor Web Based Game",
+    "type": "Design & Development",
+    "image": "4.jpg",
+    "year": 2023,
+    "platform": "Web",
+    "isLive": true,
+    "stack": "Html, Css, Javascript",
+    "url": "https://rock-paper-scissor-fawn-three.vercel.app/",
+    "github": "https://github.com/Mugunth140/rock-paper-scissor.git",
+    "description": "Test your luck and strategy with this classic web-based Rock Paper Scissors game!  Choose your weapon - rock, paper, or scissors - and see if you can outmaneuver the computer opponent.  This simple and engaging game is a perfect way to pass the time or settle a quick dispute with a friend.  Challenge yourself and see how many rounds you can win!"
+  },
     {
       "id": "02",
       "title": "Portfolio 2021",
@@ -44,20 +43,6 @@ const work = [
     },
     {
       "id": "04",
-      "title": "Rock Paper Scissor",
-      "text": "A Simple Rock Paper Scissor Web Based Game",
-      "type": "Design & Development",
-      "image": "4.jpg",
-      "year": 2023,
-      "platform": "Web",
-      "isLive": true,
-      "stack": "Html, Css, Javascript",
-      "url": "https://rock-paper-scissor-fawn-three.vercel.app/",
-      "github": "https://github.com/Mugunth140/rock-paper-scissor.git",
-      "description": "Test your luck and strategy with this classic web-based Rock Paper Scissors game!  Choose your weapon - rock, paper, or scissors - and see if you can outmaneuver the computer opponent.  This simple and engaging game is a perfect way to pass the time or settle a quick dispute with a friend.  Challenge yourself and see how many rounds you can win!"
-    },
-    {
-      "id": "05",
       "title": "Portfolio 2024",
       "text": "an updated version of my personal website",
       "type": "Design",
@@ -71,7 +56,7 @@ const work = [
       "description": "This is my personal website that you are currently viewing on your device, It's an update version of my portfolio 2021 with an Updated tech stack , for frontend i'm going with React with Next.js for Server side rendering (SSR) and for animation's i'm going with Two of the most popular library's of all time GSAP and Framer motion"
     },    
     {
-      "id": "06",
+      "id": "05",
       "title": "E-commerce Website",
       "text": "A Simple E-commerce Website",
       "type": "Development",
@@ -85,7 +70,7 @@ const work = [
       "description": "This e-commerce website design showcases a user-friendly and visually appealing interface for online shopping.  The layout is optimized for a seamless browsing experience, allowing customers to easily navigate product categories, view detailed descriptions, and complete purchases with ease.  This design prioritizes both functionality and aesthetics, creating a platform that is both effective and enjoyable to use."  // Empty description key
     },
     {
-      "id": "07",
+      "id": "06",
       "title": "Forecaster",
       "text": "A Weather Forecasting Web Application build using Next.js",
       "type": "Design & Development",
@@ -99,7 +84,7 @@ const work = [
       "description": "This weather forecasting web application is designed to provide users with accurate and up-to-date info of the city user has entered, This app is build Next.js for frontend backend with express.js & node.js for api calls handling .Rapidapi for Api provider, for animation i hve used gsap for seamless animations. "
     },
     {
-      "id": "08",
+      "id": "07",
       "title": "Nike Store",
       "text": "A Nike Store Website",
       "type": "Design",
@@ -111,7 +96,35 @@ const work = [
       "url": "https://nike-store-beige.vercel.app/",
       "github": "https://github.com/Mugunth140/nike-store.git",
       "description": "Nike store is a clone website, which is build using React.js along with Tailwind css for rapid development, for bundler i have used vite for faster bundling"
-    }
+    },
+    {
+      id: "08",
+        "title": "Zephyrus",
+        "text": "A Cross Platform Social Media Application",
+        "type": "Design & Development",
+        "image": "1.jpg",
+        "year": 2024,
+        "platform": "Android & IOS",
+        "isLive": false,
+        "stack": "React-Native, React, Express.js, Node.js, Jwt, MongoDB",
+        "url": "https://zephyrus.netlify.app/",
+        "github": "https://github.com/Mugunth140/zephyrus-frontend.git",
+        "description": "Unleash Your Voice on Zephyrus: A Cross-Platform Social Media App\nBuilt with cutting-edge technologies, Zephyrus offers a seamless and secure user experience. With Zephyrus, you can freely express yourself through text, photos, and even videos, all while connecting with people from all over the world. Whether you're on Android or iOS, Zephyrus keeps you connected on the go.  Ready to join the conversation? Explore the live app and open-source code to see Zephyrus in action and unleash your voice!"
+      
+      },
+    {
+      "id": "09",
+      "title": "MAuth",
+      "text": "A Developer-Focused Solution for Simplified JWT Authentication and Route Protection in Node.js Applications",
+      "type": "Development",
+      "image": "9.jpg",
+      "year": 2024,
+      "platform": "Web",
+      "isLive": true,
+      "stack": "Express.js , Node.js , Bcrypt , MongoDb",
+      "url": "https://www.npmjs.com/package/@mugunth/m-auth",
+      "github": "https://github.com/Mugunth140/MAuth.git",
+      "description": "MAuth is a robust and easy-to-integrate authentication solution for Node.js applications, built to simplify the implementation of user registration, login, and route protection using JWT (JSON Web Tokens) for authentication and bcrypt for password security. Designed with scalability and ease of use in mind, MAuth allows developers to quickly add authentication features to their Node.js projects while ensuring secure handling of user credentials.Key Features:User Registration & Login: MAuth allows users to securely register and log in using their email and password. Passwords are hashed using bcrypt before storage for added security.JWT Authentication: On successful login, MAuth generates a JWT token that can be used for authenticating API requests and protecting routes across the application.Route Protection Middleware: MAuth includes a middleware (AuthGuard) to protect sensitive routes. The middleware checks for the presence of a valid JWT token in the request headers, ensuring that only authenticated users can access certain endpoints.Modular & Flexible: MAuth is composed of easy-to-use modules such as AuthService, AuthProvider, and AuthGuard, each responsible for specific aspects of authentication, making the system highly modular and adaptable for various project structures.Error Handling: Clear error messages are provided for common authentication issues, such as invalid credentials or missing tokens, to help developers quickly debug and handle authentication errors." }
     
   ];
 
