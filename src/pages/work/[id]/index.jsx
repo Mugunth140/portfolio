@@ -19,7 +19,7 @@ const WorkDetails = () => {
   }
 
   // Find the project by its id
-  const project = work.find((project, index) => index.toString() === id);
+  const project = work.find((project) => project.id.toString() === id);
 
   if (!project) {
     return <p>Project not found</p>;

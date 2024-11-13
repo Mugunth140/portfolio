@@ -128,7 +128,7 @@ export default function Work({ isMobile }) {
                 <h5>service</h5>
               </div>
               {filteredWork.map((project, index) => (
-                <Link href={`/work/${index}`} key={index} legacyBehavior>
+                <Link href={`/work/${project.id}`} key={project.id} legacyBehavior>
                   <a
                     className={`work-project view ${
                       viewStyle === "compact" ? "project-compact" : ""
