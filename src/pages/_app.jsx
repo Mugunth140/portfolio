@@ -1,5 +1,6 @@
 import { StrictMode, useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { AnimatePresence } from "framer-motion";
 import Loader from "@/components/Loader/Loader";
 import Nav from "@/components/Nav/Nav";
@@ -65,7 +66,6 @@ export default function App({ Component, pageProps, router }) {
                 {...pageProps}
                 isMobile={isMobile}
               />
-              <Analytics />
             </AnimatePresence>
             {router.route === "/" ? !isMobile && <Push /> : null}
             {router.route !== "/404" &&
@@ -75,6 +75,8 @@ export default function App({ Component, pageProps, router }) {
         ) : (
           <Loader animationComplete={handleLoaderComplete} />
         )}
+         <Analytics />
+         <SpeedInsights />
       </div>
     </StrictMode>
   );
