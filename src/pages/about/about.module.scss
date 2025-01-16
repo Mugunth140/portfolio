@@ -46,11 +46,13 @@
                     margin-inline:auto;
                     
                     #cv-btn{
+        
                         text-decoration: none;      
                         color: var(--secondary);
 
                         & > p {
-                            margin: 10px 15px;
+                            width: 100%;
+                            margin: 0.3em auto;
                         }
 
                     }

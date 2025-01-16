@@ -43,7 +43,7 @@ export default function About() {
               </aside>
               <div className="aboutImg">
                 <Image
-                  src={"/images/about-img.jpg"}
+                  src={"/images/about.jpg"}
                   alt={"about-img"}
                   height={400}
                   width={300}
