@@ -11,7 +11,7 @@ const Project = () => {
   return (
     <div className="project-wrapper">
       <section className="project-container">
-      {work.slice(0, 4).map((project, index) => (
+      {work.slice(6, 10).map((project, index) => (
   <div
     key={index}
     className="project"
