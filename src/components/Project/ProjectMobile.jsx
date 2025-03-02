@@ -6,7 +6,7 @@ const ProjectMobile = () => {
   return (
     <div className='project-container-mobile'>
         {
-          work.slice(0, 4).map((project, index) => {
+          work.slice(-4).map((project, index) => {
             return (
               <div key={index} className='project-mobile'>
                 <Image

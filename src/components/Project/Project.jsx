@@ -11,7 +11,7 @@ const Project = () => {
   return (
     <div className="project-wrapper">
       <section className="project-container">
-      {work.slice(6, 10).map((project, index) => (
+      {work.slice(-4).map((project, index) => (
   <div
     key={index}
     className="project"
@@ -38,7 +38,7 @@ const Project = () => {
                 key={index}
                 style={{
                   transform: `translateY(-${
-                    hoveredIndex !== null ? hoveredIndex * 100 : 0
+                    hoveredIndex !== null ? hoveredIndex * 100 : 710
                   }%)`,
                 }}
                 className="model"
