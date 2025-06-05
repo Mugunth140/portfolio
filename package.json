@@ -3,32 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test":"echo \"Warn: no test specified for development\" && exit 0",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "dev": "next dev --turbopack",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "next lint",
-    "format": "prettier --write --ignore-path .gitignore .",
-    "prepare": "husky",
-    "precommit": "npm run lint && npm run format"
+    "prepare": "husky"
   },
   "dependencies": {
-    "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "next": "15.3.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
+    "eslint": "^9.28.0",
     "eslint-config-next": "15.3.3",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.1",
     "husky": "^9.1.7",
+    "lint-staged": "^16.1.0",
     "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.12",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "tailwindcss": "^4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }
