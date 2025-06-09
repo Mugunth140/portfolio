@@ -154,7 +154,7 @@ export default function Home() {
           <div className="blue-ball"></div>
           <div className="ball-text">
             <h1 className="main-text">
-              Hello There! I&apos;m Mugunth, a passionate freelance Developer based in
+              Hello There! I&apos;m Mugunth, a passionate Javascript Developer based in
               India. I excel at bridging the gap between design and functionality, 
               ensuring seamless interactions and robust performance.
             </h1>
