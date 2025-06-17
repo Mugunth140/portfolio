@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
-  "private": true,
+  "version": "3.0.1",
+  "private": false,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -11,9 +11,11 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.13.0",
+    "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.3"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
