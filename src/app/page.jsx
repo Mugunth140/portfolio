@@ -1,4 +1,5 @@
 import React from 'react';
+import Btn from '../components/Btn';
 // import gsap from 'gsap'
 // import { useGSAP } from '@gsap/react'
 
@@ -11,6 +12,7 @@ const Home = () => {
     </div>
    <div className=" text-5xl p-3 font-medium">Hello Dev</div>
   <p className="text-lg">This is a paragraph text</p>
+  <Btn>Button</Btn>
   </div>
   </>
 };
