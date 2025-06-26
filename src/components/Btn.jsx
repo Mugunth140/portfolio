@@ -42,11 +42,7 @@ export default function RoundedButton({ children, backgroundColor = '#455CE9', .
         <p className="relative z-[1] transition-colors duration-300 ease-linear group-hover:text-white hover:text-white subpixel-antialiased">
           {children}
         </p>
-        <div
-          ref={circle}
-          className="absolute w-full h-[150%] rounded-full top-full"
-          style={{ backgroundColor }}
-        ></div>
+        <div ref={circle} className="absolute w-full h-[150%] rounded-full top-full" style={{ backgroundColor }}></div>
       </div>
     </Magnetic>
   );
