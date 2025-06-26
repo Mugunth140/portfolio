@@ -1,3 +1,29 @@
-@utility flex-center {
-    @apply flex items-center justify-center;
+@layer utilities {
+    /* Background Colors */
+    .bg-primary {
+        background-color: #ffffff;
+    }
+
+    .bg-secondary {
+        background-color: lch(10.75 2.24 272.76);
+    }
+
+    .bg-tertiary {
+        background-color: lch(44.13 80.66 290.69);
+    }
+
+    .border-color-secondary {
+        border-color: lch(10.75 2.24 272.76);
+    }
+    .border-color-tertiary {
+        border-color: lch(44.13 80.66 290.69);
+    }
+
+    /* layout utils */
+    .flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 }
