@@ -31,5 +31,5 @@ body {
   font-family: "font-primary";
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/Humane-Bold.woff2") format("woff2");
+  src: url("../../public/fonts/Humane-Bold.woff2") format("woff2");
 }

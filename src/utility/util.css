@@ -19,11 +19,10 @@
         border-color: lch(44.13 80.66 290.69);
     }
 
-    /* layout utils */
-    .flex-center {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    
+}
+/* layout utils */
 
+@utility flex-center {
+    @apply flex items-center justify-center;
 }
