@@ -1,12 +1,10 @@
 import React from 'react';
 import Btn from '../components/Btn';
-// import gsap from 'gsap'
-// import { useGSAP } from '@gsap/react'
 
 const Home = () => {
   return (
     <>
-      <div className="h-screen w-screen flex flex-col items-center justify-center">
+      <div className="h-screen w-screen flex flex-col items-center justify-center bg-primary">
         <div className="">
           <p className="text-5xl font-{family-name:--font-primary}">Design</p>
           <p className="text-5xl font-{family-name:--font-script}">Neue Montreal</p>

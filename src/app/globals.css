@@ -1,17 +1,6 @@
 @import "tailwindcss";
 @import '../utility/util.css';
 
-:root {
-  --background: #fff7f7;
-  --foreground: #171717;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-dark: #1C1D20;
-  --color-dark-dark: #141517;
-  --font-script: var(--font-script);
-  --font-primary: var(--font-primary);
-}
-
 body {
   width: 100%;
   scroll-behavior: smooth;
@@ -21,15 +10,58 @@ body {
 }
 
 @font-face {
-  font-family: "font-secondary";
+  font-family: "font-primary";
   font-style: normal;
   font-display: swap;
   src:url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
 }
 
 @font-face {
-  font-family: "font-primary";
+  font-family: "font-humane";
   font-style: normal;
   font-display: swap;
   src: url("../../public/fonts/Humane-Bold.woff2") format("woff2");
 }
+
+/* 
+@font-face {
+  font-family: "font-humane";
+  font-style: bold;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/Mugunth140/fonts@latest/humane/Web-TT/Humane-Bold.woff2") format("woff2");
+} */
+
+
+:root {
+  --primary-color: #989797;
+  --background: #fff7f7;
+  --foreground: #171717;
+  --font-sans: var(--font-geist-sans);
+  
+}
+
+@theme {
+    --color-primary: #fff3f3;
+    --color-secondary: lch(10.75 2.24 272.76);
+    --color-tertiary: lch(44.13 80.66 290.69);
+    --color-dark: #1C1D20;
+    --color-dark-dark: #141517;
+    --color-primary-light: #989797;
+    --font-primary: var(--font-primary);
+    --font-secondary: var(--font-secondary);
+    --font-humane: var(--font-humane);
+}
+
+/* @layer components {
+
+}; */
+
+@utility flex-center {
+   @apply flex justify-center items-center; 
+ }
+
+ @utility font-primary {
+  @apply font-[var(--font-primary)]
+ }
+
+
