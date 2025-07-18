@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import  Link  from 'next/link';
+import Link from 'next/link';
 import { ROUTES, SOCIALS } from '@/constants/routes.constant';
 
 gsap.registerPlugin(useGSAP);
@@ -72,29 +72,26 @@ const HamMenu = () => {
       </div>
       <div
         id="ham-overlay"
-        className="md:hidden absolute h-dvh w-full bg-secondary -translate-y-full will-change-auto top-0 left-0 z-40 flex flex-col items-center justify-center gap-8 ">
-        <section className=' w-screen'>
-          <p className='text-primary-light font-mono'>Nav links</p>
-          <ul className='text-primary flex flex-col pl-10'>
-            {
-              ROUTES.map((route) => (
-                <li key={route.path} className='text-primary text-6xl font-semibold font-primary'>
-                  <Link href={route.path}>{route.name}</Link>
-                </li>
-              ))
-            }
+        className="md:hidden absolute h-dvh w-full bg-secondary -translate-y-full will-change-auto top-0 left-0 z-40 flex flex-col items-center justify-center gap-8 "
+      >
+        <section className=" w-screen">
+          <p className="text-primary-light font-mono">Nav links</p>
+          <ul className="text-primary flex flex-col pl-10">
+            {ROUTES.map((route) => (
+              <li key={route.path} className="text-primary text-6xl font-semibold font-primary">
+                <Link href={route.path}>{route.name}</Link>
+              </li>
+            ))}
           </ul>
         </section>
         <div className=" w-full h-[150px]">
-          <p className='text-primary-light bg-secondary-color font-mono'>Social links</p>
-          <ul className='flex items-center-safe justify-around '>
-            {
-              SOCIALS.map((social) => (
-                <li key={social.path} className='text-primary font-primary'>
-                  <Link href={social.path}>{social.name}</Link>
-                </li>
-              ))
-            }
+          <p className="text-primary-light bg-secondary-color font-mono">Social links</p>
+          <ul className="flex items-center-safe justify-around ">
+            {SOCIALS.map((social) => (
+              <li key={social.path} className="text-primary font-primary">
+                <Link href={social.path}>{social.name}</Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
