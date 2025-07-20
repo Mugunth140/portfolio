@@ -1,63 +1,41 @@
 'use client';
 import { useState } from 'react';
-import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import CustomEase from 'gsap/CustomEase';
-
-gsap.registerPlugin(useGSAP, CustomEase);
-const loaderEase = CustomEase.create('loader', '.87, 0,.13,1');
+import { useGSAP } from '@gsap/react';
 
 const Loader = ({ children }) => {
   const [loader, setLoader] = useState(true);
 
   useGSAP(() => {
-    gsap.to('#loader-container', {
-      clipPath: 'polygon(15% 47%, 0% 47%, 0% 53%, 15% 53%)',
-      duration: 1.5,
-      ease: loaderEase,
-    });
-    gsap.to('#loader-container', {
-      clipPath: 'polygon(100% 47%, 0% 47%, 0% 53%, 100% 53%)',
-      duration: 2,
-      ease: loaderEase,
-      delay: 2,
-    });
-
-    gsap.to('#loader', {
-      width: '100%',
-      duration: 2,
-      ease: loaderEase,
-      delay: 2,
-    });
-
-    gsap.to('#counter', {
-      textContent: '100',
-      roundProps: 'textContent',
-      duration: 2,
-      ease: loaderEase,
-      delay: 2,
-    });
-
-    gsap.to('#loader-container', {
-      clipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)',
-      duration: 2,
-      ease: loaderEase,
-      delay: 4.5,
-    });
-
-    gsap.to('.loader-text', {
-      opacity: 0,
-      y: '100%',
-      duration: 0.8,
-      ease: loaderEase,
-      delay: 4.2,
-      stagger: 0.05,
+    const loaderTl = gsap.timeline({
       onComplete: () => {
         setLoader(false);
       },
+      defaults: {
+        duration: 2,
+        ease: "expo.inOut"
+      }
     });
 
-    const tl = gsap.timeline();
+    loaderTl.to('#loader-container', {
+      clipPath: 'polygon(15% 47%, 0% 47%, 0% 53%, 15% 53%)',
+      duration: 1.5,
+    }).to('#loader-container', {
+      clipPath: 'polygon(100% 47%, 0% 47%, 0% 53%, 100% 53%)',
+    }, 2).to('#loader', {
+      width: '100%',
+    }, 2).to('#counter', {
+      textContent: '100',
+      roundProps: 'textContent',
+    }, 2).to('#loader-container', {
+      clipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)',
+    }, 4.5).to('.loader-text', {
+      opacity: 0,
+      y: '100%',
+      duration: 0.8,
+      stagger: 0.05
+    }, 4);
+
   });
 
   if (!loader) return <>{children}</>;
@@ -96,4 +74,3 @@ const Loader = ({ children }) => {
 };
 
 export default Loader;
-// style={{clipPath: 'polygon(0% 47%,0% 47%,0% 53%,0% 53%)'}}
