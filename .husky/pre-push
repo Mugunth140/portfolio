@@ -1,10 +1,6 @@
 #!/bin/sh
 echo "🔍 Running pre-checks..."
 
-# Format code
-echo "✨ Formatting..."
-bunx prettier --write .
-
 # Lint code
 echo "🧹 Linting..."
 bun run lint || exit 1

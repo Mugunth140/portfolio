@@ -1,28 +1,22 @@
 @layer utilities {
-    /* Background Colors */
-    .bg-primary {
-        background-color: #fff3f3;
-    }
+  /* Background Colors */
+  .bg-primary {
+    background-color: #fff3f3;
+  }
 
-    .bg-secondary {
-        background-color: lch(10.75 2.24 272.76);
-    }
+  .bg-secondary {
+    background-color: lch(10.75 2.24 272.76);
+  }
 
-    .bg-tertiary {
-        background-color: lch(44.13 80.66 290.69);
-    }
+  .bg-tertiary {
+    background-color: lch(44.13 80.66 290.69);
+  }
 
-    .border-color-secondary {
-        border-color: lch(10.75 2.24 272.76);
-    }
-    .border-color-tertiary {
-        border-color: lch(44.13 80.66 290.69);
-    }
-
-    
+  .border-color-secondary {
+    border-color: lch(10.75 2.24 272.76);
+  }
+  .border-color-tertiary {
+    border-color: lch(44.13 80.66 290.69);
+  }
 }
 /* layout utils */
-
-
-
-

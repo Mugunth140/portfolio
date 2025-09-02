@@ -62,13 +62,17 @@ const Loader = ({ children }) => {
         },
         '<',
       )
-      .to('.after-loader-text', {
-        opacity : 0,
-        y: '0%',
-        duration: 1.5,
-        ease: 'expo.inOut',
-        stagger: 0.05,
-      },'<+1.5');
+      .to(
+        '.after-loader-text',
+        {
+          opacity: 0,
+          y: '0%',
+          duration: 1.5,
+          ease: 'expo.inOut',
+          stagger: 0.05,
+        },
+        '<+1.5',
+      );
   });
 
   if (!loader) return <>{children}</>;
@@ -97,21 +101,19 @@ const Loader = ({ children }) => {
             / <span id="counter">0</span>
           </p>
 
-          <div
-            className="absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4 text-7xl text-white opacity-100 flex gap-10"
-          >
+          <div className="absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4 text-7xl text-white opacity-100 flex gap-10">
             <p>
-              <span className='after-loader-text opacity-0 -translate-full'>H</span>
-              <span className='after-loader-text opacity-0 -translate-full'>e</span>
-              <span className='after-loader-text opacity-0 -translate-full'>l</span>
-              <span className='after-loader-text opacity-0 -translate-full'>l</span>
-              <span className='after-loader-text opacity-0 -translate-full'>o</span>
-              <span className='mx-2'></span>
-              <span className='after-loader-text opacity-0 -translate-full'>T</span>
-              <span className='after-loader-text opacity-0 -translate-full'>h</span>
-              <span className='after-loader-text opacity-0 -translate-full'>e</span>
-              <span className='after-loader-text opacity-0 -translate-full'>r</span>
-              <span className='after-loader-text opacity-0 -translate-full'>e</span>
+              <span className="after-loader-text opacity-0 -translate-full">H</span>
+              <span className="after-loader-text opacity-0 -translate-full">e</span>
+              <span className="after-loader-text opacity-0 -translate-full">l</span>
+              <span className="after-loader-text opacity-0 -translate-full">l</span>
+              <span className="after-loader-text opacity-0 -translate-full">o</span>
+              <span className="mx-2"></span>
+              <span className="after-loader-text opacity-0 -translate-full">T</span>
+              <span className="after-loader-text opacity-0 -translate-full">h</span>
+              <span className="after-loader-text opacity-0 -translate-full">e</span>
+              <span className="after-loader-text opacity-0 -translate-full">r</span>
+              <span className="after-loader-text opacity-0 -translate-full">e</span>
             </p>
           </div>
         </div>
