@@ -1,0 +1,18 @@
+#!/bin/sh
+echo "🔍 Running pre-checks..."
+
+# Format code
+echo "✨ Formatting..."
+bunx prettier --write .
+
+# Lint code
+echo "🧹 Linting..."
+bun run lint || exit 1
+
+# Run tests only if they exist
+if ls **/*.{test,spec}.{js,ts,jsx,tsx} >/dev/null 2>&1; then
+  echo "🧪 Running tests..."
+  bun test || exit 1
+else
+  echo "⚡ No tests found, skipping..."
+fi
