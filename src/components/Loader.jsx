@@ -8,9 +8,9 @@ const Loader = ({ children }) => {
 
   useGSAP(() => {
     const loaderTl = gsap.timeline({
-      // onComplete: () => {
-      //   setLoader(false);
-      // },
+      onComplete: () => {
+        setLoader(false);
+      },
       defaults: {
         duration: 2,
         ease: 'expo.inOut',
@@ -65,14 +65,28 @@ const Loader = ({ children }) => {
       .to(
         '.after-loader-text',
         {
-          opacity: 0,
+          opacity: 1,
           y: '0%',
           duration: 1.5,
           ease: 'expo.inOut',
           stagger: 0.05,
         },
         '<+1.5',
-      );
+      )
+      .to(
+        '.after-loader-text',
+        {
+          opacity: 0,
+          y: '100%',
+          duration: 1.5,
+          ease: 'expo.inOut',
+          stagger: 0.05,
+        },
+        '<+1.5',
+      )
+      .to('#loader-container', {
+        clipPath: 'polygon(100% 0%, 0% 0%, 0% 0%, 100% 0%)',
+      });
   });
 
   if (!loader) return <>{children}</>;
@@ -101,8 +115,8 @@ const Loader = ({ children }) => {
             / <span id="counter">0</span>
           </p>
 
-          <div className="absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4 text-7xl text-white opacity-100 flex gap-10">
-            <p>
+          <div className="absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4 text-5xl leading-13 text-white opacity-100 flex gap-10">
+            <p className="text-center">
               <span className="after-loader-text opacity-0 -translate-full">H</span>
               <span className="after-loader-text opacity-0 -translate-full">e</span>
               <span className="after-loader-text opacity-0 -translate-full">l</span>
@@ -114,6 +128,18 @@ const Loader = ({ children }) => {
               <span className="after-loader-text opacity-0 -translate-full">e</span>
               <span className="after-loader-text opacity-0 -translate-full">r</span>
               <span className="after-loader-text opacity-0 -translate-full">e</span>
+              <br />
+              <span className="after-loader-text opacity-0 -translate-full">I</span>
+              <span className="after-loader-text opacity-0 -translate-full">'</span>
+              <span className="after-loader-text opacity-0 -translate-full">m</span>
+              <span className="mx-2"></span>
+              <span className="after-loader-text opacity-0 -translate-full">M</span>
+              <span className="after-loader-text opacity-0 -translate-full">u</span>
+              <span className="after-loader-text opacity-0 -translate-full">g</span>
+              <span className="after-loader-text opacity-0 -translate-full">u</span>
+              <span className="after-loader-text opacity-0 -translate-full">n</span>
+              <span className="after-loader-text opacity-0 -translate-full">t</span>
+              <span className="after-loader-text opacity-0 -translate-full">h</span>
             </p>
           </div>
         </div>
