@@ -1,98 +1,144 @@
 'use client';
-import { useState } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import Link from 'next/link';
 import { ROUTES, SOCIALS } from '@/constants/routes.constant';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import Link from 'next/link';
+import { useState } from 'react';
 
 gsap.registerPlugin(useGSAP);
+
+// isActive = true  → menu CLOSED
+// isActive = false → menu OPEN
 const HamMenu = () => {
   const [isActive, setIsActive] = useState(true);
-  const toggleMenu = () => {
-    setIsActive((prev) => !prev);
-  };
+  const toggleMenu = () => setIsActive((prev) => !prev);
 
   useGSAP(() => {
-    const hamTl = gsap.timeline({
-      defaults: {
+    const hamTl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
+
+    // Button bg toggles between dark secondary (closed) and tertiary accent (open)
+    hamTl.to(
+      '#ham-menu',
+      {
+        backgroundColor: isActive ? 'lch(10.75 2.24 272.76)' : 'lch(44.13 80.66 290.69)',
+        borderColor: isActive ? 'lch(10.75 2.24 272.76)' : 'lch(44.13 80.66 290.69)',
         duration: 0.35,
-        ease: 'power1.inOut',
       },
-    });
+      0,
+    );
 
-    hamTl.to('#ham-menu', {
-      backgroundColor: isActive ? 'lch(10.75 2.24 272.76)' : 'lch(44.13 80.66 290.69)',
-      borderColor: isActive ? 'lch(10.75 2.24 272.76)' : 'lch(44.13 80.66 290.69)',
-      delay: isActive ? 0.26 : 0.1,
-      duration: 0.25,
-      ease: 'circ.in',
-    });
-
+    // Lines cross into X
     hamTl.to(
       '#ham-item-1',
-      {
-        rotation: isActive ? 0 : 45,
-        y: isActive ? 0 : 3,
-        transformOrigin: 'center',
-      },
+      { rotation: isActive ? 0 : 45, y: isActive ? 0 : 3.5, transformOrigin: 'center', duration: 0.35 },
       0,
     );
-
     hamTl.to(
       '#ham-item-2',
-      {
-        rotation: isActive ? 0 : -45,
-        y: isActive ? 0 : -3,
-        transformOrigin: 'center',
-      },
+      { rotation: isActive ? 0 : -45, y: isActive ? 0 : -3.5, transformOrigin: 'center', duration: 0.35 },
       0,
     );
 
-    hamTl.to(
-      '#ham-overlay',
-      {
-        y: isActive ? '-100%' : 0,
-        ease: [0.25, 0.1, 0.25, 1],
-        duration: 0.6,
-        delay: 0.15,
-      },
-      0,
-    );
+    // Overlay slides down / up
+    hamTl.to('#ham-overlay', { y: isActive ? '-100%' : '0%', duration: 0.6 }, 0);
+
+    // Nav items stagger in/out
+    if (!isActive) {
+      gsap.to('.ham-nav-item', {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.06,
+        delay: 0.25,
+        ease: 'expo.out',
+      });
+      gsap.to('.ham-social-item', {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        stagger: 0.05,
+        delay: 0.45,
+        ease: 'expo.out',
+      });
+    } else {
+      gsap.to(['.ham-nav-item', '.ham-social-item'], {
+        opacity: 0,
+        y: 12,
+        duration: 0.2,
+        ease: 'power2.in',
+      });
+    }
   }, [isActive]);
 
   return (
     <>
-      <div
-        className="md:hidden border rounded-4xl border-color-secondary bg-secondary will-change-auto size-[65px] flex items-center justify-center flex-col gap-1 z-50 cursor-pointer"
+      {/* ── Hamburger button ── */}
+      <button
+        className="md:hidden border rounded-full border-color-secondary bg-secondary size-14.5 flex items-center justify-center flex-col gap-1.75 z-50 cursor-pointer will-change-auto"
         id="ham-menu"
         onClick={toggleMenu}
+        aria-label={isActive ? 'Open menu' : 'Close menu'}
       >
-        <p className="bg-white h-[1px] w-7 relative rotate-0" id="ham-item-1"></p>
-        <p className=" bg-white h-[1px] w-7 relative rotate-0" id="ham-item-2"></p>
-      </div>
+        <span className="bg-white h-px w-6.5 block" id="ham-item-1" />
+        <span className="bg-white h-px w-6.5 block" id="ham-item-2" />
+      </button>
+
+      {/* ── Full-screen overlay ── */}
       <div
         id="ham-overlay"
-        className="md:hidden absolute h-dvh w-full bg-secondary -translate-y-full will-change-auto top-0 left-0 z-40 flex flex-col items-center justify-center gap-8 "
+        className="md:hidden fixed h-dvh w-full bg-secondary -translate-y-full top-0 left-0 z-40 flex flex-col justify-between px-8 pt-28 pb-12 will-change-transform"
       >
-        <section className=" w-screen">
-          <p className="text-primary-light font-mono">Nav links</p>
-          <ul className="text-primary flex flex-col pl-10">
-            {ROUTES.map((route) => (
-              <li key={route.path} className="text-primary text-6xl font-semibold font-primary">
-                <Link href={route.path}>{route.name}</Link>
+        {/* Nav links */}
+        <nav>
+          <p
+            className="text-[11px] tracking-[0.18em] uppercase text-white/30 mb-6"
+            style={{ fontFamily: 'var(--font-primary)' }}
+          >
+            Navigation
+          </p>
+          <ul className="flex flex-col gap-1">
+            {ROUTES.map((route, i) => (
+              <li
+                key={route.path}
+                className="ham-nav-item opacity-0 overflow-hidden"
+                style={{ transform: 'translateY(12px)' }}
+              >
+                <Link
+                  href={route.path}
+                  onClick={toggleMenu}
+                  className="block text-[13vw] leading-[1.1] font-medium text-white hover:text-tertiary transition-colors duration-200"
+                  style={{ fontFamily: 'var(--font-primary)' }}
+                >
+                  {route.name}
+                </Link>
               </li>
             ))}
           </ul>
-        </section>
-        <div className=" w-full h-[150px]">
-          <p className="text-primary-light bg-secondary-color font-mono">Social links</p>
-          <ul className="flex items-center-safe justify-around ">
+        </nav>
+
+        {/* Footer row: socials + index */}
+        <div className="flex items-end justify-between border-t border-white/10 pt-6">
+          <ul className="flex flex-wrap gap-5">
             {SOCIALS.map((social) => (
-              <li key={social.path} className="text-primary font-primary">
-                <Link href={social.path}>{social.name}</Link>
+              <li key={social.path} className="ham-social-item opacity-0" style={{ transform: 'translateY(12px)' }}>
+                <Link
+                  href={social.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[13px] text-white/50 hover:text-white transition-colors duration-200"
+                  style={{ fontFamily: 'var(--font-primary)' }}
+                >
+                  {social.name}
+                </Link>
               </li>
             ))}
           </ul>
+          <p
+            className="text-[11px] tracking-[0.14em] text-white/20 uppercase"
+            style={{ fontFamily: 'var(--font-primary)' }}
+          >
+            v3.0
+          </p>
         </div>
       </div>
     </>

@@ -33,11 +33,13 @@ if (process.env.NODE_ENV !== 'production') {
       };
 
       // eslint-disable-next-line no-console
-      console.warn('[next.config] patched globalThis.localStorage for dev');
+      // patched globalThis.localStorage for dev (silenced log)
+      // console.warn('[next.config] patched globalThis.localStorage for dev');
     }
   } catch (e) {
     // eslint-disable-next-line no-console
-    console.warn('[next.config] localStorage shim failed:', e && e.message);
+    // localStorage shim failed (silenced warning):
+    // console.warn('[next.config] localStorage shim failed:', e && e.message);
   }
 }
 

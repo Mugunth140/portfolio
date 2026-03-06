@@ -1,6 +1,8 @@
-import './globals.css';
-import Navbar from '../components/Navbar';
+import Footer from '@/components/Footer';
 import Loader from '@/components/Loader';
+import '@/plugins/gsap.plugin';
+import Navbar from '../components/Navbar';
+import './globals.css';
 
 // const geistSans = Geist({
 //   variable: '--font-geist-sans',
@@ -19,6 +21,7 @@ export default function RootLayout({ children }) {
         <Loader>
           <Navbar />
           {children}
+          <Footer />
         </Loader>
       </body>
     </html>

@@ -19,4 +19,12 @@
     border-color: lch(44.13 80.66 290.69);
   }
 }
-/* layout utils */
+
+.nav-glass {
+  background: linear-gradient(to bottom, #fff7f7, transparent);
+  background: -moz-linear-gradient(to bottom, #fff7f7, transparent);
+  background: -webkit-linear-gradient(to bottom, #fff7f7, transparent);
+
+  /* backdrop-filter: blur(80px) saturate(60%);
+  -webkit-backdrop-filter: blur(80px) saturate(60%); */
+}

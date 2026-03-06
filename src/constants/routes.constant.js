@@ -11,10 +11,10 @@ export const ROUTES = [
     name: 'Work',
     path: '/work',
   },
-  // TODO: Add Blog
+  // Blog
   {
     name: 'Blog',
-    path: '#',
+    path: '/blog',
   },
   {
     name: 'Contact',

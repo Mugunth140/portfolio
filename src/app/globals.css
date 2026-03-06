@@ -1,41 +1,50 @@
 @import 'tailwindcss';
 @import '../utility/util.css';
 
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('/fonts/PPNeueMontreal-Book.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('/fonts/PPNeueMontreal-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('/fonts/PPNeueMontreal-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Humane';
+  src: url('/fonts/Humane-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   width: 100%;
   scroll-behavior: smooth;
   background: var(--background);
   color: var(--foreground);
-  font-family: 'font-secondary', sans-serif;
+  font-family: var(--font-primary);
 }
-
-@font-face {
-  font-family: 'font-primary';
-  font-style: normal;
-  font-display: swap;
-  src: url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
-}
-
-@font-face {
-  font-family: 'font-humane';
-  font-style: normal;
-  font-display: swap;
-  src: url('../../public/fonts/Humane-Bold.woff2') format('woff2');
-}
-
-/* 
-@font-face {
-  font-family: "font-humane";
-  font-style: bold;
-  font-display: swap;
-  src: url("https://cdn.jsdelivr.net/gh/Mugunth140/fonts@latest/humane/Web-TT/Humane-Bold.woff2") format("woff2");
-} */
 
 :root {
   --primary-color: #989797;
   --background: #fff7f7;
   --foreground: #171717;
-  --font-sans: var(--font-geist-sans);
 }
 
 @theme {
@@ -45,9 +54,11 @@ body {
   --color-dark: #1c1d20;
   --color-dark-dark: #141517;
   --color-primary-light: #989797;
-  --font-primary: var(--font-primary);
-  --font-secondary: var(--font-secondary);
-  --font-humane: var(--font-humane);
+  --font-sans: 'NeueMontreal', sans-serif;
+  --font-primary: 'NeueMontreal', sans-serif;
+  --font-secondary: 'NeueMontreal', sans-serif;
+  --font-humane: 'Humane', sans-serif;
+  --font-mono: 'NeueMontreal', monospace;
 }
 
 /* @layer components {
@@ -58,6 +69,29 @@ body {
   @apply flex justify-center items-center;
 }
 
-@utility font-primary {
-  @apply font-[var(--font-primary)];
+/**
+ * utility class for using the primary font.
+ * you can apply `class="font-primary"` anywhere in the markup.
+ */
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+/* ── Marquee ── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 24s linear infinite;
+  width: max-content;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
 }
