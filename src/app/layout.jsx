@@ -1,7 +1,7 @@
-import Footer from '@/components/Footer';
 import Loader from '@/components/Loader';
-import '@/plugins/gsap.plugin';
 import Navbar from '../components/Navbar';
+import Footer from '@/components/Footer';
+import '@/plugins/gsap.plugin';
 import './globals.css';
 
 // const geistSans = Geist({
