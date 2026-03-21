@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import styles from './Techstack.module.scss';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import styles from './Techstack.module.scss';
 
 const Techstack = () => {
   const [images, setImages] = useState([]);
@@ -26,7 +26,7 @@ const Techstack = () => {
         <div className={styles.marqueeContent}>
           {[...images, ...images].map((img, index) => (
             <div key={index}>
-              <Image src={`/icons/${img}`} alt={`Icon ${index}`} width={100} height={100} quality={100} />
+              <Image src={`/icons/${img}`} alt={`Icon ${index}`} width={100} height={100} />
             </div>
           ))}
         </div>
@@ -35,7 +35,7 @@ const Techstack = () => {
         <div className={styles.marqueeContent}>
           {[...images, ...images].map((img, index) => (
             <div key={index}>
-              <Image src={`/icons/${img}`} alt={`Icon ${index}`} width={100} height={100} quality={100} />
+              <Image src={`/icons/${img}`} alt={`Icon ${index}`} width={100} height={100} />
             </div>
           ))}
         </div>

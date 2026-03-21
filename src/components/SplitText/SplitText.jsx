@@ -6,7 +6,7 @@ import SplitType from 'split-type';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SplitText = ({ text }) => {
+const SplitText = ({ text, duration = 0.3, stagger = 0.1, y = 20 }) => {
   const containerRef = useRef(null);
 
   useGSAP(() => {
@@ -20,10 +20,10 @@ const SplitText = ({ text }) => {
     });
 
     const tl = gsap.timeline({
-      defaults: { duration: 0.3, ease: 'power4.out' },
+      defaults: { duration, ease: 'power4.out' },
     });
 
-    tl.from(splitContact.chars, { opacity: 0, y: 20, stagger: 0.1 });
+    tl.from(splitContact.chars, { opacity: 0, y, stagger });
 
     ScrollTrigger.create({
       animation: tl,

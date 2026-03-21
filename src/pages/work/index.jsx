@@ -173,6 +173,7 @@ export default function Work({ isMobile }) {
                           src={`/images/${project.image ? project.image : 'coming-soon.jpg'}`}
                           alt={`unable to fetch image from api`}
                           fill
+                          priority={index === 0}
                           sizes="(max-width: 768px) 100vw, 50vw"
                           style={{ objectFit: "cover" }}
                           className="image"

@@ -31,7 +31,7 @@ const Footer = () => {
     <div className="footer-container">
       <div className="footer">
         <div className="footer-text" >
-          <SplitText text={footerText} />
+          <SplitText text={footerText} duration={0.18} stagger={0.035} y={12} />
         </div>
       </div>
 
