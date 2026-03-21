@@ -13,9 +13,11 @@ RUN --mount=type=cache,id=portfolio-npm-cache,target=/root/.npm \
 
 FROM node:20-alpine AS builder
 WORKDIR /app
+ENV NODE_OPTIONS=--max-old-space-size=384 \
+	NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN npm run build
+RUN npm run build:lowmem
 
 FROM node:20-alpine AS runner
 WORKDIR /app

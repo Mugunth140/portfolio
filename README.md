@@ -126,6 +126,34 @@ import '../styles/components/Header.scss';
 
 The project is hosted on [Vercel](https://vercel.com/) for continuous integration and deployment. The setup is seamless with Next.js as Vercel offers one-click deployment for this framework.
 
+### Low-RAM VM Deployment (Recommended for ~800MB RAM)
+
+If your VM cannot build the project (common on small RAM instances), avoid building on the VM entirely.
+
+1. Push code to `v3-development`.
+2. GitHub Actions builds and publishes the image to GHCR: `ghcr.io/<your-username>/portfolio:latest`.
+3. On VM, only run the container:
+
+```bash
+docker pull ghcr.io/<your-username>/portfolio:latest
+docker run -d --name portfolio -p 3000:3000 \
+  -e EMAIL_USER="your-email@example.com" \
+  -e EMAIL_PASS="your-app-password" \
+  ghcr.io/<your-username>/portfolio:latest
+```
+
+This uses almost no build memory on the VM.
+
+### If You Must Build on a Small VM
+
+Use the low-memory script:
+
+```bash
+npm run build:lowmem
+```
+
+This constrains Node heap (`--max-old-space-size=384`) and uses reduced build concurrency.
+
 ### Steps to Deploy
 
 1. Connect your GitHub repository to Vercel.
