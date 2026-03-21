@@ -19,6 +19,9 @@ export default function About() {
         <meta name="keywords" content="Mugunth, Full-Stack Developer, Web Development, JavaScript, Python, React, Node.js, Portfolio, UI/UX Design" />
         <meta name="author" content="Mugunth" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://mugunth.me/about" />
+        <meta property="og:site_name" content="mugunth.me" />
         
         {/* Open Graph Metadata */}
         <meta property="og:title" content="Mugunth | About" />

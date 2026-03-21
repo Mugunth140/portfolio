@@ -61,6 +61,9 @@ export default function Work({ isMobile }) {
         />
         <meta name="author" content="Mugunth" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://mugunth.me/work" />
+        <meta property="og:site_name" content="mugunth.me" />
 
         <meta property="og:title" content="Mugunth | Work" />
         <meta

@@ -1,8 +1,8 @@
-import { useState } from "react";
-import Transition from "@/components/Transitions/Transition";
-import SplitText from "@/components/SplitText/SplitText";
-import Head from "next/head";
 import Btn from "@/components/Btn/btn";
+import SplitText from "@/components/SplitText/SplitText";
+import Transition from "@/components/Transitions/Transition";
+import Head from "next/head";
+import { useState } from "react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -68,17 +68,20 @@ export default function Contact() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="Mugunth, Contact Mugunth, Web Development, Freelance Developer, JavaScript, Python, Next.js, Portfolio" />
         <meta name="author" content="Mugunth" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://mugunth.me/contact" />
         
+        <meta property="og:site_name" content="mugunth.me" />
         <meta property="og:title" content="Mugunth | Contact" />
         <meta property="og:description" content="Reach out to Mugunth for your web development projects and ideas." />
-        <meta property="og:image" content="/images/1.jpg" />
+        <meta property="og:image" content="https://mugunth.me/images/1.jpg" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://mugunth.me/contact" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Mugunth | Contact" />
         <meta name="twitter:description" content="Reach out to Mugunth for your web development projects and ideas." />
-        <meta name="twitter:image" content="/images/1.jpg" />
+        <meta name="twitter:image" content="https://mugunth.me/images/1.jpg" />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>

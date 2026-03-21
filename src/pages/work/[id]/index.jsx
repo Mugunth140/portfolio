@@ -1,8 +1,9 @@
+import Btn from "@/components/Btn/btn";
 import Transition from "@/components/Transitions/Transition";
+import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import work from "../../api/data";
-import Btn from "@/components/Btn/btn";
 
 const WorkDetails = () => {
   const router = useRouter();
@@ -26,6 +27,22 @@ const WorkDetails = () => {
   }
   return (
     <Transition>
+      <Head>
+        <title>{`${project.title} | Mugunth Work`}</title>
+        <meta name="description" content={project.text} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={`https://mugunth.me/work/${project.id}`} />
+        <meta property="og:site_name" content="mugunth.me" />
+        <meta property="og:title" content={`${project.title} | Mugunth Work`} />
+        <meta property="og:description" content={project.text} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://mugunth.me/work/${project.id}`} />
+        <meta property="og:image" content={`https://mugunth.me/images/${project.image}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${project.title} | Mugunth Work`} />
+        <meta name="twitter:description" content={project.text} />
+        <meta name="twitter:image" content={`https://mugunth.me/images/${project.image}`} />
+      </Head>
       <section className="work-detailes-container">
         <div className="detailes-header">
           <div className="detailes-title">
