@@ -1,13 +1,13 @@
-import { StrictMode, useEffect, useState } from "react";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { AnimatePresence } from "framer-motion";
+import Cursor from "@/components/Cursor/Cursor";
+import Footer from "@/components/Footer/Footer";
 import Loader from "@/components/Loader/Loader";
 import Nav from "@/components/Nav/Nav";
-import Cursor from "@/components/Cursor/Cursor";
 import Push from "@/components/Push/Push";
-import Footer from "@/components/Footer/Footer";
 import "@/styles/globals.scss";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { AnimatePresence } from "framer-motion";
+import { StrictMode, useEffect, useState } from "react";
 
 export default function App({ Component, pageProps, router }) {
   const [isLoaderComplete, setIsLoaderComplete] = useState(false);
@@ -59,7 +59,7 @@ export default function App({ Component, pageProps, router }) {
         {isLoaderComplete ? (
           <>
             {router.route == "/404" ? null : <Nav isMobile={isMobile} />}
-            <AnimatePresence mode={"wait"}>
+            <AnimatePresence mode={"sync"}>
               {!isMobile && <Cursor />}
               <Component
                 key={router.route}

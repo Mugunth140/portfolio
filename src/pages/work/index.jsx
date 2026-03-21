@@ -1,13 +1,13 @@
-import Transition from "@/components/Transitions/Transition";
-import React, { useState } from "react";
-import Head from "next/head";
-import Link from "next/link";
 import Btn from "@/components/Btn/btn";
 import Magnetic from "@/components/Magnetic/magnetic";
 import SplitText from "@/components/SplitText/SplitText";
+import Transition from "@/components/Transitions/Transition";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 import { BiGridAlt } from "react-icons/bi";
 import { CiCircleList } from "react-icons/ci";
-import Image from "next/image";
 import work from "../api/data";
 
 export default function Work({ isMobile }) {
@@ -154,12 +154,13 @@ export default function Work({ isMobile }) {
                 <h5>service</h5>
               </div>
               {filteredWork.map((project, index) => (
-                <Link href={`/work/${project.id}`} key={project.id} legacyBehavior>
-                  <a
-                    className={`work-project view ${
-                      viewStyle === "compact" ? "project-compact" : ""
-                    }`}
-                  >
+                <Link
+                  href={`/work/${project.id}`}
+                  key={project.id}
+                  className={`work-project view ${
+                    viewStyle === "compact" ? "project-compact" : ""
+                  }`}
+                >
                     {viewStyle === "default" && (
                       <div
                         className="project-image"
@@ -171,8 +172,9 @@ export default function Work({ isMobile }) {
                         <Image
                           src={`/images/${project.image ? project.image : 'coming-soon.jpg'}`}
                           alt={`unable to fetch image from api`}
-                          layout="fill"
-                          objectFit="cover"
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          style={{ objectFit: "cover" }}
                           className="image"
                         />
                       </div>
@@ -185,7 +187,6 @@ export default function Work({ isMobile }) {
                     <div className="project-type">
                       <p>{project.type}</p>
                     </div>
-                  </a>
                 </Link>
               ))}
             </div>
