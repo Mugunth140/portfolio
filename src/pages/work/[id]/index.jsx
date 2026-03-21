@@ -2,26 +2,9 @@ import Btn from "@/components/Btn/btn";
 import Transition from "@/components/Transitions/Transition";
 import Head from "next/head";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import work from "../../api/data";
 
-const WorkDetails = () => {
-  const router = useRouter();
-  const { id } = router.query;
-
-  if (!router.isReady) {
-    return (
-      <>
-        <div className="dynamicWorkLoader">
-          <h1>Loading...</h1>
-        </div>
-      </>
-    );
-  }
-
-  // Find the project by its id
-  const project = work.find((project) => project.id.toString() === id);
-
+const WorkDetails = ({ project }) => {
   if (!project) {
     return <p>Project not found</p>;
   }
@@ -31,17 +14,17 @@ const WorkDetails = () => {
         <title>{`${project.title} | Mugunth Work`}</title>
         <meta name="description" content={project.text} />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={`https://mugunth.me/work/${project.id}`} />
-        <meta property="og:site_name" content="mugunth.me" />
+        <link rel="canonical" href={`https://mugunth.dev/work/${project.id}`} />
+        <meta property="og:site_name" content="mugunth.dev" />
         <meta property="og:title" content={`${project.title} | Mugunth Work`} />
         <meta property="og:description" content={project.text} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://mugunth.me/work/${project.id}`} />
-        <meta property="og:image" content={`https://mugunth.me/images/${project.image}`} />
+        <meta property="og:url" content={`https://mugunth.dev/work/${project.id}`} />
+        <meta property="og:image" content={`https://mugunth.dev/images/${project.image}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${project.title} | Mugunth Work`} />
         <meta name="twitter:description" content={project.text} />
-        <meta name="twitter:image" content={`https://mugunth.me/images/${project.image}`} />
+        <meta name="twitter:image" content={`https://mugunth.dev/images/${project.image}`} />
       </Head>
       <section className="work-detailes-container">
         <div className="detailes-header">
@@ -53,7 +36,7 @@ const WorkDetails = () => {
           {project.isLive && (
             <div className="detailes-btn">
               <Btn>
-                <a href={project.url} target="_blank">
+                <a href={project.url} target="_blank" rel="noopener noreferrer">
                   <p>live</p>
                 </a>
               </Btn>
@@ -74,7 +57,7 @@ const WorkDetails = () => {
             />
             <div className="detailes-sourcecode">
               <Btn>
-                <a href={project.github} target="_blank">
+                <a href={project.github} target="_blank" rel="noopener noreferrer">
                   <p>source code</p>
                 </a>
               </Btn>
@@ -119,5 +102,24 @@ const WorkDetails = () => {
     </Transition>
   );
 };
+
+export async function getStaticPaths() {
+  return {
+    paths: work.map((project) => ({ params: { id: project.id.toString() } })),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const project = work.find((item) => item.id.toString() === params.id) || null;
+
+  if (!project) {
+    return { notFound: true };
+  }
+
+  return {
+    props: { project },
+  };
+}
 
 export default WorkDetails;

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://mugunth.dev/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mugunth.dev/about/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mugunth.dev/work/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mugunth.dev/contact/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url><loc>https://mugunth.dev/work/01/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mugunth.dev/work/02/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mugunth.dev/work/03/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mugunth.dev/work/04/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mugunth.dev/work/05/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mugunth.dev/work/06/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mugunth.dev/work/07/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mugunth.dev/work/08/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mugunth.dev/work/09/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mugunth.dev/work/10/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>

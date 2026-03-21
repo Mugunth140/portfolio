@@ -37,6 +37,12 @@ export default function Contact() {
       return;
     }
 
+    const mailtoLink = `mailto:mugunth140@gmail.com?subject=${encodeURIComponent(
+      `Project Inquiry: ${formData.service}`
+    )}&body=${encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nService: ${formData.service}\n\nMessage:\n${formData.message}`
+    )}`;
+
     setStatus("Sending...");
     try {
       const response = await fetch("/api/contact", {
@@ -51,11 +57,12 @@ export default function Contact() {
         setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", service: "", message: "" });
       } else {
-        const data = await response.json();
-        setStatus(`Failed to send message: ${data.message}`);
+        window.location.href = mailtoLink;
+        setStatus("Email service unavailable — opening your mail app instead.");
       }
     } catch (error) {
-      setStatus(`Failed to send message: ${error.message}`);
+      window.location.href = mailtoLink;
+      setStatus("Email service unavailable — opening your mail app instead.");
     }
     setTimeout(() => setStatus(""), 5000); // Clear the status message after 5 seconds
   };
@@ -69,19 +76,19 @@ export default function Contact() {
         <meta name="keywords" content="Mugunth, Contact Mugunth, Web Development, Freelance Developer, JavaScript, Python, Next.js, Portfolio" />
         <meta name="author" content="Mugunth" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://mugunth.me/contact" />
+        <link rel="canonical" href="https://mugunth.dev/contact" />
         
-        <meta property="og:site_name" content="mugunth.me" />
+        <meta property="og:site_name" content="mugunth.dev" />
         <meta property="og:title" content="Mugunth | Contact" />
         <meta property="og:description" content="Reach out to Mugunth for your web development projects and ideas." />
-        <meta property="og:image" content="https://mugunth.me/images/1.jpg" />
+        <meta property="og:image" content="https://mugunth.dev/images/1.jpg" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mugunth.me/contact" />
+        <meta property="og:url" content="https://mugunth.dev/contact" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Mugunth | Contact" />
         <meta name="twitter:description" content="Reach out to Mugunth for your web development projects and ideas." />
-        <meta name="twitter:image" content="https://mugunth.me/images/1.jpg" />
+        <meta name="twitter:image" content="https://mugunth.dev/images/1.jpg" />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -136,7 +136,7 @@ The project is hosted on [Vercel](https://vercel.com/) for continuous integratio
 
 If you have any questions or suggestions, feel free to reach out:
 
-- **Website**: [mugunth.me](https://mugunth.me)
+- **Website**: [mugunth.dev](https://mugunth.dev)
 - **Email**: mugunth140@example.com
 - **GitHub**: [github.com/mugunth140](https://github.com/portfolio.git)
 

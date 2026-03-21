@@ -124,19 +124,19 @@ export default function Home() {
 
       <meta name="robots" content="index, follow" />
       <meta name="keywords" content="Mugunth portfolio, Freelance developer India, JavaScript developer, Python developer, Full-stack developer, Web developer India, React developer, Node.js developer, MongoDB developer, Frontend development, Backend development, API development, Freelance programming services, Custom web applications, Modern web design, Mobile-friendly websites" />
-      <link rel="canonical" href="https://mugunth.me/" />
-      <meta property="og:site_name" content="mugunth.me" />
+      <link rel="canonical" href="https://mugunth.dev/" />
+      <meta property="og:site_name" content="mugunth.dev" />
 
       <meta property="og:title" content="Mugunth | Freelance Developer Portfolio" />
       <meta property="og:description" content="I'm Mugunth, a passionate freelance developer based in India. I specialize in bridging the gap between design and functionality to deliver seamless user experiences." />
-      <meta property="og:image" content="https://mugunth.me/images/9.jpg" />
-      <meta property="og:url" content="https://mugunth.me/" />
+      <meta property="og:image" content="https://mugunth.dev/images/9.jpg" />
+      <meta property="og:url" content="https://mugunth.dev/" />
       <meta property="og:type" content="website" />
       
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Mugunth | Portfolio" />
       <meta name="twitter:description" content="I'm Mugunth, a passionate freelance developer based in India. I specialize in bridging the gap between design and functionality to deliver seamless user experiences." />
-      <meta name="twitter:image" content="https://mugunth.me/images/9.jpg" />
+      <meta name="twitter:image" content="https://mugunth.dev/images/9.jpg" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -144,8 +144,8 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Mugunth",
-            url: "https://mugunth.me",
-            image: "https://mugunth.me/images/9.jpg",
+            url: "https://mugunth.dev",
+            image: "https://mugunth.dev/images/9.jpg",
             jobTitle: "Full-Stack Developer",
             sameAs: [
               "https://github.com/Mugunth140",

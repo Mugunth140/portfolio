@@ -1,9 +1,9 @@
+import gsap from "gsap";
 import Head from "next/head";
-import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import { useEffect, useRef } from "react";
 import { words } from "./data";
 import styles from "./Loader.module.scss";
-import gsap from "gsap";
 
 const Loader = ({ animationComplete }) => {
   const loaderRef = useRef(null);
@@ -83,18 +83,18 @@ const Loader = ({ animationComplete }) => {
 
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="Mugunth portfolio, Freelance developer India, JavaScript developer, Python developer, Full-stack developer, React developer, Node.js developer, MongoDB developer, Web development, Portfolio website" />
-    <link rel="canonical" href="https://mugunth.me/" />
+    <link rel="canonical" href="https://mugunth.dev/" />
 
     <meta property="og:title" content="Mugunth | Freelance Developer Portfolio" />
     <meta property="og:description" content="Explore the portfolio of Mugunth, a freelance developer skilled in JavaScript, Python, and full-stack web development." />
-    <meta property="og:image" content="https://mugunth.me/about.jpg" />
-    <meta property="og:url" content="https://mugunth.me/" />
+    <meta property="og:image" content="https://mugunth.dev/about.jpg" />
+    <meta property="og:url" content="https://mugunth.dev/" />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Mugunth | Portfolio" />
     <meta name="twitter:description" content="Explore Mugunth's portfolio, a freelance developer skilled in JavaScript, Python, and full-stack development." />
-    <meta name="twitter:image" content="https://mugunth.me/about.jpg" />
+    <meta name="twitter:image" content="https://mugunth.dev/about.jpg" />
   </Head>
   
     <div className={styles.loader__wrapper} >

@@ -51,7 +51,7 @@ const work = [
       "platform": "Web",
       "isLive": false,
       "stack": "Next.js Sass Gsap Framer-motion",
-      "url": "https://mugunth.me/",
+      "url": "https://mugunth.dev/",
       "github": "https://github.com/Mugunth140/portfolio.git",
       "description": "This is my personal website that you are currently viewing on your device, It's an update version of my portfolio 2021 with an Updated tech stack , for frontend i'm going with React with Next.js for Server side rendering (SSR) and for animation's i'm going with Two of the most popular library's of all time GSAP and Framer motion"
     },    

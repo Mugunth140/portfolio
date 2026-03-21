@@ -20,8 +20,8 @@ export default function About() {
         <meta name="author" content="Mugunth" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://mugunth.me/about" />
-        <meta property="og:site_name" content="mugunth.me" />
+        <link rel="canonical" href="https://mugunth.dev/about" />
+        <meta property="og:site_name" content="mugunth.dev" />
         
         {/* Open Graph Metadata */}
         <meta property="og:title" content="Mugunth | About" />
@@ -29,8 +29,8 @@ export default function About() {
           property="og:description"
           content="Explore Mugunth's journey in web development, featuring projects, skills, and passion for creating impactful solutions."
         />
-        <meta property="og:image" content="https://mugunth.me/images/about.jpg" />
-        <meta property="og:url" content="https://mugunth.me/about" />
+        <meta property="og:image" content="https://mugunth.dev/images/about.jpg" />
+        <meta property="og:url" content="https://mugunth.dev/about" />
         <meta property="og:type" content="website" />
         
         {/* Twitter Metadata */}
@@ -40,7 +40,7 @@ export default function About() {
           name="twitter:description"
           content="Discover my journey as a full-stack developer, my skills, and the projects I've worked on."
         />
-        <meta name="twitter:image" content="https://mugunth.me/images/about.jpg" />
+        <meta name="twitter:image" content="https://mugunth.dev/images/about.jpg" />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>

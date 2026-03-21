@@ -62,16 +62,16 @@ export default function Work({ isMobile }) {
         <meta name="author" content="Mugunth" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://mugunth.me/work" />
-        <meta property="og:site_name" content="mugunth.me" />
+        <link rel="canonical" href="https://mugunth.dev/work" />
+        <meta property="og:site_name" content="mugunth.dev" />
 
         <meta property="og:title" content="Mugunth | Work" />
         <meta
           property="og:description"
           content="Showcasing Mugunth's design and development projects, combining creativity and technology for impactful solutions."
         />
-        <meta property="og:image" content="https://mugunth.me/images/9.jpg" />
-        <meta property="og:url" content="https://mugunth.me/work" />
+        <meta property="og:image" content="https://mugunth.dev/images/9.jpg" />
+        <meta property="og:url" content="https://mugunth.dev/work" />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -80,7 +80,7 @@ export default function Work({ isMobile }) {
           name="twitter:description"
           content="Explore my portfolio of web development and design projects showcasing my expertise and creativity."
         />
-        <meta name="twitter:image" content="https://mugunth.me/images/9.jpg" />
+        <meta name="twitter:image" content="https://mugunth.dev/images/9.jpg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

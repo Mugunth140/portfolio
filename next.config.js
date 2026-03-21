@@ -3,7 +3,10 @@ const path = require('path')
 
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export',
+  trailingSlash: true,
   images: {
+    unoptimized: true,
     qualities: [75, 100],
   },
   sassOptions: {
