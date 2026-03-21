@@ -2,13 +2,13 @@ import Btn from "@/components/Btn/btn";
 import Magnetic from "@/components/Magnetic/magnetic";
 import SplitText from "@/components/SplitText/SplitText";
 import Transition from "@/components/Transitions/Transition";
+import work from "@/data/work";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { BiGridAlt } from "react-icons/bi";
 import { CiCircleList } from "react-icons/ci";
-import work from "../api/data";
 
 export default function Work({ isMobile }) {
   const [category, setCategory] = useState("All");

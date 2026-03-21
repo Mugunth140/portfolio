@@ -1,6 +1,6 @@
 import Btn from "@/components/Btn/btn";
+import work from "@/data/work";
 import Image from 'next/image';
-import work from "../../pages/api/data";
 
 const ProjectMobile = () => {
   return (

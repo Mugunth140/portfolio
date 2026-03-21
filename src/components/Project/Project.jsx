@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 //import Router from "next/router";
+import work from "@/data/work";
 import { useState } from "react";
-import work from '../../pages/api/data';
 import Btn from "../Btn/btn";
 
 const Project = () => {

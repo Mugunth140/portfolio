@@ -1,8 +1,8 @@
 import Btn from "@/components/Btn/btn";
 import Transition from "@/components/Transitions/Transition";
+import work from "@/data/work";
 import Head from "next/head";
 import Image from "next/image";
-import work from "../../api/data";
 
 const WorkDetails = ({ project }) => {
   if (!project) {
