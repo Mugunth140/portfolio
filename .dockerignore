@@ -3,7 +3,11 @@ node_modules
 out
 .git
 .gitignore
-DockerFile
+Dockerfile
 npm-debug.log
 *.log
 .vscode
+.env
+.env.*
+.husky
+README.md

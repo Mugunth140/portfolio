@@ -1,7 +1,15 @@
+# syntax=docker/dockerfile:1.7
+
 FROM node:20-alpine AS deps
 WORKDIR /app
+
+ENV NPM_CONFIG_FUND=false \
+	NPM_CONFIG_AUDIT=false \
+	NPM_CONFIG_PROGRESS=false
+
 COPY package*.json ./
-RUN npm ci
+RUN --mount=type=cache,id=portfolio-npm-cache,target=/root/.npm \
+	npm ci --prefer-offline --no-audit --no-fund
 
 FROM node:20-alpine AS builder
 WORKDIR /app
