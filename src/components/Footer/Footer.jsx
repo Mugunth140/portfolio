@@ -1,7 +1,7 @@
-import { useState } from "react";
-import Btn from "../Btn/btn";
 import Link from "next/link";
+import { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import Btn from "../Btn/btn";
 import SplitText from '../SplitText/SplitText';
 
 const Footer = () => {
@@ -30,9 +30,9 @@ const Footer = () => {
   return (
     <div className="footer-container">
       <div className="footer">
-        <p className="footer-text" >
+        <div className="footer-text" >
           <SplitText text={footerText} />
-        </p>
+        </div>
       </div>
 
       <div className="footer-btn-container">

@@ -6,17 +6,18 @@ import work from '../../pages/api/data';
 import Btn from "../Btn/btn";
 
 const Project = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(0);
+  const recentProjects = work.slice(-4);
 
   return (
     <div className="project-wrapper">
       <section className="project-container">
-      {work.slice(-4).map((project, index) => (
+      {recentProjects.map((project, index) => (
   <div
     key={index}
     className="project"
     onMouseEnter={() => setHoveredIndex(index)}
-    onMouseLeave={() => setHoveredIndex(null)}
+    onMouseLeave={() => setHoveredIndex(0)}
   >
     <div className="project-text">
       <h2>{project.title}</h2>
@@ -31,30 +32,26 @@ const Project = () => {
 ))}
       </section>
       <aside className="project-model">
-        <div data-scroll data-scroll-speed="0.05" className="model-container">
-          <div className="model-slider">
-            {work.map((project, index) => (
-              <div
-                key={index}
-                style={{
-                  transform: `translateY(-${
-                    hoveredIndex !== null ? hoveredIndex * 100 : 710
-                  }%)`,
-                }}
-                className="model"
-              >
+        <div className="model-container">
+          <div
+            className="model-slider"
+            style={{ transform: `translateY(-${hoveredIndex * 100}%)` }}
+          >
+            {recentProjects.map((project, index) => (
+              <div key={index} className="model">
                 <Image
-                  src={`/images/${project.image}`}
+                  src={`/images/${project.image || "coming-soon.jpg"}`}
                   alt={project.title || ""}
-                  priority={true}
-                  width={400}
-                  height={0} // Adjust height as per your image dimensions
+                  priority={index === 0}
+                  fill
+                  sizes="(max-width: 900px) 90vw, (max-width: 1200px) 35vw, 28vw"
+                  style={{ objectFit: "cover" }}
                 />
               </div>
             ))}
           </div>
         </div>
-        <div data-scroll data-scroll-speed="0.1" className="project-btn">
+        <div className="project-btn">
           <Btn>
             <Link href="/work">
               <p>More work</p>

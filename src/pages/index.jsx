@@ -1,13 +1,13 @@
 "use client";
-import Head from "next/head";
-import {useEffect, useState} from "react";
+import Magnetic from "@/components/Magnetic/magnetic";
 import Transition from "@/components/Transitions/Transition";
-import SplitType from "split-type";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Head from "next/head";
+import { useEffect, useState } from "react";
 import { IoIosArrowRoundDown } from "react-icons/io";
-import Magnetic from "@/components/Magnetic/magnetic";
+import SplitType from "split-type";
 //import Lenis from "lenis";
 import Marquee from "@/components/Marquee/Marquee";
 import Project from "@/components/Project/Project";
@@ -80,6 +80,17 @@ export default function Home() {
           ease: "power4.out",
         },
         "<+0.5"
+      )
+      .from(
+        mainSplit.chars,
+        {
+          opacity: 0,
+          y: 30,
+          duration: 0.6,
+          stagger: 0.015,
+          ease: "power3.out",
+        },
+        "<+0.2"
       );
 
     gsap.to(".ball-container", {
@@ -96,20 +107,10 @@ export default function Home() {
       borderRadius: "0px",
     });
 
-    const mainText = gsap.timeline({
-      defaults: { duration: 0.5, ease: "power3.out" },
-    });
-
-    mainText.from(mainSplit.chars, { opacity: 0, y: 30, stagger: 0.1 });
-
-    ScrollTrigger.create({
-      animation: mainText,
-      trigger: ".chars",
-      start: "70% center",
-      end: "bottom center",
-      scrub: true,
-      //markers:true,
-    });
+    return () => {
+      split.revert();
+      mainSplit.revert();
+    };
   }, []);
 
   return (

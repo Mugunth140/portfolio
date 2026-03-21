@@ -1,5 +1,6 @@
 .project-wrapper {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   width: 100%;
   background-color: var(--primary);
   display: -webkit-box;
@@ -9,9 +10,13 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 
   .project-container {
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     width: 70%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -72,7 +77,7 @@
         }
 
         p {
-          font-size: clamp(rem, 1.2vw, 1.5rem);
+          font-size: clamp(0.9rem, 1.2vw, 1.5rem);
           font-weight: 400;
         }
       }
@@ -122,14 +127,15 @@
   }
 
   .project-model {
-    height: 100%;
+    min-height: 100vh;
+    height: auto;
     width: 30%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: space-evenly;
-    -ms-flex-pack: space-evenly;
-    justify-content: space-evenly;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -137,32 +143,47 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 0;
 
     .model-container {
       height: 260px;
-      width: calc(100% - 60px);
+      width: min(100%, 360px);
       border-radius: 2em;
       overflow: hidden;
 
       .model-slider {
         height: 100%;
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+        transition: -webkit-transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+        -o-transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+        transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+        transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1), -webkit-transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
 
         .model {
           position: relative;
+          width: 100%;
+          height: 100%;
+          min-height: 100%;
+          -ms-flex-negative: 0;
+              flex-shrink: 0;
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
-          -webkit-transform: translateY(0%);
-              -ms-transform: translateY(0%);
-                  transform: translateY(0%);
-          -webkit-transition: all 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-          -o-transition: all 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-          transition: all 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
 
           img {
-            height: auto;
+            height: 100%;
             width: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
           }
         }
 
@@ -179,6 +200,75 @@
         font-size: 1.2em;
         font-family: "Neue Montreal", sans-serif;
         padding: 2vh 8vh;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .project-wrapper {
+    .project-container {
+      width: 65%;
+
+      .project {
+        width: 88%;
+        padding: 32px 40px;
+      }
+    }
+
+    .project-model {
+      width: 35%;
+
+      .model-container {
+        width: min(100%, 320px);
+        height: 220px;
+      }
+
+      .project-btn {
+        p {
+          padding: 1.6vh 6vh;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .project-wrapper {
+    min-height: auto;
+    padding: 2.5rem 1rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    gap: 2rem;
+
+    .project-container,
+    .project-model {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+    }
+
+    .project-container {
+      .project {
+        width: 100%;
+        padding: 24px 12px;
+
+        .project-text {
+          h2 {
+            font-size: clamp(1.3rem, 3.5vw, 2rem);
+          }
+        }
+      }
+    }
+
+    .project-model {
+      gap: 1rem;
+
+      .model-container {
+        width: min(100%, 540px);
+        height: 280px;
       }
     }
   }
