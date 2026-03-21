@@ -1,5 +1,5 @@
 .stack-wrapper{
-    height: 100%;
+    height: auto;
     width: 100%;
     font-family: "Neue Montreal", sans-serif;
     color: var(--secondary);
@@ -7,37 +7,62 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 3.5rem 0 5rem;
 
     .stack-title{
         font-size: clamp(1.8em, 2.5vw, 4em);
         line-height: 1.3;
         width: 85%;
-        //text-align: flex-start;
-        padding: 0em 2em 1.5em 0em;
+        padding: 0 0 1.6em 0;
+
+        .stack-kicker {
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #7c7a74;
+            font-size: clamp(0.75rem, 0.9vw, 0.95rem);
+            margin-bottom: 0.7rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 4.3rem);
+            line-height: 1.15;
+            font-weight: 500;
+            max-width: 12ch;
+        }
     }
 
     .stack-content{
-        margin: 1em 0 1em 0;
+        margin: 0;
         width: 85%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        //flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
 
         .stack-items {
-           width: 40vw;
+           width: 100%;
+           border: 1px solid #dfddd6;
+           background: #fffcf6;
+           border-radius: 16px;
+           padding: 1.2rem;
+           transition: transform 0.2s ease, border-color 0.2s ease;
+
+           &:hover {
+            transform: translateY(-3px);
+            border-color: #c7c3b8;
+           }
 
            .item-title {
-            font-size: clamp(1em, 1.5vw, 2em);
+            font-size: clamp(1.05rem, 1.3vw, 1.45rem);
+            font-weight: 500;
            }
 
            .item-description{
-            border-top: 1.5px solid var(--grey);
-            font-size: clamp(1em, 1.3vw, 1.5em);
-            word-spacing: 1.5px;
+            border-top: 1px solid #e7e3d8;
+            font-size: clamp(0.95rem, 1vw, 1.05rem);
+            color: #4b4943;
             line-height: 1.5;
-            padding: 1em 0 1em 0;
-            margin: 1em 0 1em 0;
+            padding: 0.9rem 0 0;
+            margin: 0.8rem 0 0;
            }
         }
     }
@@ -45,20 +70,34 @@
 
 @media(max-width: 768px){
     .stack-wrapper{
+        padding: 2.5rem 0 3rem;
+
+        .stack-title {
+            width: 90%;
+            padding-bottom: 1rem;
+
+            h2 {
+                max-width: none;
+                font-size: clamp(1.9rem, 8vw, 2.4rem);
+            }
+        }
+
         .stack-content{
-            flex-direction: column;
-            align-items: center;
+            width: 90%;
+            grid-template-columns: 1fr;
+            gap: 0.9rem;
 
             .stack-items{
-                width: 80vw;
+                width: 100%;
+                padding: 1rem;
 
                 .item-title{
-                    font-size: 1.5em !important;
+                    font-size: 1.2em !important;
                 }
 
                 .item-description{
                     font-weight: 400;
-                    font-size: 1.2em !important;
+                    font-size: 1rem !important;
                 }
             }
 

@@ -1,10 +1,9 @@
 import Aboutstack from "@/components/AboutStack/AboutStack";
+import Btn from "@/components/Btn/btn";
+import SplitText from "@/components/SplitText/SplitText";
 import Techstack from "@/components/Techstack/Techstack";
 import Transition from "@/components/Transitions/Transition";
-import SplitText from "@/components/SplitText/SplitText";
-import Btn from "@/components/Btn/btn";
 import Head from "next/head";
-import Image from "next/image";
 
 
 export default function About() {
@@ -67,24 +66,19 @@ export default function About() {
                 </div>
 
               </aside>
-              <div className="aboutImg">
-                <Image
-                  src={"/images/about.jpg"}
-                  alt={"about-img"}
-                  height={400}
-                  width={300}
-                  // fill
-                  quality={100}
-                  placeholder="blur"
-                  blurDataURL="/images/about-img-blur.jpg"
-                />
-
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                {/* <img
-                  id="about-image"
-                  src="/images/about-img.webp"
-                  alt="about-img"
-                /> */}
+              <div className="aboutHighlights">
+                <div className="highlightCard">
+                  <h3>What I do</h3>
+                  <p>Designing thoughtful interfaces and building fast, scalable web products.</p>
+                </div>
+                <div className="highlightCard">
+                  <h3>How I work</h3>
+                  <p>From idea to launch clear process, clean code, and detail focused execution.</p>
+                </div>
+                <div className="highlightCard">
+                  <h3>Focus</h3>
+                  <p>Performance, accessibility, and delightful user experiences across devices.</p>
+                </div>
               </div>
             </div>
           </div>

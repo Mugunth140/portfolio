@@ -1,26 +1,27 @@
 const Aboutstack = () => {
   const AboutStackData = [
     {
-      title: "Client-Side (User Interface/User Experience)",
+      title: "Frontend Development",
       description:
-        "I specialize in crafting visually appealing, responsive interfaces using React and Next.js. My focus is on delivering intuitive, pixel-perfect designs and smooth animations that enhance user engagement and provide exceptional user experiences.",
+        "I build clean, responsive interfaces with React and Next.js, focused on performance, accessibility, and polished user interactions.",
     },
     {
-      title: "Server-Side (Api's & Database)",
+      title: "Backend Development",
       description:
-        "I excel in building robust, scalable server-side systems with Node.js, Express, and databases like MongoDB and MySQL. I develop secure, efficient applications and RESTful APIs, ensuring data integrity and writing clean, maintainable code for long-term performance.",
+        "I design robust APIs and scalable server architecture using Node.js, Express, and modern databases with security and maintainability in mind.",
     },
     {
-      title: "Full-Stack (All-In-One Package)",
+      title: "End-to-End Product Delivery",
       description:
-        "As an Full Stack  Developer, I integrate my interface and server-side skills to deliver complete web solutions. From UI design with React and Next.js to building server infrastructure, I handle all development aspects. Additionally, I incorporate SEO best practices to ensure your application is discoverable and reaches a wider audience.",
+        "From product planning and UI implementation to deployment and SEO, I deliver complete web experiences that are reliable, fast, and user-focused.",
     },
   ];
 
   return (
     <div className="stack-wrapper">
       <div className="stack-title">
-        <h2>I&apos;m Equipped to Support you with</h2>
+        <p className="stack-kicker">Services</p>
+        <h2>How I Can Support You</h2>
       </div>
       <div className="stack-content">
         {AboutStackData.map((data, index) => {

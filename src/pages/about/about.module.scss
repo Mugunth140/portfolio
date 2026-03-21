@@ -1,13 +1,15 @@
 .aboutWrapper {
-    height: 180vh;
+    min-height: 100vh;
+    height: auto;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background: var(--primary);
+    padding: 8rem 0 5rem;
 
     .aboutMain {
-        height: 100%;
+        height: auto;
         width: 80%;
         display: flex;
         justify-content: center;
@@ -15,13 +17,15 @@
         align-items: flex-start;
 
         .aboutTitle {
-            height: 30%;
+            min-height: 40vh;
+            height: auto;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: "Neue Montreal", sans-serif;
             border-bottom: 1.5px solid var(--grey);
+            padding-bottom: 3rem;
 
             &>h1 {
                 font-weight: 450;
@@ -32,18 +36,23 @@
         }
 
         .aboutContent {
-            height: 60%;
+            height: auto;
             width: 100%;
             display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-top: 2.5rem;
 
             .aboutMe {
-                flex: 1;
+                width: min(100%, 940px);
                 font-family: "Neue Montreal", sans-serif;
                 font-size: clamp(1.3em, 1.4vw, 2em);
+                margin: 0 auto;
                 
                 .cvBtnContainer{
-                    width: 200px;
-                    margin-inline:auto;
+                    width: fit-content;
+                    margin-top: 1.8rem;
+                    margin-inline: 2.5em;
                     
                     #cv-btn{
         
@@ -53,6 +62,7 @@
                         & > p {
                             width: 100%;
                             margin: 0.3em auto;
+                            font-size: 1rem;
                         }
 
                     }
@@ -67,21 +77,34 @@
                 }
             }
 
-            .aboutImg {
-                flex: 1;
-                position: relative;
+            .aboutHighlights {
+                width: min(100%, 940px);
+                margin: 0 auto;
                 display: grid;
-                place-items: center;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1rem;
 
-                &>img {
-                    height: auto;
-                    margin: 4em;
-                    width: clamp(20vw, 600px, 30vw);
-                    -o-object-fit: cover;
-                    object-fit: cover;
+                .highlightCard {
+                    border: 1px solid #dedcd6;
                     border-radius: 15px;
-                }
+                    padding: 1.2rem 1.1rem;
+                    background: #fffcf6;
 
+                    h3 {
+                        font-family: "Neue Montreal", sans-serif;
+                        font-size: clamp(1rem, 1.2vw, 1.2rem);
+                        font-weight: 500;
+                        margin-bottom: 0.8rem;
+                        color: var(--secondary);
+                    }
+
+                    p {
+                        font-family: "Neue Montreal", sans-serif;
+                        font-size: clamp(0.95rem, 1vw, 1.05rem);
+                        line-height: 1.5;
+                        color: #4a4a4a;
+                    }
+                }
             }
         }
     }
@@ -90,38 +113,41 @@
 }
 
 @media(max-width:768px) {
+    .aboutWrapper {
+        padding: 5.5rem 0 3rem;
 
-    .aboutTitle{
-        border-bottom: 0px transparent;
-      &>h1{
-        font-size: 2em;
-      }
-    }
+        .aboutMain {
+            width: 90%;
 
-    .aboutImg{
-        flex: 1;
-        
-        &>img{
-            height: auto;
-            width: 100% !important;
-            margin: 0 !important;
-            margin-top: 50px !important;
+            .aboutTitle {
+                min-height: auto;
+                border-bottom: 0px transparent;
+                padding-bottom: 1rem;
+
+                &>h1{
+                    font-size: 2em;
+                }
+            }
+
+            .aboutContent {
+                padding-top: 1.2rem;
+
+                .aboutMe {
+                    p{
+                        font-size: 1.08em;
+                        margin: 0 !important;
+                    }
+
+                    .cvBtnContainer {
+                        margin-top: 2rem;
+                        margin-inline: 0;
+                    }
+                }
+
+                .aboutHighlights {
+                    grid-template-columns: 1fr;
+                }
+            }
         }
-    }
-
-    .aboutMe {
-        display: grid;
-        place-content: end;
-        p{
-            font-size: 1.2em ;
-            margin: 0em!important;
-        }
-    }
-    .aboutContent{
-      flex-direction: column-reverse;
-
-      .cvBtnContainer{
-        margin-top: 100px;
-      }
     }
   }
