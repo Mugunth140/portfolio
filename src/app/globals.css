@@ -96,3 +96,128 @@ body {
 .marquee-track:hover {
   animation-play-state: paused;
 }
+
+/* ── Custom Cursor ── */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.cursor.visible {
+  opacity: 1;
+}
+
+.cursor-dot,
+.cursor-ring,
+.cursor-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Main dot */
+.cursor-dot {
+  width: 10px;
+  height: 10px;
+  background: #0a0a0a;
+  transition:
+    width 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+    height 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+    background 0.2s ease-out;
+}
+
+/* Outer ring */
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid rgba(10, 10, 10, 0.15);
+  background: transparent;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition:
+    opacity 0.25s ease-out,
+    transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+    width 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+    height 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Label */
+.cursor-label {
+  border-radius: 0;
+  color: #fafafa;
+  font-size: 10px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition:
+    opacity 0.2s ease-out,
+    transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ── Active state (hovering interactive) ── */
+.cursor.active .cursor-dot {
+  width: 56px;
+  height: 56px;
+  background: #0a0a0a;
+}
+
+.cursor.active .cursor-ring {
+  width: 70px;
+  height: 70px;
+  opacity: 0.4;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.cursor.active .cursor-label {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ── Pressed state ── */
+.cursor.pressed .cursor-dot {
+  transform: translate(-50%, -50%) scale(0.85);
+}
+
+.cursor.pressed .cursor-ring {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+/* ── Hide on touch/coarse devices ── */
+@media (pointer: fine) {
+  body.custom-cursor-enabled,
+  body.custom-cursor-enabled * {
+    cursor: none !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor {
+    display: none !important;
+  }
+
+  body.custom-cursor-enabled,
+  body.custom-cursor-enabled * {
+    cursor: auto !important;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .cursor,
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-label {
+    transition-duration: 0.1s;
+  }
+}

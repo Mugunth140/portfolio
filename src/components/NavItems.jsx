@@ -12,6 +12,7 @@ const NavItems = () => {
           <li key={route.path}>
             <Link
               href={route.path}
+              data-cursor={route.name}
               className="text-md font-medium tracking-[0.06em] text-gray-500 hover:text-black/90 transition-colors duration-300"
               style={{ fontFamily: 'var(--font-primary)' }}
             >
@@ -24,6 +25,7 @@ const NavItems = () => {
         <Btn>
           <Link
             href="/contact"
+            data-cursor="Contact"
             className="text-md font-medium tracking-[0.04em]"
             style={{ fontFamily: 'var(--font-primary)' }}
           >
