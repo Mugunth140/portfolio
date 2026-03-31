@@ -43,6 +43,18 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 
-const nextConfig = {};
+const nextConfig = {
+  output: 'standalone',
+  // Reduce memory usage in production
+  experimental: {
+    // Optimize memory usage for smaller VMs
+    workerThreads: false,
+    cpus: 1,
+  },
+  // Compress images
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
+};
 
 export default nextConfig;

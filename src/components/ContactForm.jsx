@@ -5,15 +5,35 @@ import Btn from './Btn';
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle | sending | sent
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
-    // Placeholder — hook up a backend / Formspree / Resend here
-    setTimeout(() => setStatus('sent'), 1500);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setStatus('sent');
+      setForm({ name: '', email: '', message: '' });
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage(error.message || 'Something went wrong. Please try again.');
+    }
   };
 
   const inputBase =
@@ -26,6 +46,17 @@ export default function ContactForm() {
         <div className="border border-color-secondary/20 rounded-2xl p-8 text-center">
           <p className="font-primary font-medium text-xl mb-2">Message sent!</p>
           <p className="text-sm font-mono text-foreground/50">I'll get back to you soon.</p>
+          <button onClick={() => setStatus('idle')} className="mt-4 text-sm font-mono text-tertiary hover:underline">
+            Send another message
+          </button>
+        </div>
+      ) : status === 'error' ? (
+        <div className="border border-red-500/30 rounded-2xl p-8 text-center">
+          <p className="font-primary font-medium text-xl mb-2 text-red-500">Failed to send</p>
+          <p className="text-sm font-mono text-foreground/50">{errorMessage}</p>
+          <button onClick={() => setStatus('idle')} className="mt-4 text-sm font-mono text-tertiary hover:underline">
+            Try again
+          </button>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-8">

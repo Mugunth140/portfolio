@@ -1,0 +1,64 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║  Docker Compose for Portfolio                                                ║
+# ║  Optimized for Azure B1s VM (1GB RAM)                                        ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+version: '3.8'
+
+services:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Next.js Application (Standalone)
+  # ─────────────────────────────────────────────────────────────────────────────
+  nextjs:
+    image: ${DOCKERHUB_USERNAME}/portfolio:latest
+    container_name: portfolio-nextjs
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - CONTACT_EMAIL_FROM=${CONTACT_EMAIL_FROM:-hello@mugunth.live}
+      - CONTACT_EMAIL_TO=${CONTACT_EMAIL_TO}
+    networks:
+      - portfolio-network
+    # Memory limits to stay under 300MB total
+    deploy:
+      resources:
+        limits:
+          memory: 200M
+        reservations:
+          memory: 100M
+    healthcheck:
+      test: ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost:3000/']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Nginx Reverse Proxy
+  # ─────────────────────────────────────────────────────────────────────────────
+  nginx:
+    image: nginx:alpine
+    container_name: portfolio-nginx
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /var/www/certbot:/var/www/certbot:ro
+    depends_on:
+      - nextjs
+    networks:
+      - portfolio-network
+    deploy:
+      resources:
+        limits:
+          memory: 20M
+        reservations:
+          memory: 5M
+
+networks:
+  portfolio-network:
+    driver: bridge
