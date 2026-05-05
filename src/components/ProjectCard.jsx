@@ -12,10 +12,8 @@ export default function ProjectCard({ project, index }) {
 
   return (
     <Link
-      href={project.link}
+      href={`/work/${project.slug}`}
       data-cursor="View"
-      target={project.link !== '#' ? '_blank' : undefined}
-      rel="noopener noreferrer"
       className="project-card group block py-7 relative cursor-pointer"
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}

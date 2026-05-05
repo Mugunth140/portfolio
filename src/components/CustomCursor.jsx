@@ -11,14 +11,15 @@ const getLabel = (element) => {
   return raw.replace(/\s+/g, ' ').trim().split(' ').slice(0, 2).join(' ').slice(0, 16) || 'View';
 };
 
-// Smooth interpolation factor (higher = snappier, lower = smoother)
-const LERP_FACTOR = 0.15;
-const LERP_FACTOR_ACTIVE = 0.12;
+// Smooth interpolation factors
+const LERP_FACTOR = 0.18;
+const LERP_FACTOR_ACTIVE = 0.14;
 
 export default function CustomCursor() {
   const cursorRef = useRef(null);
-  const dotRef = useRef(null);
-  const ringRef = useRef(null);
+  const innerDotRef = useRef(null);
+  const outerRingRef = useRef(null);
+  const glowRef = useRef(null);
   const labelRef = useRef(null);
 
   // Position state stored in refs for RAF access
@@ -37,7 +38,7 @@ export default function CustomCursor() {
     pos.current.x += (target.current.x - pos.current.x) * lerp;
     pos.current.y += (target.current.y - pos.current.y) * lerp;
 
-    // Apply transform (GPU-accelerated, single property)
+    // Apply transform (GPU-accelerated)
     if (cursorRef.current) {
       cursorRef.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0)`;
     }
@@ -47,11 +48,12 @@ export default function CustomCursor() {
 
   useEffect(() => {
     const cursor = cursorRef.current;
-    const dot = dotRef.current;
-    const ring = ringRef.current;
+    const innerDot = innerDotRef.current;
+    const outerRing = outerRingRef.current;
+    const glow = glowRef.current;
     const label = labelRef.current;
 
-    if (!cursor || !dot || !ring || !label) return;
+    if (!cursor || !innerDot || !outerRing || !glow || !label) return;
 
     // Check for fine pointer (mouse)
     const pointerQuery = window.matchMedia('(pointer: fine)');
@@ -96,7 +98,7 @@ export default function CustomCursor() {
         if (!reducedMotion) {
           setTimeout(() => {
             if (!isActive.current) label.textContent = '';
-          }, 200);
+          }, 250);
         } else {
           label.textContent = '';
         }
@@ -177,8 +179,9 @@ export default function CustomCursor() {
 
   return (
     <div ref={cursorRef} className="cursor" aria-hidden="true">
-      <div ref={ringRef} className="cursor-ring" />
-      <div ref={dotRef} className="cursor-dot" />
+      <div ref={glowRef} className="cursor-glow" />
+      <div ref={outerRingRef} className="cursor-ring" />
+      <div ref={innerDotRef} className="cursor-dot" />
       <span ref={labelRef} className="cursor-label" />
     </div>
   );

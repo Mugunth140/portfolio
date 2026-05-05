@@ -22,6 +22,16 @@ export const ROUTES = [
   },
 ];
 
+export const PAGE_SEQUENCE = ROUTES;
+
+export const getNextRoute = (path) => {
+  const currentIndex = PAGE_SEQUENCE.findIndex((route) => route.path === path);
+
+  if (currentIndex === -1) return null;
+
+  return PAGE_SEQUENCE[(currentIndex + 1) % PAGE_SEQUENCE.length];
+};
+
 export const SOCIALS = [
   {
     name: 'Github',

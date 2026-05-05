@@ -5,11 +5,6 @@ import '@/plugins/gsap.plugin';
 import Navbar from '../components/Navbar';
 import './globals.css';
 
-// const geistSans = Geist({
-//   variable: '--font-geist-sans',
-//   subsets: ['latin'],
-// });
-
 export const metadata = {
   title: 'Mugunth | Portfolio',
   description: 'A Designer and Developer',

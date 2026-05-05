@@ -1,6 +1,7 @@
 export const PROJECTS = [
   {
     id: 1,
+    slug: 'mugunth-live',
     name: 'Mugunth.live',
     category: 'Portfolio',
     year: '2024',
@@ -12,6 +13,7 @@ export const PROJECTS = [
   },
   {
     id: 2,
+    slug: 'project-alpha',
     name: 'Project Alpha',
     category: 'Web Design & Development',
     year: '2024',
@@ -23,6 +25,7 @@ export const PROJECTS = [
   },
   {
     id: 3,
+    slug: 'studio-x-branding',
     name: 'Brand Identity — Studio X',
     category: 'Branding',
     year: '2023',
@@ -34,6 +37,7 @@ export const PROJECTS = [
   },
   {
     id: 4,
+    slug: 'ecommerce-platform',
     name: 'E-Commerce Platform',
     category: 'UI/UX Design',
     year: '2023',
@@ -45,6 +49,7 @@ export const PROJECTS = [
   },
   {
     id: 5,
+    slug: 'motion-graphics-pack',
     name: 'Motion Graphics Pack',
     category: 'Motion Design',
     year: '2023',

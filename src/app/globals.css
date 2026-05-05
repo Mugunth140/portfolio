@@ -114,6 +114,7 @@ body {
 
 .cursor-dot,
 .cursor-ring,
+.cursor-glow,
 .cursor-label {
   position: absolute;
   top: 0;
@@ -122,75 +123,99 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Main dot */
-.cursor-dot {
-  width: 10px;
-  height: 10px;
-  background: #0a0a0a;
-  transition:
-    width 0.25s cubic-bezier(0.23, 1, 0.32, 1),
-    height 0.25s cubic-bezier(0.23, 1, 0.32, 1),
-    background 0.2s ease-out;
+/* Glow layer for modern effect */
+.cursor-glow {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(68, 68, 200, 0.15) 0%, rgba(68, 68, 200, 0.05) 70%, transparent 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
 }
 
-/* Outer ring */
+/* Main dot - sleeker design */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0ff 100%);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  transition:
+    width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    height 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.25s ease-out,
+    box-shadow 0.25s ease-out;
+}
+
+/* Outer ring - more refined */
 .cursor-ring {
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid rgba(10, 10, 10, 0.15);
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(200, 200, 255, 0.3);
   background: transparent;
   opacity: 0;
-  transform: translate(-50%, -50%) scale(0.8);
+  transform: translate(-50%, -50%) scale(0.85);
   transition:
-    opacity 0.25s ease-out,
-    transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-    width 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-    height 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity 0.3s ease-out,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    height 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.25s ease-out;
 }
 
-/* Label */
+/* Label - better positioned and styled */
 .cursor-label {
   border-radius: 0;
-  color: #fafafa;
-  font-size: 10px;
+  color: #ffffff;
+  font-size: 11px;
   font-family: var(--font-primary);
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   white-space: nowrap;
   opacity: 0;
-  transform: translate(-50%, -50%) scale(0.9);
+  transform: translate(-50%, -32px) scale(0.9);
   transition:
-    opacity 0.2s ease-out,
-    transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity 0.25s ease-out,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* ── Active state (hovering interactive) ── */
 .cursor.active .cursor-dot {
-  width: 56px;
-  height: 56px;
-  background: #0a0a0a;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #4444ff 0%, #7777ff 100%);
+  box-shadow:
+    0 0 16px rgba(68, 68, 255, 0.6),
+    inset 0 0 4px rgba(255, 255, 255, 0.3);
 }
 
 .cursor.active .cursor-ring {
-  width: 70px;
-  height: 70px;
-  opacity: 0.4;
+  width: 48px;
+  height: 48px;
+  opacity: 0.5;
   transform: translate(-50%, -50%) scale(1);
+  border-color: rgba(68, 68, 255, 0.6);
+}
+
+.cursor.active .cursor-glow {
+  opacity: 0.8;
 }
 
 .cursor.active .cursor-label {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -32px) scale(1);
 }
 
 /* ── Pressed state ── */
 .cursor.pressed .cursor-dot {
-  transform: translate(-50%, -50%) scale(0.85);
+  transform: translate(-50%, -50%) scale(0.8);
+  background: linear-gradient(135deg, #3333dd 0%, #6666ee 100%);
 }
 
 .cursor.pressed .cursor-ring {
   transform: translate(-50%, -50%) scale(0.9);
+  border-width: 2px;
 }
 
 /* ── Hide on touch/coarse devices ── */
@@ -217,7 +242,38 @@ body {
   .cursor,
   .cursor-dot,
   .cursor-ring,
+  .cursor-glow,
   .cursor-label {
     transition-duration: 0.1s;
   }
+}
+
+/* ── Page Transition ── */
+.page-transition-zone {
+  position: relative;
+  background: linear-gradient(to bottom, transparent, var(--color-primary) 20%);
+}
+
+.page-hero {
+  min-height: 30vh;
+}
+
+/* Smooth page entrance */
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+main {
+  animation: page-fade-in 0.4s ease-out;
+}
+
+/* ── Next Project Section ── */
+.next-project-section {
+  position: relative;
+  background: var(--color-primary);
 }

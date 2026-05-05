@@ -3,7 +3,8 @@ import { ROUTES, SOCIALS } from '@/constants/routes.constant';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import Link from 'next/link';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 
 gsap.registerPlugin(useGSAP);
 
@@ -11,7 +12,28 @@ gsap.registerPlugin(useGSAP);
 // isActive = false → menu OPEN
 const HamMenu = () => {
   const [isActive, setIsActive] = useState(true);
+  const pathname = usePathname();
+  const overlayRef = useRef(null);
   const toggleMenu = () => setIsActive((prev) => !prev);
+  const isActiveRoute = (path) => pathname === path || (path !== '/' && pathname.startsWith(`${path}/`));
+
+  // Close menu when route changes
+  useEffect(() => {
+    setIsActive(true);
+  }, [pathname]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (!isActive) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isActive]);
 
   useGSAP(() => {
     const hamTl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
@@ -74,30 +96,34 @@ const HamMenu = () => {
     <>
       {/* ── Hamburger button ── */}
       <button
-        className="md:hidden border rounded-full border-color-secondary bg-secondary size-14.5 flex items-center justify-center flex-col gap-1.75 z-50 cursor-pointer will-change-auto"
+        className="md:hidden border rounded-full border-color-secondary bg-secondary flex items-center justify-center flex-col gap-1.75 z-50 cursor-pointer will-change-auto transition-all duration-300"
+        style={{ width: '56px', height: '56px' }}
         id="ham-menu"
         onClick={toggleMenu}
         aria-label={isActive ? 'Open menu' : 'Close menu'}
+        aria-expanded={!isActive}
       >
-        <span className="bg-white h-px w-6.5 block" id="ham-item-1" />
-        <span className="bg-white h-px w-6.5 block" id="ham-item-2" />
+        <span className="bg-white h-px w-6 block transition-colors" id="ham-item-1" />
+        <span className="bg-white h-px w-6 block transition-colors" id="ham-item-2" />
       </button>
 
       {/* ── Full-screen overlay ── */}
       <div
+        ref={overlayRef}
         id="ham-overlay"
-        className="md:hidden fixed h-dvh w-full bg-secondary -translate-y-full top-0 left-0 z-40 flex flex-col justify-between px-8 pt-28 pb-12 will-change-transform"
+        className="md:hidden fixed h-dvh w-full bg-secondary -translate-y-full top-0 left-0 z-40 flex flex-col justify-between will-change-transform overflow-y-auto"
+        style={{ padding: 'min(2rem, 4vw)' }}
       >
         {/* Nav links */}
-        <nav>
+        <nav className="pt-16 sm:pt-20">
           <p
-            className="text-[11px] tracking-[0.18em] uppercase text-white/30 mb-6"
+            className="text-[10px] sm:text-[11px] tracking-[0.18em] uppercase text-white/30 mb-6 sm:mb-8"
             style={{ fontFamily: 'var(--font-primary)' }}
           >
             Navigation
           </p>
-          <ul className="flex flex-col gap-1">
-            {ROUTES.map((route, i) => (
+          <ul className="flex flex-col gap-0.5">
+            {ROUTES.map((route) => (
               <li
                 key={route.path}
                 className="ham-nav-item opacity-0 overflow-hidden"
@@ -106,7 +132,10 @@ const HamMenu = () => {
                 <Link
                   href={route.path}
                   onClick={toggleMenu}
-                  className="block text-[13vw] leading-[1.1] font-medium text-white hover:text-tertiary transition-colors duration-200"
+                  aria-current={isActiveRoute(route.path) ? 'page' : undefined}
+                  className={`block text-[11vw] sm:text-[10vw] leading-[1.1] font-medium transition-colors duration-200 ${
+                    isActiveRoute(route.path) ? 'text-tertiary' : 'text-white hover:text-tertiary'
+                  }`}
                   style={{ fontFamily: 'var(--font-primary)' }}
                 >
                   {route.name}
@@ -117,15 +146,15 @@ const HamMenu = () => {
         </nav>
 
         {/* Footer row: socials + index */}
-        <div className="flex items-end justify-between border-t border-white/10 pt-6">
-          <ul className="flex flex-wrap gap-5">
+        <div className="flex flex-col gap-6 border-t border-white/10 pt-6 sm:pt-8 pb-6">
+          <ul className="flex flex-wrap gap-4 sm:gap-6">
             {SOCIALS.map((social) => (
               <li key={social.path} className="ham-social-item opacity-0" style={{ transform: 'translateY(12px)' }}>
                 <Link
                   href={social.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] text-white/50 hover:text-white transition-colors duration-200"
+                  className="text-[12px] sm:text-[13px] text-white/50 hover:text-white transition-colors duration-200"
                   style={{ fontFamily: 'var(--font-primary)' }}
                 >
                   {social.name}
@@ -134,7 +163,7 @@ const HamMenu = () => {
             ))}
           </ul>
           <p
-            className="text-[11px] tracking-[0.14em] text-white/20 uppercase"
+            className="text-[10px] sm:text-[11px] tracking-[0.14em] text-white/20 uppercase mt-auto"
             style={{ fontFamily: 'var(--font-primary)' }}
           >
             v3.0
