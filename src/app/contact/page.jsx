@@ -1,22 +1,17 @@
+'use client';
+
 import { ArrowRight, Dribbble, Github, Instagram, Linkedin, Mail } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import ContactForm from '../../components/ContactForm';
-import { getNextRoute, SOCIALS } from '../../constants/routes.constant';
+import Footer from '@/components/Footer';
+import { SOCIALS } from '../../constants/routes.constant';
 
 const SOCIAL_ICONS = { Github, LinkedIn: Linkedin, Instagram, Dribbble };
-
-export const metadata = {
-  title: 'Contact | Mugunth',
-  description: 'Get in touch with Mugunth',
-};
-
-const nextPage = getNextRoute('/contact');
 
 export default function Contact() {
   return (
     <main className="min-h-screen">
-      <PageHero title="Contact." nextPage={nextPage}>
-        {/* ── Big email CTA ── */}
+      <PageHero title="Contact.">
         <section className="mb-24 mt-10">
           <p className="text-xs font-mono uppercase tracking-widest text-foreground/40 mb-6">[ Say hello ]</p>
           <a
@@ -32,11 +27,8 @@ export default function Contact() {
           </a>
         </section>
 
-        {/* ── Form + Socials ── */}
-        <section className="grid md:grid-cols-[1.2fr_1fr] gap-20">
+        <section className="grid md:grid-cols-[1.2fr_1fr] gap-20 pb-20">
           <ContactForm />
-
-          {/* Socials */}
           <div>
             <p className="text-xs font-mono uppercase tracking-widest text-foreground/40 mb-8">[ Find me on ]</p>
             <ul className="flex flex-col gap-4">
@@ -48,7 +40,7 @@ export default function Contact() {
                       href={social.path}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-4 py-4 border-b border-color-secondary/20 hover:border-tertiary transition-colors duration-200"
+                      className="group flex items-center gap-4 py-4 border-b border-secondary/10 hover:border-tertiary transition-colors duration-200"
                     >
                       {Icon && (
                         <Icon size={16} className="text-foreground/40 group-hover:text-tertiary transition-colors" />
@@ -56,10 +48,6 @@ export default function Contact() {
                       <span className="font-primary font-medium group-hover:text-tertiary transition-colors">
                         {social.name}
                       </span>
-                      <ArrowRight
-                        size={14}
-                        className="ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 text-tertiary"
-                      />
                     </a>
                   </li>
                 );
@@ -68,6 +56,7 @@ export default function Contact() {
           </div>
         </section>
       </PageHero>
+      <Footer />
     </main>
   );
 }

@@ -1,17 +1,13 @@
 import Link from 'next/link';
 import { SOCIALS } from '../constants/routes.constant';
-import FooterNavigation from './FooterNavigation';
 
-export default function Footer({ nextPage }) {
+export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-primary">
-      {/* Navigation section */}
-      {nextPage && <FooterNavigation nextPage={nextPage} />}
-
       {/* Footer content */}
-      <div className="border-t border-color-secondary/20 mt-10 md:mt-16">
+      <div className="border-t border-color-secondary/20">
         <div className="px-6 md:px-12 lg:px-20 py-8 md:py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           {/* Brand */}
           <div>

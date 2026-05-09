@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import FooterNavigation from './FooterNavigation';
+import { gsap, ScrollTrigger } from '@/plugins/gsap.plugin';
 
 export default function PageHero({ title, subtitle, children, nextPage }) {
   const containerRef = useRef(null);
@@ -17,26 +16,32 @@ export default function PageHero({ title, subtitle, children, nextPage }) {
     if (transitionPath === window.location.pathname) {
       setIsFromTransition(true);
       sessionStorage.removeItem('transitioning-to');
-      sessionStorage.removeItem('transition-title');
     }
 
+    // Force scroll to top and refresh ScrollTrigger
     window.scrollTo(0, 0);
+    ScrollTrigger.refresh();
   }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
       if (isFromTransition) {
-        // Coming from transition - title already visible
-        gsap.set(titleRef.current, { opacity: 1, y: 0 });
-        if (subtitleRef.current) gsap.set(subtitleRef.current, { opacity: 0, y: 20 });
-        gsap.set(contentRef.current, { opacity: 0, y: 30 });
+        // Coming from "Keep Scrolling" transition - reveal from bottom
+        gsap.set(containerRef.current, { y: 100, opacity: 0 });
+        tl.to(containerRef.current, { y: 0, opacity: 1, duration: 1.2 });
 
-        if (subtitleRef.current) {
-          tl.to(subtitleRef.current, { opacity: 1, y: 0, duration: 0.5 }, 0.1);
-        }
-        tl.to(contentRef.current, { opacity: 1, y: 0, duration: 0.6 }, 0.2);
+        tl.from(
+          [titleRef.current, subtitleRef.current, contentRef.current],
+          {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.1,
+          },
+          '-=0.8',
+        );
       } else {
         // Normal entrance
         tl.from(titleRef.current, { y: 60, opacity: 0, duration: 0.8 });
@@ -70,8 +75,6 @@ export default function PageHero({ title, subtitle, children, nextPage }) {
           <div ref={contentRef}>{children}</div>
         </div>
       </div>
-
-      {nextPage && <FooterNavigation nextPage={nextPage} />}
     </div>
   );
 }

@@ -1,15 +1,21 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { ROUTES } from '../constants/routes.constant';
 import Btn from './Btn';
 
 const NavItems = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const navLinks = ROUTES.filter((r) => r.path !== '/' && r.path !== '/contact');
   const isActiveRoute = (path) => pathname === path || pathname.startsWith(`${path}/`);
   const isContactActive = isActiveRoute('/contact');
+
+  const handleNavClick = (path) => {
+    // Normal link behavior, but we can add a small fade-out if desired
+    // router.push(path);
+  };
 
   return (
     <>

@@ -1,7 +1,8 @@
+'use client';
+
 import HamMenu from '@/mobile/HamMenu';
 import Link from 'next/link';
 import NavItems from './NavItems';
-
 const Navbar = () => {
   return (
     <>
