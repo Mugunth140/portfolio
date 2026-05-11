@@ -1,8 +1,17 @@
 @import 'tailwindcss';
 @import '../utility/util.css';
 
+/* ── PPNeueMontreal Font Faces ── */
 @font-face {
-  font-family: 'NeueMontreal';
+  font-family: 'PPNeueMontreal';
+  src: url('/fonts/PPNeueMontreal-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PPNeueMontreal';
   src: url('/fonts/PPNeueMontreal-Book.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
@@ -10,7 +19,7 @@
 }
 
 @font-face {
-  font-family: 'NeueMontreal';
+  font-family: 'PPNeueMontreal';
   src: url('/fonts/PPNeueMontreal-Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
@@ -18,7 +27,7 @@
 }
 
 @font-face {
-  font-family: 'NeueMontreal';
+  font-family: 'PPNeueMontreal';
   src: url('/fonts/PPNeueMontreal-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
@@ -26,55 +35,201 @@
 }
 
 @font-face {
-  font-family: 'Humane';
-  src: url('/fonts/Humane-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
+  font-family: 'PPNeueMontreal';
+  src: url('/fonts/PPNeueMontreal-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
   font-display: swap;
 }
 
-body {
-  width: 100%;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-primary);
+/* ── Universal Box Sizing ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+/* ── Design Tokens ── */
 :root {
-  --primary-color: #989797;
-  --background: #fff7f7;
-  --foreground: #171717;
+  /* Typography */
+  --font-display: var(--font-bebas), 'Impact', sans-serif;
+  --font-body: 'PPNeueMontreal', 'DM Sans', sans-serif;
+  --font-mono: var(--font-dm-mono), 'Courier New', monospace;
+
+  /* Colors */
+  --bg: #f0ece4;
+  --bg-alt: #e8e3da;
+  --surface: #faf8f4;
+  --border: #d8d3c8;
+  --text: #111111;
+  --text-muted: #8c8880;
+  --accent: #1a5cff;
+  --accent-hover: #0a3fd4;
+  --accent-tint: #eef2ff;
+  --ink: #0f0f0f;
+
+  /* Spacing */
+  --section-px: clamp(20px, 4vw, 60px);
+  --section-py: clamp(60px, 10vh, 140px);
 }
 
+/* ── Tailwind v4 @theme ── */
 @theme {
-  --color-primary: #fff3f3;
-  --color-secondary: lch(10.75 2.24 272.76);
-  --color-tertiary: lch(44.13 80.66 290.69);
-  --color-dark: #1c1d20;
-  --color-dark-dark: #141517;
-  --color-primary-light: #989797;
-
-  --font-sans: 'NeueMontreal', sans-serif;
-  --font-primary: 'NeueMontreal', sans-serif;
-  --font-secondary: 'NeueMontreal', sans-serif;
-  --font-humane: 'Humane', sans-serif;
-  --font-mono: 'NeueMontreal', monospace;
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
+  --color-border-subtle: var(--border);
+  --color-text-main: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-tint: var(--accent-tint);
+  --color-ink: var(--ink);
+  --font-display: 'PPNeueMontreal', sans-serif;
+  --font-sans: 'PPNeueMontreal', sans-serif;
 }
 
-/* @layer components {
-
-}; */
-
-@utility flex-center {
-  @apply flex justify-center items-center;
+/* ── Base Styles ── */
+html,
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto;
 }
 
-/**
- * utility class for using the primary font.
- * you can apply `class="font-primary"` anywhere in the markup.
- */
-.font-primary {
-  font-family: var(--font-primary);
+section,
+main,
+article,
+header,
+footer {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ── Grain Overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+}
+
+/* ── Section Label ── */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ── Section Divider ── */
+.section-divider {
+  border-top: 1px solid var(--border);
+}
+
+/* ── Ghost Index Numbers ── */
+.ghost-index {
+  font-family: var(--font-display);
+  font-size: 20vw;
+  color: rgba(0, 0, 0, 0.04);
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  line-height: 0.85;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+
+/* ── Dot Grid Background ── */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Scroll Indicator ── */
+@keyframes scrollLine {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  50.01% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+.scroll-indicator {
+  width: 1px;
+  height: 48px;
+  background: var(--text-muted);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* ── Accent Left Border Detail ── */
+.accent-border-left {
+  border-left: 2px solid var(--accent);
+  padding-left: 10px;
+}
+
+/* ── Hero Word ── */
+.hero-word {
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 14vw, 16rem);
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+  color: var(--ink);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── Cursor Styles ── */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--text);
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--text);
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease-out;
 }
 
 /* ── Marquee ── */
@@ -87,192 +242,162 @@ body {
   }
 }
 
+.marquee-container {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  overflow: hidden;
+}
+
 .marquee-track {
-  animation: marquee 24s linear infinite;
-  width: max-content;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
 }
 
 .marquee-track:hover {
   animation-play-state: paused;
 }
 
-/* ── Custom Cursor ── */
-.cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease-out;
+/* ── Nav Glass ── */
+.nav-glass {
+  background: rgba(240, 236, 228, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
 }
 
-.cursor.visible {
-  opacity: 1;
+/* ── Custom Scrollbar ── */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
 }
 
-.cursor-dot,
-.cursor-ring,
-.cursor-glow,
-.cursor-label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* Glow layer for modern effect */
-.cursor-glow {
-  width: 60px;
-  height: 60px;
-  background: radial-gradient(circle, rgba(68, 68, 200, 0.15) 0%, rgba(68, 68, 200, 0.05) 70%, transparent 100%);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease-out;
-}
-
-/* Main dot - sleeker design */
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: linear-gradient(135deg, #ffffff 0%, #e0e0ff 100%);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-  transition:
-    width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-    height 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background 0.25s ease-out,
-    box-shadow 0.25s ease-out;
-}
-
-/* Outer ring - more refined */
-.cursor-ring {
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid rgba(200, 200, 255, 0.3);
-  background: transparent;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.85);
-  transition:
-    opacity 0.3s ease-out,
-    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-    width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-    height 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-    border-color 0.25s ease-out;
-}
-
-/* Label - better positioned and styled */
-.cursor-label {
-  border-radius: 0;
-  color: #ffffff;
-  font-size: 11px;
-  font-family: var(--font-primary);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  opacity: 0;
-  transform: translate(-50%, -32px) scale(0.9);
-  transition:
-    opacity 0.25s ease-out,
-    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* ── Active state (hovering interactive) ── */
-.cursor.active .cursor-dot {
-  width: 12px;
-  height: 12px;
-  background: linear-gradient(135deg, #4444ff 0%, #7777ff 100%);
-  box-shadow:
-    0 0 16px rgba(68, 68, 255, 0.6),
-    inset 0 0 4px rgba(255, 255, 255, 0.3);
-}
-
-.cursor.active .cursor-ring {
-  width: 48px;
-  height: 48px;
-  opacity: 0.5;
-  transform: translate(-50%, -50%) scale(1);
-  border-color: rgba(68, 68, 255, 0.6);
-}
-
-.cursor.active .cursor-glow {
-  opacity: 0.8;
-}
-
-.cursor.active .cursor-label {
-  opacity: 1;
-  transform: translate(-50%, -32px) scale(1);
-}
-
-/* ── Pressed state ── */
-.cursor.pressed .cursor-dot {
-  transform: translate(-50%, -50%) scale(0.8);
-  background: linear-gradient(135deg, #3333dd 0%, #6666ee 100%);
-}
-
-.cursor.pressed .cursor-ring {
-  transform: translate(-50%, -50%) scale(0.9);
-  border-width: 2px;
-}
-
-/* ── Hide on touch/coarse devices ── */
-@media (pointer: fine) {
-  body.custom-cursor-enabled,
-  body.custom-cursor-enabled * {
-    cursor: none !important;
-  }
-}
-
-@media (hover: none), (pointer: coarse) {
-  .cursor {
-    display: none !important;
-  }
-
-  body.custom-cursor-enabled,
-  body.custom-cursor-enabled * {
-    cursor: auto !important;
-  }
-}
-
-/* ── Reduced motion ── */
-@media (prefers-reduced-motion: reduce) {
-  .cursor,
-  .cursor-dot,
-  .cursor-ring,
-  .cursor-glow,
-  .cursor-label {
-    transition-duration: 0.1s;
-  }
-}
-
-/* ── Page Transition ── */
-.page-transition-zone {
-  position: relative;
-  background: linear-gradient(to bottom, transparent, var(--color-primary) 20%);
-}
-
-.page-hero {
-  min-height: 30vh;
-}
-
-/* Smooth page entrance */
-@keyframes page-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
+/* ── Pulse animation for availability dot ── */
+@keyframes ping {
+  0% {
+    transform: scale(1);
     opacity: 1;
   }
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
 }
 
-main {
-  animation: page-fade-in 0.4s ease-out;
-}
-
-/* ── Next Project Section ── */
-.next-project-section {
+.availability-dot {
   position: relative;
-  background: var(--color-primary);
+}
+
+.availability-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ── Project Row Hover Accent Bar ── */
+.project-row {
+  position: relative;
+}
+
+.project-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.25s ease;
+}
+
+.project-row:hover::before {
+  transform: scaleY(1);
+}
+
+/* ── FAQ Accordion ── */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    padding 0.4s ease;
+}
+
+.faq-answer.open {
+  max-height: 200px;
+}
+
+/* ── Prose Styles for Blog ── */
+.prose h2 {
+  font-family: 'PPNeueMontreal', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+  color: var(--text);
+}
+
+.prose p {
+  font-family: 'PPNeueMontreal', sans-serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 1.5em;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  color: var(--accent-hover);
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* ── Grid Children Overflow Prevention ── */
+.grid > * {
+  min-width: 0;
+}
+
+/* ── Global Responsive ── */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-word {
+    font-size: clamp(4rem, 16vw, 8rem) !important;
+  }
 }

@@ -10,6 +10,7 @@ const Loader = ({ children }) => {
     const loaderTl = gsap.timeline({
       onComplete: () => {
         setLoader(false);
+        window.dispatchEvent(new Event('preloader:done'));
       },
       defaults: {
         duration: 2,
